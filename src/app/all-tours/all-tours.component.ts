@@ -1,11 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TourCardComponent } from '../tour-card/tour-card.component';
-
-
-interface Tour {
-  id: number;
-  name: string;
-}
+import { ToursService } from '../services/tours.service';
+import { Tour } from '../models/interfaces';
 
 @Component({
   selector: 'app-all-tours',
@@ -14,7 +10,22 @@ interface Tour {
   templateUrl: './all-tours.component.html',
   styleUrl: './all-tours.component.css'
 })
-export class AllToursComponent {
-  place1 = "margin-left: 50px;";
-  tours: Tour[] = [{id: 1, name: "Tour1"}, {id: 2, name: "Tour2"}, {id: 3, name: "Tour3"}, {id: 4, name: "Tour4"}, ]
+export class AllToursComponent implements OnInit {
+  tours: Tour[];
+
+  constructor(private toursService: ToursService) {
+    this.tours = [];
+  }
+
+  ngOnInit(): void {
+    this.getTours();
+    console.log("Tours:")
+    console.log(this.tours);
+  }
+
+  getTours(): void {
+    this.toursService.getTours().subscribe((tours) => {
+      this.tours = tours;
+    })
+  }
 }
