@@ -19,8 +19,6 @@ export class AllToursComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTours();
-    console.log("Tours:")
-    console.log(this.tours);
   }
 
   getTours(): void {

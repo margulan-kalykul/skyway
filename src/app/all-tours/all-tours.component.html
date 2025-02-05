@@ -2,51 +2,7 @@
 <div class="part-header" style="margin-bottom: 30px;">All Almaty day tours</div>
 
 <!-- Individual tour card -->
-
-@for (tour of tours; track tour) {
-  
-    <div style="width: 380px; height: 100%; background: white; border-radius: 15px; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: inline-flex">
-        <div style="width: 380px; height: 200px; position: relative; overflow: hidden;">
-            <img style="width: 380px; height: 268.53px; left: 0px; top: -34.26px; position: absolute; object-fit: cover;" [src]="tour.image" />
-            <div style="padding-top: 9.95px; padding-bottom: 9.55px; padding-left: 21.85px; padding-right: 21.15px; left: 0px; top: 0px; position: absolute; background: rgba(222, 69, 69, 0.70); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); flex-direction: column; justify-content: center; align-items: center; display: inline-flex">
-                @for (line of tour.top_left; track line) {
-                    <div style="color: white; font-size: 12.50px; font-family: Inter; font-weight: 700; line-height: 15.60px; word-wrap: break-word">{{ line }}</div>
-                }
-            </div>
-            <div style="padding-top: 9.95px; padding-bottom: 9.55px; padding-left: 26.15px; padding-right: 25.23px; left: 274.99px; top: 0px; position: absolute; background: rgba(77, 76, 76, 0.79); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); flex-direction: column; justify-content: center; align-items: flex-start; display: inline-flex">
-                @if (tour.type == "GROUP | PRIVATE") {
-                    <div style="color: white; font-size: 12.50px; font-family: Inter; font-weight: 700; line-height: 15.60px; word-wrap: break-word">GROUP | </div>
-                }
-                <div style="color: white; font-size: 12.50px; font-family: Inter; font-weight: 700; line-height: 15.60px; word-wrap: break-word">PRIVATE</div>
-            </div>
-            <div style="padding-top: 9.95px; padding-bottom: 9.55px; padding-left: 10px; padding-right: 8.64px; left: 278.36px; top: 164.50px; position: absolute; background: rgba(136, 198, 31, 0.70); box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50); justify-content: center; align-items: center; display: inline-flex">
-                <div style="color: white; font-size: 12.50px; font-family: Inter; font-weight: 700; line-height: 15.60px; word-wrap: break-word">${{ tour.price }} per adult</div>
-            </div>
-        </div>
-        <div class="content" style="margin-top: 35px;">
-            <h2>{{ tour.name }}</h2>
-        
-            <div class="details">
-              <div class="detail">
-                <span class="icon">📍</span>
-                <strong>Starting/ending point:</strong> {{ tour.start_end_point }}
-              </div>
-              <div class="detail">
-                <span class="icon">📏</span>
-                {{ tour.distance }}
-              </div>
-              <div class="detail">
-                <span class="icon">⏳</span>
-                <strong>Duration:</strong> {{ tour.duration }}
-              </div>
-              <div class="detail">
-                <span class="icon">📆</span>
-                <strong>Availability:</strong> {{ tour.availability }}
-              </div>
-            </div>
-        
-            <button class="details-button">Details</button>
-        </div>
-    </div>
+@for (tour_data of tours; track tour_data) {
+  <app-tour-card [tour]="tour_data" style="margin-left: 20px;"></app-tour-card>
 }
 
