@@ -1,0 +1,155 @@
+.tour-container {
+    background: #fff;
+    display: flex;
+    max-width: 799px;
+    padding: 0 0 50px;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+  }
+
+  .tour-image {
+    aspect-ratio: 3.58;
+    object-fit: contain;
+    object-position: center;
+    width: 100%;
+    align-self: stretch;
+  }
+
+  .tour-title {
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 25px 0 0;
+    font: 700 20px/20px Inter, sans-serif;
+  }
+
+  .content-wrapper {
+    margin-top: 11px;
+    width: 100%;
+    max-width: 719px;
+  }
+
+  .info-grid {
+    gap: 20px;
+    display: flex;
+  }
+
+  .features-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 67%;
+  }
+
+  .features-list {
+    color: #000;
+    text-transform: uppercase;
+    font: 500 12px/20px Inter, sans-serif;
+  }
+
+  .features-heading {
+    font-size: inherit;
+    margin: 0 0 20px;
+  }
+
+  .features-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pricing-column {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 33%;
+    margin-left: 20px;
+  }
+
+  .pricing-card {
+    background-color: #f3f2f2;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    font-family: Inter, sans-serif;
+    text-transform: uppercase;
+    margin: 79px auto 0;
+    padding: 18px 20px 9px;
+    border: 1px solid #e7dddd;
+  }
+
+  .price-wrapper {
+    display: flex;
+    gap: 3px;
+    color: #000;
+  }
+
+  .price-amount {
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    flex-grow: 1;
+  }
+
+  .price-unit {
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 2;
+  }
+
+  .payment-button {
+    border-radius: 7px;
+    background-color: #4ca34c;
+    margin-top: 20px;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 400;
+    line-height: 2;
+    padding: 9px 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+  }
+
+  .payment-button:hover,
+  .payment-button:focus {
+    background-color: #3f8c3f;
+    outline: none;
+  }
+
+  .payment-button:focus-visible {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 991px) {
+    .tour-image {
+      max-width: 100%;
+    }
+
+    .content-wrapper {
+      max-width: 100%;
+    }
+
+    .info-grid {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+
+    .features-column,
+    .pricing-column {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .features-list {
+      margin-top: 40px;
+    }
+
+    .pricing-card {
+      margin-top: 40px;
+    }
+}
