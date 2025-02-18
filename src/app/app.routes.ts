@@ -6,9 +6,9 @@ import { TourDetailsComponent } from './tour-details/tour-details.component';
 
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'sign-in', component: SignInComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'forgot-password', redirectTo: 'home' }, // TODO: Reset password functionality
     { path: 'tours/:tourId', component: TourDetailsComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

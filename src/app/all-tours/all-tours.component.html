@@ -1,9 +1,9 @@
-@for (tours_header of headers_list; track tours_header) {
+@for (tours_header of headers_list; track tours_header; let id = $index) {
   <!-- "All Almaty day tours" text -->
   <div class="part-header" style="margin-bottom: 30px;">{{ tours_header }}</div>
 
   <!-- Individual tour card -->
-  @for (tour_data of tours; track tour_data) {
+  @for (tour_data of tours[id]; track tour_data) {
     <app-tour-card [tour]="tour_data" style="margin-left: 20px;"></app-tour-card>
   }
 }

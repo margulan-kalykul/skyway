@@ -20,6 +20,10 @@ export class ToursService {
     return this.http.get<Tour[]>(`${this.BASE_URL}/getTours/`);
   }
 
+  getToursWithHeaders(): Observable<Tour[][]> {
+    return this.http.get<Tour[][]>(`${this.BASE_URL}/getToursWithHeaders/`)
+  }
+
   getHeaders(): Observable<string[]> {
     return this.http.get<string[]>(`${this.BASE_URL}/headers_list/`);
   }
