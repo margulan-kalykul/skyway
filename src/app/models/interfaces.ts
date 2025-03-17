@@ -10,3 +10,16 @@ export interface Tour {
     type: string | null;
     top_left: string[] | null;
 }
+
+export interface UserCredentials {
+    username: string;
+    password: string;
+}
+
+export interface Token {
+    token: string;
+}
+
+// export interface ToursByHeader {
+//     header_id
+// }
