@@ -1,44 +1,22 @@
 <!-- Top of the page -->
-<div style="width: 1470px; height: 832px; position: relative; background-image: url('assets/images/backround-image.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <!-- Profile icon -->
-    <div style="width: 100%; height: 100%; padding-top: 13px; padding-right: 22px; justify-content: end; display: inline-flex; position: absolute; z-index: 10;">
-        <div style="width: 48px; height: 48px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex; cursor: pointer;" (click)="sign_in()">
-            <img src="assets/images/User.svg" alt="group of people" style="width: 32px; height: 36px; border: 4px #F5F5F5 solid">
-        </div>
-    </div>
-    <div style="width: 940px; height: 78px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 42px; left: 130px; top: 714px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
-        <div style="width: 225px; padding-left: 40.59px; padding-right: 37.41px; background: rgba(0, 0, 0, 0.25); border-radius: 15px; border: 1px white solid; justify-content: center; align-items: center; display: flex">
-            <div style="color: white; font-size: 12.70px; font-family: Inter; font-weight: 400; line-height: 15.60px; word-wrap: break-word">ALMATY GROUP TOURS</div>
-        </div>
-        <div style="width: 225px; padding-left: 51.33px; padding-right: 46.67px; background: rgba(0, 0, 0, 0.25); border-radius: 15px; border: 1px white solid; justify-content: flex-end; align-items: center; display: flex">
-            <div style="color: white; font-size: 12.70px; font-family: Inter; font-weight: 400; line-height: 15.60px; word-wrap: break-word">ALMATY DAY TOURS</div>
-        </div>
-        <div style="width: 225px; padding-left: 33.68px; padding-right: 28.32px; background: rgba(0, 0, 0, 0.25); border-radius: 15px; border: 1px white solid; justify-content: flex-end; align-items: center; display: flex">
-            <div style="color: white; font-size: 12.70px; font-family: Inter; font-weight: 400; line-height: 15.60px; word-wrap: break-word">ALMATY MULTI-DAY TRIPS</div>
-        </div>
-        <div style="width: 225px; padding-left: 57.81px; padding-right: 55.19px; background: rgba(0, 0, 0, 0.25); border-radius: 15px; border: 1px white solid; justify-content: center; align-items: center; display: flex">
-            <div style="color: white; font-size: 12.70px; font-family: Inter; font-weight: 400; line-height: 15.60px; word-wrap: break-word">REVIEWS about us</div>
-        </div>
-    </div>
-    <div style="width: 1200px; height: 180px; left: 0px; top: 341.30px; position: absolute">
-        <div style="left: 398.62px; top: 90px; position: absolute; color: white; font-size: 72.20px; font-family: Inter; font-weight: 700; line-height: 90px; word-wrap: break-word">Kazakhstan</div>
-        <div style="left: 80.06px; top: 0px; position: absolute; color: white; font-size: 72.20px; font-family: Inter; font-weight: 700; line-height: 90px; word-wrap: break-word">TOURS & TRIPS in Almaty and </div>
-    </div>
-    <div style="height: 129.06px; left: 474.56px; top: 0px; position: absolute">
-        <div style="width: 250px; left: 0px; top: 113.06px; position: absolute; color: white; font-size: 12.50px; font-family: Inter; font-weight: 700; line-height: 15.60px; word-wrap: break-word">High quality • Hospitality • Responsibility</div>
-        <img style="width: 235px; height: 108.11px; left: 7.93px; top: 0px; position: absolute" src="assets/images/skyway-logo.png" />
-    </div>
-</div>
+<!-- <div id="top-of-page" style="overflow: hidden;">
+    <div style="transform: scale(1.0347); transform-origin: top left;"> -->
+        <app-top-of-page></app-top-of-page>
+    <!-- </div>
+</div> -->
 
 <!-- Schedule tour -->
-<app-tour-schedule></app-tour-schedule>
+<div style="background-color: #F8F8F8;">
+    <app-tour-schedule></app-tour-schedule>
+</div>
+
 
 <!-- All Almaty tours list -->
 <app-all-tours></app-all-tours>
 
 <!-- "How to book a tour" part -->
-<div style="width: 100%; height: 100%; padding-left: 135px; padding-right: 135px; padding-top: 30px; padding-bottom: 30px; background: #4D4C4C; justify-content: center; align-items: center; display: inline-flex">
-    <div style="width: 1200px; height: 89.50px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex"></div>
+<div style="width: 100%; height: 100%; padding-top: 30px; padding-bottom: 30px; background: #4D4C4C; justify-content: center; align-items: center; display: inline-flex;">
+    <div style="height: 89.50px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex"></div>
 </div>
 
 <div class="part-header">How to book a tour?</div>
@@ -47,35 +25,71 @@
 </div>
 
 <!-- "About us" part -->
-<div style="position: relative; display: flex; justify-content: center;">
-    <div style="width: 100%; height: 100%; position: relative"> <!-- Make width: fit-content to center div later -->
-        <div class="part-header">Our principles</div>
-        <div class="part-header">About us</div>
-        <div>
-            <img src="assets/images/Diamond.svg" alt="" style="width: 110px; height: 105px; top: 90px; left: 150px; position: relative;">
-            <img src="assets/images/Business Handshake.svg" alt="" style="width: 110px; height: 105px; top: 90px; left: 435px; position: relative;">
-            <img src="assets/images/Coin Share.svg" alt="" style="width: 110px; height: 105px; top: 90px; left: 725px; position: relative;">
+<div class="part-header">Our principles</div>
+<div class="part-header">About us</div>
+<div style="display: flex; justify-content: space-around;">
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="assets/images/Diamond.svg" alt="" style="width: 110px; height: 105px;">
+        <div style="width: 349px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">High-quality service</div>
+        <div style="width: 349px; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">
+            ⭕ We serve with love<br/>
+            ⭕ Our tour products are carefully designed<br/>
+            ⭕ We care about the comfort of our tourists
         </div>
-        <div>
-            <div style="width: 349px; left: 22px; top: 328px; position: absolute; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">⭕ We serve with love<br/>⭕ Our tour products are carefully designed<br/>⭕ We care about the comfort of our tourists</div>
-            <div style="width: 349px; left: 22px; top: 284px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">High-quality service</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="assets/images/Business Handshake.svg" alt="" style="width: 110px; height: 105px;">
+        <div style="width: 349px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Hospitality</div>
+        <div style="width: 349px; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">
+            ⭕ It is in our blood<br/>
+            ⭕ We treat our clients with warmth and love<br/>
+            ⭕ Customer satisfaction is our top priority
         </div>
-        <div>
-            <div style="width: 409px; left: 803px; top: 333px; position: absolute; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">⭕ Tourist safety is by default<br/>⭕ We deliver everything we promise in our services<br/>⭕ Trusted B2B partner</div>
-            <div style="width: 349px; left: 420px; top: 284px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Hospitality</div>
-        </div>
-        <div>   
-            <div style="width: 349px; left: 425px; top: 328px; position: absolute; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">⭕ It is in our blood<br/>⭕ We treat our clients with warmth and love<br/>⭕ Customer satisfaction is our top priority</div>
-            <div style="width: 349px; left: 818px; top: 284px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Responsibility</div>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <img src="assets/images/Coin Share.svg" alt="" style="width: 110px; height: 105px;">
+        <div style="width: 349px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Responsibility</div>
+        <div style="width: 349px; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">
+            ⭕ Tourist safety is by default<br/>
+            ⭕ We deliver everything we promise in our services<br/>
+            ⭕ Trusted B2B partner
         </div>
     </div>
 </div>
 
+
+<!-- <div style="display: block;">
+    <div style="position: relative; justify-content: center;">
+        <div style="width: 100%; height: 100%; position: relative">
+            <div class="part-header">Our principles</div>
+            <div class="part-header">About us</div>
+            <div>
+                <img src="assets/images/Diamond.svg" alt="" style="width: 110px; height: 105px; top: 90px; left: 150px; position: relative;">
+                <img src="assets/images/Business Handshake.svg" alt="" style="width: 110px; height: 105px; top: 90px; left: 435px; position: relative;">
+                <img src="assets/images/Coin Share.svg" alt="" style="width: 110px; height: 105px; top: 90px; left: 725px; position: relative;">
+            </div>
+            <div>
+                <div style="width: 349px; left: 22px; top: 328px; position: absolute; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">⭕ We serve with love<br/>⭕ Our tour products are carefully designed<br/>⭕ We care about the comfort of our tourists</div>
+                <div style="width: 349px; left: 22px; top: 284px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">High-quality service</div>
+            </div>
+            <div>
+                <div style="width: 409px; left: 803px; top: 333px; position: absolute; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">⭕ Tourist safety is by default<br/>⭕ We deliver everything we promise in our services<br/>⭕ Trusted B2B partner</div>
+                <div style="width: 349px; left: 420px; top: 284px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Hospitality</div>
+            </div>
+            <div>   
+                <div style="width: 349px; left: 425px; top: 328px; position: absolute; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">⭕ It is in our blood<br/>⭕ We treat our clients with warmth and love<br/>⭕ Customer satisfaction is our top priority</div>
+                <div style="width: 349px; left: 818px; top: 284px; position: absolute; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Responsibility</div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
 <!-- "We are in numbers" part -->
-<img style="margin-top: 300px;" src="assets/images/numbers-background.png" alt="">
+<!-- <img style="" src="assets/images/numbers-background.png" alt=""> -->
 
 <!-- Instagram -->
-<div class="part-header">We are on Instagram</div>
+<!-- <div class="part-header">We are on Instagram</div>
  <div style="height: 1200px; width: 1700px; display: block; position: static;">
     <div style="width: 100%; height: 100%; position: relative;">
         <div style="width: 1200px; height: 926.66px; left: 0px; top: 50px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
@@ -93,14 +107,14 @@
             <img style="height: 1578.50px; width: 1200px;" src="assets/images/instagram-page.png" />
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Reviews -->
 <div class="part-header">Reviews of our tourists</div>
-<img src="assets/images/reviews.svg" alt="">
+<img style="width: 100%; margin: auto;" src="assets/images/reviews.svg" alt="">
 
 <!-- Footer -->
-<div style="width: 1470px; height: 442px; position: relative; background: #4D4C4C">
+<div style="width: 100%; height: 442px; position: relative; background: #4D4C4C">
     <div style="color: white; font-size: 33.90px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word; text-align: center;">CONTACT US</div>
     <img style="width: 735px; height: 592.79px; left: 36px; top: -133.87px; position: absolute; opacity: 0.20" src="assets/images/footer-emblem.png" />
     <div style="width: 100%; height: 220px; position: relative; top: 150px;">
