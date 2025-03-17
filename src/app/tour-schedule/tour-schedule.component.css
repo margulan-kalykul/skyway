@@ -8,3 +8,7 @@
     word-wrap: break-word;
     text-align: center;
 }
+
+.center {
+    margin: auto;
+}
