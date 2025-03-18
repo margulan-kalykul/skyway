@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './tour-schedule.component.css'
 })
 export class TourScheduleComponent {
-
+  imageNames = {
+    dropDownArrow: "assets/images/drop-down-arrow.svg",
+    explanation: "assets/images/tours-explanation.png",
+  };
 }

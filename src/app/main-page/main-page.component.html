@@ -21,7 +21,7 @@
 
 <div class="part-header">How to book a tour?</div>
 <div>
-    <img src="assets/images/book-tour-steps.png" alt="Steps to book a tour" style="width: 1200px; height: 300px; position: relative; display: block; margin: auto;">
+    <img [src]="imageNames.bookTourSteps" alt="Steps to book a tour" style="width: 1200px; height: 300px; position: relative; display: block; margin: auto;">
 </div>
 
 <!-- "About us" part -->
@@ -29,7 +29,7 @@
 <div class="part-header">About us</div>
 <div style="display: flex; justify-content: space-around;">
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="assets/images/Diamond.svg" alt="" style="width: 110px; height: 105px;">
+        <img [src]="imageNames.aboutUsImage1" alt="" style="width: 110px; height: 105px;">
         <div style="width: 349px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">High-quality service</div>
         <div style="width: 349px; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">
             ⭕ We serve with love<br/>
@@ -38,7 +38,7 @@
         </div>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="assets/images/Business Handshake.svg" alt="" style="width: 110px; height: 105px;">
+        <img [src]="imageNames.aboutUsImage2" alt="" style="width: 110px; height: 105px;">
         <div style="width: 349px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Hospitality</div>
         <div style="width: 349px; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">
             ⭕ It is in our blood<br/>
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <img src="assets/images/Coin Share.svg" alt="" style="width: 110px; height: 105px;">
+        <img [src]="imageNames.aboutUsImage3" alt="" style="width: 110px; height: 105px;">
         <div style="width: 349px; text-align: center; color: black; font-size: 20px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">Responsibility</div>
         <div style="width: 349px; text-align: center; color: #5A5A5A; font-size: 13px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word">
             ⭕ Tourist safety is by default<br/>
@@ -86,11 +86,11 @@
 
 
 <!-- "We are in numbers" part -->
-<!-- <img style="" src="assets/images/numbers-background.png" alt=""> -->
+<img [src]="imageNames.weAreInNumbers" alt="">
 
 <!-- Instagram -->
-<!-- <div class="part-header">We are on Instagram</div>
- <div style="height: 1200px; width: 1700px; display: block; position: static;">
+<div class="part-header">We are on Instagram</div>
+<!-- <div style="height: 1200px; width: 1700px; display: block; position: static;">
     <div style="width: 100%; height: 100%; position: relative;">
         <div style="width: 1200px; height: 926.66px; left: 0px; top: 50px; position: absolute; flex-direction: column; justify-content: flex-start; align-items: flex-start; gap: 2px; display: inline-flex">
             <div style="width: 1200px; height: 72px; padding-top: 20px; padding-bottom: 20px; background: white; justify-content: center; align-items: center; display: inline-flex">
@@ -98,7 +98,7 @@
                     <div style="color: black; font-size: 14.90px; font-family: Inter; font-weight: 900; line-height: 18px; word-wrap: break-word">&#64;skyway_travel</div>
                     <div style="width: 92.35px; align-self: stretch; padding-left: 12px; padding-right: 12.35px; background: #0095F6; border-radius: 4px; overflow: hidden; justify-content: center; align-items: center; gap: 8px; display: inline-flex">
                         <div style="width: 16px; height: 16px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex">
-                            <img src="assets/images/instagram-icon.svg" alt="">
+                            <img [src]="imageNames.instagramIcon" alt="">
                         </div>
                         <div style="color: white; font-size: 13.80px; font-family: Inter; font-weight: 700; line-height: 32px; word-wrap: break-word">Follow</div>
                     </div>
@@ -111,14 +111,14 @@
 
 <!-- Reviews -->
 <div class="part-header">Reviews of our tourists</div>
-<img style="width: 100%; margin: auto;" src="assets/images/reviews.svg" alt="">
+<img style="width: 100%; margin: auto;" [src]="imageNames.reviews" alt="">
 
 <!-- Footer -->
 <div style="width: 100%; height: 442px; position: relative; background: #4D4C4C">
     <div style="color: white; font-size: 33.90px; font-family: Inter; font-weight: 700; text-transform: uppercase; line-height: 43.20px; word-wrap: break-word; text-align: center;">CONTACT US</div>
-    <img style="width: 735px; height: 592.79px; left: 36px; top: -133.87px; position: absolute; opacity: 0.20" src="assets/images/footer-emblem.png" />
+    <img style="width: 735px; height: 592.79px; left: 36px; top: -133.87px; position: absolute; opacity: 0.20" [src]="imageNames.footerEmblem" />
     <div style="width: 100%; height: 220px; position: relative; top: 150px;">
-        <img style="width: 150px; height: 176.38px; left: 1150px; top: 20px; position: absolute" src="assets/images/trip-advisor-award.png" />
+        <img style="width: 150px; height: 176.38px; left: 1150px; top: 20px; position: absolute" [src]="imageNames.tripAdvisorAward" />
         
         <div style="height: 184.50px; padding-top: 30.45px; padding-bottom: 30px; padding-left: 20px; padding-right: 20px; left: 514.50px; top: 0px; position: absolute; flex-direction: column; justify-content: center; align-items: center; gap: 9.05px; display: inline-flex">
             <div style="color: white; font-size: 10.90px; font-family: Inter; font-weight: 300; line-height: 15.60px; word-wrap: break-word">Kazakhstan, Almaty, Tole Bi street 59</div>
@@ -128,11 +128,11 @@
                     <div style="color: white; font-size: 12.70px; font-family: Inter; font-weight: 400; line-height: 15.60px; word-wrap: break-word">info&#64;skywaytravel.com</div>
                     <div style="color: white; font-size: 12.70px; font-family: Inter; font-weight: 400; line-height: 15.60px; word-wrap: break-word">+7 777 777 77 77</div>
                     <div style="align-self: stretch; height: 48px; padding-left: 99px; padding-right: 99px; padding-top: 5px; padding-bottom: 5px; justify-content: center; align-items: center; gap: 10px; display: inline-flex">
-                        <img style="width: 32px; height: 32px; position: relative" src="assets/images/whatsapp.png" />
-                        <img style="width: 32px; height: 32px; position: relative" src="assets/images/telegram.png" />
-                        <img style="width: 32px; height: 31px; position: relative" src="assets/images/instagram.png" />
-                        <img style="width: 22px; height: 38px; position: relative" src="assets/images/facebook.png" />
-                        <img style="width: 45px; height: 32px; position: relative" src="assets/images/youtube.png" />
+                        <img style="width: 32px; height: 32px; position: relative" [src]="imageNames.whatsapp" />
+                        <img style="width: 32px; height: 32px; position: relative" [src]="imageNames.telegram" />
+                        <img style="width: 32px; height: 31px; position: relative" [src]="imageNames.instagram" />
+                        <img style="width: 22px; height: 38px; position: relative" [src]="imageNames.facebook" />
+                        <img style="width: 45px; height: 32px; position: relative" [src]="imageNames.youtube" />
                     </div>
                 </div>
             </div>

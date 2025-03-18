@@ -9,9 +9,16 @@ import { Router } from '@angular/router';
   styleUrl: './top-of-page.component.css'
 })
 export class TopOfPageComponent {
-    constructor(private router: Router) { }
-  
-    sign_in(): void {
-      this.router.navigate(['/sign-in']);
-    }
+  imageNames = {
+    backgroundImage: "assets/images/backround-image.png",
+    userIcon: "assets/images/User.svg",
+    skywayLogo: "assets/images/skyway-logo.png",
+    
+  }
+
+  constructor(private router: Router) { }
+
+  sign_in(): void {
+    this.router.navigate(['/sign-in']);
+  }
 }

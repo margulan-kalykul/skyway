@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
   
-  BASE_URL = 'http://localhost:8080/v1/users';
+  BASE_URL = 'http://localhost:8000/v1/users';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
