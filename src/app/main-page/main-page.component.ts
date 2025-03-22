@@ -5,11 +5,12 @@ import { Router, RouterLink } from '@angular/router';
 import { DeviceService } from '../services/device.service';
 import { DeviceInfo } from '../models/device-info';
 import { TopOfPageComponent } from "../top-of-page/top-of-page.component";
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent],
+  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent, HeaderComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })

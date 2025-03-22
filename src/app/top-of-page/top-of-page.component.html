@@ -1,23 +1,51 @@
 <!-- Top of the page -->
+<!-- Carousel -->
+<div class="carousel">
+    <button class="arrow left" (click)="prevSlide()">&#10094;</button>
 
-<div [style.background-image]="'url(' + imageNames.backgroundImage + ')'" style="width: 100%; height: 832px; position: relative; background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <!-- Profile icon -->
-    <div style="width: 100%; height: 100%; padding-top: 13px; padding-right: 22px; justify-content: end; display: inline-flex; position: absolute; z-index: 10;">
+    <div class="carousel-track-wrapper">
+        <div 
+            class="carousel-track" 
+            [style.transform]="'translateX(' + (-currentImage * 100) + '%)'" 
+            [style.transition]="isTransitionEnabled ? 'transform 0.5s ease-in-out' : 'none'"
+        >
+        <!-- <img *ngFor="let image of images" [src]="image" class="carousel-img"> -->
+        <div class="carousel-slide" *ngFor="let slide of slides">
+            <img [src]="slide.image" class="carousel-img">
+            <div class="carousel-button">{{ slide.button }}</div>
+        </div>
+        <!-- <div style="position: relative" *ngFor="let image of images">
+            <div> -->
+                <!-- <img [src]="image" class="carousel-img"> -->
+                <!-- <div *ngFor="let image of images" style="width: 182px; height: 55.8px; color: white; text-align: center; line-height: 55.8px; border-radius: 20px; position: absolute; text-transform: uppercase; background: black; top: 75%; left: 50%; transform: translate(-50%, -50%);">MORE</div> -->
+            <!-- </div>
+        </div> -->
+            
+        </div>
+    </div>
+
+    <button class="arrow right" (click)="nextSlide()">&#10095;</button>
+    
+</div>  
+
+<!-- <div [style.background-image]="'url(' + imageNames.backgroundImage + ')'" style="width: 100%; height: 832px; position: relative; background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div style="width: 100%; height: 100%; justify-content: end; display: inline-flex; position: absolute; z-index: 10;">
         <div style="width: 48px; height: 48px; position: relative; flex-direction: column; justify-content: flex-start; align-items: flex-start; display: flex; cursor: pointer;" (click)="sign_in()">
             <img [src]="imageNames.userIcon" alt="group of people" style="width: 32px; height: 36px; border: 4px #F5F5F5 solid">
         </div>
     </div>
-    <!-- SkyWay logo -->
+
     <div style="height: 108.1px; width: 235px; left: 7.93px; top: 0px; display: block; margin: auto">
         <img style="width: 235px; height: 108.11px;" [src]="imageNames.skywayLogo" />
         <div style="width: 250px; left: 0px; top: 113.06px; color: white; font-size: 12.50px; font-family: Inter; font-weight: 700; line-height: 15.60px; word-wrap: break-word">High quality • Hospitality • Responsibility</div>
     </div>
-    <!-- Center text -->
+
     <div style="width: 1200px; height: 180px; top: 25%; position: relative; margin: auto;">
         <div style="left: 80.06px; top: 0px; position: absolute; color: white; font-size: 72.20px; font-family: Inter; font-weight: 700; line-height: 90px; word-wrap: break-word">TOURS & TRIPS in Almaty and </div>
         <div style="left: 398.62px; top: 90px; position: absolute; color: white; font-size: 72.20px; font-family: Inter; font-weight: 700; line-height: 90px; word-wrap: break-word">Kazakhstan</div>
     </div>
-    <!-- Go-to buttons -->
+
     <div>
         <div style="width: 940px; height: 78px; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 42px; left: 130px; top: 714px; position: absolute; justify-content: flex-start; align-items: flex-start; gap: 10px; display: inline-flex">
             <div style="width: 225px; padding-left: 40.59px; padding-right: 37.41px; background: rgba(0, 0, 0, 0.25); border-radius: 15px; border: 1px white solid; justify-content: center; align-items: center; display: flex">
@@ -35,4 +63,4 @@
         </div>
     </div>
     
-</div>
+</div> -->
