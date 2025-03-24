@@ -1,9 +1,21 @@
-@for (tours_header of headers_list; track tours_header; let id = $index) {
-  <!-- "All Almaty day tours" text -->
+<!-- @for (tours_header of headers_list; track tours_header; let id = $index) {
   <div class="part-header" style="margin-bottom: 30px;">{{ tours_header }}</div>
 
-  <!-- Individual tour card -->
   @for (tour_data of tours[id]; track tour_data) {
     <app-tour-card [tour]="tour_data" style="margin-left: 20px;"></app-tour-card>
   }
+} -->
+
+<div class="part-header" style="margin-bottom: 30px;">Almaty Day Tours</div>
+
+<div style="display: grid; gap: 50px; justify-content: center; width: 100%; height: 750px; grid-template-columns: auto auto auto;">
+  @for (tour_data of tours; track tour_data) {
+    <app-tour-card [tour]="tour_data"></app-tour-card>
+  }
+</div>
+
+@if (hiddenTours.length > 0) {
+  <div class="see-more">
+    See More
+  </div>
 }

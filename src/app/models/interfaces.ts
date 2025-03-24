@@ -1,4 +1,4 @@
-export interface Tour {
+export interface TourOld {
     id: number;
     name: string;
     image: string;
@@ -9,6 +9,18 @@ export interface Tour {
     price: number | null;
     type: string | null;
     top_left: string[] | null;
+}
+
+export interface Tour {
+    id: string;
+    description: string;
+    owner_id: string;
+    route: string;
+    tour_categories: object[] | null;  // TODO
+    tour_events: object[] | null;
+    tour_images: object[] | null;
+    tour_location: object | null;
+    tour_videos: object[] | null;
 }
 
 export interface UserCredentials {

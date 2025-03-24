@@ -1,16 +1,28 @@
 .part-header {
-    color: #5A5A5A; 
-    font-size: 33.90px; 
-    font-family: Inter; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    line-height: 43.20px; 
-    word-wrap: break-word;
-    text-align: center;
+  color: #5A5A5A; 
+  font-size: 33.90px; 
+  font-family: Inter; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  line-height: 43.20px; 
+  word-wrap: break-word;
+  text-align: center;
 }
 
-/* Card Container */
-.card {
+.see-more {
+  width: 197px; 
+  height: 58px; 
+  background-color: white; 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+  border: 1px #0C6CA2 solid;
+  text-transform: capitalize;
+  text-align: center;
+  line-height: 58px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+/* .card {
   width: 300px;
   background: white;
   border-radius: 12px;
@@ -19,13 +31,11 @@
   border: 1px solid #ddd;
 }
 
-/* Image Container */
 .image-container {
   display: flex;
   width: 100%;
 }
 
-/* Image Boxes */
 .image-box {
   width: 33.3%;
   position: relative;
@@ -38,7 +48,6 @@
   display: block;
 }
 
-/* Badges */
 .badge {
   position: absolute;
   font-size: 10px;
@@ -68,7 +77,6 @@
   right: 5px;
 }
 
-/* Content Section */
 .content {
   padding: 15px;
 }
@@ -79,7 +87,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Details Section */
 .details {
   font-size: 12px;
   color: #555;
@@ -96,7 +103,6 @@ h2 {
   margin-right: 5px;
 }
 
-/* Button */
 .details-button {
   width: 100%;
   background-color: green;
@@ -124,4 +130,4 @@ h2 {
 
 .third {
   margin-right: 20px;
-}
+} */

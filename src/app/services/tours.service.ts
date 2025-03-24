@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tour } from '../models/interfaces';
+import { TourOld } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -16,19 +16,19 @@ export class ToursService {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  getTours(): Observable<Tour[]> {
-    return this.http.get<Tour[]>(`${this.BASE_URL}/getTours/`);
+  getTours(): Observable<TourOld[]> {
+    return this.http.get<TourOld[]>(`${this.BASE_URL}/getTours/`);
   }
 
-  getToursWithHeaders(): Observable<Tour[][]> {
-    return this.http.get<Tour[][]>(`${this.BASE_URL}/getToursWithHeaders/`)
+  getToursWithHeaders(): Observable<TourOld[][]> {
+    return this.http.get<TourOld[][]>(`${this.BASE_URL}/getToursWithHeaders/`)
   }
 
   getHeaders(): Observable<string[]> {
     return this.http.get<string[]>(`${this.BASE_URL}/headers_list/`);
   }
 
-  getTourById(tourId: number): Observable<Tour> {
-    return this.http.get<Tour>(`${this.BASE_URL}/getTourById/${tourId}/`);
+  getTourById(tourId: number): Observable<TourOld> {
+    return this.http.get<TourOld>(`${this.BASE_URL}/getTourById/${tourId}/`);
   }
 }

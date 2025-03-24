@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Tour } from '../models/interfaces';
+import { Tour, TourOld } from '../models/interfaces';
 import { Router } from '@angular/router';
 
 @Component({

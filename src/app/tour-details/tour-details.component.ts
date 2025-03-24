@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Tour } from '../models/interfaces';
+import { TourOld } from '../models/interfaces';
 import { ToursService } from '../services/tours.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,10 +11,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './tour-details.component.css'
 })
 export class TourDetailsComponent implements OnInit {
-  tour: Tour;
+  tour: TourOld;
 
   constructor (private toursService: ToursService, private router: ActivatedRoute) {
-    this.tour = {} as Tour;
+    this.tour = {} as TourOld;
   }
 
   ngOnInit(): void {

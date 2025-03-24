@@ -9,18 +9,11 @@
             [style.transform]="'translateX(' + (-currentImage * 100) + '%)'" 
             [style.transition]="isTransitionEnabled ? 'transform 0.5s ease-in-out' : 'none'"
         >
-        <!-- <img *ngFor="let image of images" [src]="image" class="carousel-img"> -->
-        <div class="carousel-slide" *ngFor="let slide of slides">
-            <img [src]="slide.image" class="carousel-img">
-            <div class="carousel-button">{{ slide.button }}</div>
-        </div>
-        <!-- <div style="position: relative" *ngFor="let image of images">
-            <div> -->
-                <!-- <img [src]="image" class="carousel-img"> -->
-                <!-- <div *ngFor="let image of images" style="width: 182px; height: 55.8px; color: white; text-align: center; line-height: 55.8px; border-radius: 20px; position: absolute; text-transform: uppercase; background: black; top: 75%; left: 50%; transform: translate(-50%, -50%);">MORE</div> -->
-            <!-- </div>
-        </div> -->
-            
+            <div class="carousel-slide" *ngFor="let slide of slides">
+                <img [src]="slide.image" class="carousel-img">
+                <div class="carousel-button">{{ slide.button }}</div>
+            </div>
+        
         </div>
     </div>
 
