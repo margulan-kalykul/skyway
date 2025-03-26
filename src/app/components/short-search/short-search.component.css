@@ -1,0 +1,118 @@
+.search-container {
+    width: 1200px;
+    height: 467px;
+    border-radius: 20px;
+    background-image: url('../../../assets/images/snow-lake.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    margin: auto;
+}
+
+.header {
+    color: #FDFDFD;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 32px;
+    letter-spacing: 0.48px;
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    top: 24%;
+    /* transform: translateY(-20%); */
+}
+
+.subheader {
+    position: relative;
+    color: #FDFDFD;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 24px;
+    width: fit-content;
+    margin: auto;
+    top: 26%;
+    /* transform: translateY(-25%); */
+}
+
+.search-fields {
+    width: 670px;
+    height: 90px;
+    background-color: white;
+    border-radius: 40px;
+    position: relative;
+    margin: auto;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.where {
+    /* background-color: red; */
+    width: 49.8%;
+    height: 100%;
+    display: inline-block;
+    border-right: 1px black solid;
+}
+
+.when {
+    /* background-color: blue; */
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+    /* border-left: 1px black solid; */
+}
+
+.field-label {
+    display: block;
+    color: black;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: bold;
+    text-transform: capitalize;
+    line-height: 24px;
+    padding-left: 42px;
+    padding-top: 15px;
+}
+
+.field-search {
+    color: #272727;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 24px;
+    margin-left: 42px;
+    width: 80%;
+    height: 50%;
+    border: none;
+}
+
+.search-submit {
+    display: inline-block;
+    position: absolute;
+    width: 63px;
+    height: 90px;
+    top: 0px;
+    right: 0px;
+    border-radius: 40px;
+    background-color: inherit;
+    padding: 0px;
+    border: none;
+    /* background-color: green; */
+}
+.search-submit:hover {
+    cursor: pointer;
+}
+
+.search-icon {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 43px;
+    margin: auto;
+}

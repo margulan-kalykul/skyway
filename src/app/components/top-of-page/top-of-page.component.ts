@@ -1,6 +1,5 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-of-page',
@@ -22,7 +21,7 @@ export class TopOfPageComponent implements OnInit, OnDestroy {
   isTransitionEnabled = true;
   autoSlideInterval: any;
 
-  constructor(private router: Router) {
+  constructor() {
     this.getImages();
   }
 
@@ -79,9 +78,5 @@ export class TopOfPageComponent implements OnInit, OnDestroy {
       this.isTransitionEnabled = true;
       this.currentImage++;
     }
-  }
-
-  sign_in(): void {
-    this.router.navigate(['/sign-in']);
   }
 }

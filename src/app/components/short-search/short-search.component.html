@@ -1,0 +1,29 @@
+<div class="search-container">
+    <div class="header">Plan a trip with us</div>
+    <div class="subheader">travel experiences you’ll remember</div>
+    <div class="search-fields">
+        <div class="where">
+            <label class="field-label" for="place-input">Where to?</label>
+            <input 
+                id="place-input"
+                class="field-search" 
+                type="text"
+                placeholder="Search for a place or activity"
+                [(ngModel)]="place"
+            >
+        </div>
+        <div class="when">
+            <label class="field-label" for="date-input">When</label>
+            <input 
+                id="date-input"
+                class="field-search" 
+                type="text"
+                placeholder="Select dates"
+                [(ngModel)]="date"
+            >
+            <div class="search-submit" (click)="goToSearch()">
+                <img class="search-icon" [src]="imageNames.searchSubmit" alt="Search icon">
+            </div>
+        </div>
+    </div>
+</div>
