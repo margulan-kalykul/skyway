@@ -24,18 +24,28 @@
 <!-- Almaty Multi Day Tours -->
 <div class="part-header" style="margin-bottom: 35px;">Almaty Multi Day Tours</div>
 
-<div class="list-cards">
-  @for (multiTour of tours; track multiTour) {  <!-- TODO: Multi day tours data fetch -->
-    <div class="simple-card">
-      <img class="simple-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
-      <div class="simple-card-route">Kolsay, kaindy lakes & charyn canyon</div>
-      <div class="simple-card-duration">4 days tour</div>
-    </div>
-  }
-</div>
+<div class="simple-cards-scroll">
+  <div class="arrow-section">
+    @if (isLeftArrowShown) {
+      <div class="arrow" (click)="prevMultiTours()">&#10094;</div>
+    }
+  </div>
 
-<div style="width: 64px; height: 54px; position: relative; box-shadow: 0px 8px 50px rgba(0, 0, 0, 0.10)">
-  <div style="width: 63.77px; height: 53.30px; left: 63.77px; top: 53.30px; position: absolute; transform: rotate(180deg); transform-origin: top left; background: white; border-radius: 10px; border: 1px #E8E8E8 solid"></div>
-  <div style="width: 12.15px; height: 20.31px; left: 37.96px; top: 36.80px; position: absolute; transform: rotate(180deg); transform-origin: top left; background: white; outline: 3px #737373 solid; outline-offset: -1.50px"></div>
+  <div class="list-cards" [style.transform]="'translateX(' + (-currentPart * 280) + 'px)'">
+    @for (multiTour of multiTours; track multiTour) {  
+      <div class="simple-card">
+        <img class="simple-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+        <div class="simple-card-route">{{ multiTour.route }}</div>
+        <div class="simple-card-duration">4 days tour</div>
+      </div>
+    }
+  </div>
+
+  <div class="arrow-section">
+    @if (isRightArrowShown) {
+      <div class="arrow" (click)="nextMultiTours()">&#10095;</div>
+    }
+  </div>
+  
 </div>
 
