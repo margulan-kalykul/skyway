@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TourOld } from '../models/interfaces';
-import { ToursService } from '../services/tours.service';
+import { TourOld } from '../../models/interfaces';
+import { ToursService } from '../../services/tours.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

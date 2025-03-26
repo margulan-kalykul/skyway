@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { TourScheduleComponent } from '../tour-schedule/tour-schedule.component';
-import { AllToursComponent } from '../all-tours/all-tours.component';
+import { TourScheduleComponent } from '../../components/tour-schedule/tour-schedule.component';
+import { AllToursComponent } from '../../components/all-tours/all-tours.component';
 import { Router, RouterLink } from '@angular/router';
-import { DeviceService } from '../services/device.service';
-import { DeviceInfo } from '../models/device-info';
-import { TopOfPageComponent } from "../top-of-page/top-of-page.component";
-import { HeaderComponent } from "../header/header.component";
+import { DeviceService } from '../../services/device.service';
+import { DeviceInfo } from '../../models/device-info';
+import { TopOfPageComponent } from "../../components/top-of-page/top-of-page.component";
+import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
   selector: 'app-main-page',

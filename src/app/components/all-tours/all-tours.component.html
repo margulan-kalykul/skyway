@@ -1,0 +1,41 @@
+<!-- @for (tours_header of headers_list; track tours_header; let id = $index) {
+  <div class="part-header" style="margin-bottom: 30px;">{{ tours_header }}</div>
+
+  @for (tour_data of tours[id]; track tour_data) {
+    <app-tour-card [tour]="tour_data" style="margin-left: 20px;"></app-tour-card>
+  }
+} -->
+
+<!-- Almaty Day Tours -->
+<div class="part-header" style="margin-bottom: 30px;">Almaty Day Tours</div>
+
+<div class="grid-cards">
+  @for (tourData of tours; track tourData) {
+    <app-tour-card [tour]="tourData"></app-tour-card>
+  }
+</div>
+
+@if (hiddenTours.length > 0) {
+  <div class="see-more" (click)="expandTours()">
+    See More
+  </div>
+}
+
+<!-- Almaty Multi Day Tours -->
+<div class="part-header" style="margin-bottom: 35px;">Almaty Multi Day Tours</div>
+
+<div class="list-cards">
+  @for (multiTour of tours; track multiTour) {  <!-- TODO: Multi day tours data fetch -->
+    <div class="simple-card">
+      <img class="simple-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+      <div class="simple-card-route">Kolsay, kaindy lakes & charyn canyon</div>
+      <div class="simple-card-duration">4 days tour</div>
+    </div>
+  }
+</div>
+
+<div style="width: 64px; height: 54px; position: relative; box-shadow: 0px 8px 50px rgba(0, 0, 0, 0.10)">
+  <div style="width: 63.77px; height: 53.30px; left: 63.77px; top: 53.30px; position: absolute; transform: rotate(180deg); transform-origin: top left; background: white; border-radius: 10px; border: 1px #E8E8E8 solid"></div>
+  <div style="width: 12.15px; height: 20.31px; left: 37.96px; top: 36.80px; position: absolute; transform: rotate(180deg); transform-origin: top left; background: white; outline: 3px #737373 solid; outline-offset: -1.50px"></div>
+</div>
+

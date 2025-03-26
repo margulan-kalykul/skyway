@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { UserCredentials } from '../models/interfaces';
-import { AuthService } from '../services/auth.service';
+import { UserCredentials } from '../../models/interfaces';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',

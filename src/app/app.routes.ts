@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { MainPageComponent } from './main-page/main-page.component';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { RegisterComponent } from './register/register.component';
-import { TourDetailsComponent } from './tour-details/tour-details.component';
+import { MainPageComponent } from './pages/main-page/main-page.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { TourDetailsComponent } from './components/tour-details/tour-details.component';
 
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },

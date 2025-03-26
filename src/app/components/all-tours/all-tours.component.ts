@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TourCardComponent } from '../tour-card/tour-card.component';
-import { ToursService } from '../services/tours.service';
-import { Tour, TourOld } from '../models/interfaces';
+import { ToursService } from '../../services/tours.service';
+import { Tour, TourOld } from '../../models/interfaces';
 
 @Component({
   selector: 'app-all-tours',
@@ -28,7 +28,16 @@ export class AllToursComponent implements OnInit {
       this.hiddenTours = this.tours.slice(6);
       this.tours = this.tours.slice(0, 6);
     }
+    if (this.tours.length > 6) {
+      this.hiddenTours = this.tours.slice(6);
+      this.tours = this.tours.slice(0, 6);
+    }
     // this.getHeaders();
+  }
+
+  expandTours(): void {
+    this.tours = this.tours.concat(this.hiddenTours.slice(0, 6));
+    this.hiddenTours = this.hiddenTours.slice(6);
   }
 
   getTours(): void {
