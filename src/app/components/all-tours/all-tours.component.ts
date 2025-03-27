@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { TourCardComponent } from '../tour-card/tour-card.component';
 import { ToursService } from '../../services/tours.service';
-import { Tour, TourOld } from '../../models/interfaces';
-import { NgFor } from '@angular/common';
+import { Tour } from '../../models/interfaces';
 
 @Component({
   selector: 'app-all-tours',
   standalone: true,
-  imports: [NgFor, TourCardComponent],
+  imports: [TourCardComponent],
   templateUrl: './all-tours.component.html',
   styleUrl: './all-tours.component.css'
 })
