@@ -48,11 +48,15 @@ export class AllToursComponent implements OnInit {
     }
     if (this.currentPart === this.multiTours.length-4) {
       this.isRightArrowShown = false;
-      this.isLeftArrowShown = true;
     }
     else {
       this.isRightArrowShown = true;
+    }
+    if (this.currentPart === 0) {
       this.isLeftArrowShown = false;
+    }
+    else { 
+      this.isLeftArrowShown = true;
     }
   }
 
@@ -62,11 +66,15 @@ export class AllToursComponent implements OnInit {
     }
     if (this.currentPart === 0) {
       this.isLeftArrowShown = false;
-      this.isRightArrowShown = true;
     }
     else { 
       this.isLeftArrowShown = true;
+    }
+    if (this.currentPart === this.multiTours.length-4) {
       this.isRightArrowShown = false;
+    }
+    else {
+      this.isRightArrowShown = true;
     }
   }
 

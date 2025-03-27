@@ -7,11 +7,12 @@ import { DeviceInfo } from '../../models/device-info';
 import { TopOfPageComponent } from "../../components/top-of-page/top-of-page.component";
 import { HeaderComponent } from "../../components/header/header.component";
 import { ShortSearchComponent } from "../../components/short-search/short-search.component";
+import { TopDestinationsComponent } from "../../components/top-destinations/top-destinations.component";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent],
+  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent, TopDestinationsComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })

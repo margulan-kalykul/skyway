@@ -1,0 +1,33 @@
+<div class="header">Top destinations</div>
+<div class="sub-header">Explore the culture with us</div>
+
+<div class="top-destinations-scroll">
+    <div class="arrow-section">
+      @if (isLeftArrowShown) {
+        <div class="arrow" (click)="prevMultiTours()">&#10094;</div>
+      }
+    </div>
+  
+    <div class="list-cards" [style.transform]="'translateX(' + (-currentPart * 1185) + 'px)'">
+      @for (destination of destinations; track destination) {
+        <div class="half-card">
+            <img class="half-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+        </div>
+        <div class="full-card">
+          <img class="full-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+          <div class="full-card-title">{{ destination.route }}</div>
+          <div class="full-card-desc">4 days tour</div>
+        </div>
+        <div class="half-card">
+            <img class="half-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+        </div>
+      }
+    </div>
+  
+    <div class="arrow-section">
+      @if (isRightArrowShown) {
+        <div class="arrow" (click)="nextMultiTours()">&#10095;</div>
+      }
+    </div>
+    
+</div>
