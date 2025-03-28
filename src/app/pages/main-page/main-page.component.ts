@@ -8,11 +8,12 @@ import { TopOfPageComponent } from "../../components/top-of-page/top-of-page.com
 import { HeaderComponent } from "../../components/header/header.component";
 import { ShortSearchComponent } from "../../components/short-search/short-search.component";
 import { TopDestinationsComponent } from "../../components/top-destinations/top-destinations.component";
+import { FooterComponent } from "../../components/footer/footer.component";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent, TopDestinationsComponent],
+  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent, TopDestinationsComponent, FooterComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
@@ -25,13 +26,6 @@ export class MainPageComponent implements OnInit {
     weAreInNumbers: "assets/images/numbers-background.png",  // Image of the We are in numbers part
     instagramIcon: "assets/images/instagram-icon.svg",  // Instagram icon
     reviews: "assets/images/reviews.svg",  // Image of reviews
-    footerEmblem: "assets/images/footer-emblem.png",  // Emblem at the footer
-    tripAdvisorAward: "assets/images/trip-advisor-award.png",  // Icon showing TripAdvisor's Travelers' Choice award
-    whatsapp: "assets/images/whatsapp.png",
-    telegram: "assets/images/telegram.png",
-    instagram: "assets/images/instagram.png",
-    facebook: "assets/images/facebook.png",
-    youtube: "assets/images/youtube.png",
   }
   deviceInfo: DeviceInfo;
 
