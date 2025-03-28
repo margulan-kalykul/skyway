@@ -15,6 +15,9 @@
   justify-content: space-between; 
   align-items: center;
 }
+.logo:hover {
+  cursor: pointer;
+}
 
 .logo-image {
   width: 44px; 
@@ -39,6 +42,8 @@
 }
 
 .link {
+  height: 100%;
+  align-content: center;
   width: min-content; 
   color: black; 
   font-size: 24px; 
@@ -46,6 +51,13 @@
   font-weight: 400; 
   text-transform: capitalize; 
   line-height: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.link:hover {
+  cursor: pointer;
+  color: white;
+  background-color: black;
 }
 
 .icon-container {

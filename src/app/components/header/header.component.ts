@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +24,26 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
+  }
+
+  goToMain(): void {
+    this.router.navigate(['/home']);
+  }
+
+  goToAboutUs(): void {
+    this.router.navigate(['/about-us']);
+  }
+  
+  goToSchedule(): void {
+    this.router.navigate(['/schedule']);
+  }
+
+  goToTrips(): void {
+    this.router.navigate(['/tours']);
+  }
+
+  goToContacts(): void {
+    this.router.navigate(['/contacts']);
   }
 
   goToProfile(): void {

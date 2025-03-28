@@ -1,15 +1,15 @@
 <div class="header-container">
     <!-- SkyWay Travel main page -->
-    <div class="logo">
+    <div class="logo" (click)="goToMain()">
         <img class="logo-image" [src]="imageNames.skyway" alt="SkyWay Travel logo">
         <span class="logo-text">SkyWay Travel</span>
     </div>
     <!-- Pages -->
     <div class="links-to-pages">
-        <div class="link">About</div>
-        <div class="link">Schedule</div>
-        <div class="link">Trips</div>
-        <div class="link">Contacts</div>
+        <div class="link" (click)="goToAboutUs()">About</div>
+        <div class="link" (click)="goToSchedule()">Schedule</div>
+        <div class="link" (click)="goToTrips()">Trips</div>
+        <div class="link" (click)="goToContacts()">Contacts</div>
     </div>
     <!-- Icons -->
     <div class="icon-container">
