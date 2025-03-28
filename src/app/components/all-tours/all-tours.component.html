@@ -11,7 +11,7 @@
 
 <div class="grid-cards">
   @for (tourData of tours; track tourData) {
-    <app-tour-card [tour]="tourData"></app-tour-card>
+    <app-tour-card [tour]="tourData" [userId]="userId"></app-tour-card>
   }
 </div>
 

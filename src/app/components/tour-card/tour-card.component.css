@@ -1,116 +1,92 @@
-.part-header {
-    color: #5A5A5A; 
-    font-size: 33.90px; 
-    font-family: Inter; 
-    font-weight: 700; 
-    text-transform: uppercase; 
-    line-height: 43.20px; 
-    word-wrap: break-word;
-    text-align: center;
+.card-container {
+  width: 312px; 
+  height: 345px; 
+  position: relative;
 }
 
-/* Card Container */
-.card {
-    width: 300px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    border: 1px solid #ddd;
-  }
-  
-  /* Image Container */
-  .image-container {
-    display: flex;
-    width: 100%;
-  }
-  
-  /* Image Boxes */
-  .image-box {
-    width: 33.3%;
-    position: relative;
-  }
-  
-  .image-box img {
-    width: 100%;
-    height: 100px;
-    object-fit: cover;
-    display: block;
-  }
-  
-  /* Badges */
-  .badge {
-    position: absolute;
-    font-size: 10px;
-    font-weight: bold;
-    color: white;
-    padding: 3px 6px;
-    border-radius: 3px;
-  }
-  
-  .red {
-    background-color: red;
-    top: 5px;
-    left: 5px;
-  }
-  
-  .green {
-    background-color: green;
-  }
-  
-  .top-right {
-    top: 5px;
-    right: 5px;
-  }
-  
-  .bottom-right {
-    bottom: 5px;
-    right: 5px;
-  }
-  
-  /* Content Section */
-  .content {
-    padding: 15px;
-  }
-  
-  h2 {
-    font-size: 14px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  /* Details Section */
-  .details {
-    font-size: 12px;
-    color: #555;
-  }
-  
-  .detail {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .icon {
-    font-size: 14px;
-    margin-right: 5px;
-  }
-  
-  /* Button */
-  .details-button {
-    width: 100%;
-    background-color: green;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 8px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-top: 10px;
-  }
-  
-  .details-button:hover {
-    background-color: darkgreen;
-  }
-  
+.top-part {
+  position: relative;
+}
+
+.tour-image {
+  width: 312px; 
+  height: 186px; 
+  position: absolute;
+}
+
+.fav-button {
+  width: 40px; 
+  height: 40px; 
+  position: absolute; 
+  right: 10px; 
+  top: 10px
+}
+.fav-button:hover {
+  cursor: pointer;
+}
+
+.main-field {
+  width: 100%; 
+  height: 40px; 
+  position: relative; 
+  top: 186px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.title {
+  width: 156px; 
+  padding-left: 15px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  color: black; 
+  font-size: 15px; 
+  font-family: Poppins; 
+  font-weight: 600; 
+  text-transform: capitalize; 
+  line-height: 24px;
+}
+
+.price {
+  width: 156px; 
+  text-align: end; 
+  padding-right: 15px;
+}
+
+.desc {
+  position: relative; 
+  width: 100%; 
+  height: 72px; 
+  top: 190px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  color: black; 
+  font-size: 15px; 
+  font-family: Poppins; 
+  font-weight: 400; 
+  text-transform: capitalize; 
+  line-height: 24px;
+}
+
+.details {
+  margin: auto; 
+  position: relative; 
+  width: 55px; 
+  height: 24px; 
+  top: 60%; 
+  background-color: black; 
+  color: white; 
+  text-align: center; 
+  line-height: 22.5px; 
+  padding-left: 32px; 
+  padding-right: 32px; 
+  border-radius: 10px; 
+  font-size: 16px; 
+  font-family: Poppins; 
+  font-weight: 400; 
+  text-transform: capitalize;
+}
+.details:hover {
+  cursor: pointer;
+}

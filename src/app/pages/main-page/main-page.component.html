@@ -2,11 +2,7 @@
 <app-header></app-header>
 
 <!-- Top of the page -->
-<!-- <div id="top-of-page" style="overflow: hidden;">
-    <div style="transform: scale(1.0347); transform-origin: top left;"> -->
-        <app-top-of-page></app-top-of-page>
-    <!-- </div>
-</div> -->
+<app-top-of-page></app-top-of-page>
 
 <!-- Schedule tour -->
 <div style="background-color: #F8F8F8;">
@@ -15,7 +11,7 @@
 
 <!-- All Almaty tours list -->
 <div style="margin-bottom: 140px;">
-    <app-all-tours></app-all-tours>
+    <app-all-tours [userId]="userData.userId"></app-all-tours>
 </div>
 
 <!-- Short Search section -->

@@ -35,11 +35,20 @@ export class AuthService {
     return this.getToken() != null;
   }
 
+  getUserData() {
+    return {
+      username: sessionStorage.getItem('username'),
+      userId: sessionStorage.getItem('userId'),
+    }
+  }
+
   saveCredentials(tokenString: string): void {
     try {
       let decodedToken = jwtDecode(tokenString);
       // TODO: save user credentials
-      // sessionStorage('username', decodedToken.user_id);
+      // sessionStorage.setItem('username', decodedToken.user_id);
+      sessionStorage.setItem('username', 'Margulan');
+      sessionStorage.setItem('userId', '1');
     }
     catch (error) {
       throw error;

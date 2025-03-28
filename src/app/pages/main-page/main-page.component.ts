@@ -9,6 +9,7 @@ import { HeaderComponent } from "../../components/header/header.component";
 import { ShortSearchComponent } from "../../components/short-search/short-search.component";
 import { TopDestinationsComponent } from "../../components/top-destinations/top-destinations.component";
 import { FooterComponent } from "../../components/footer/footer.component";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-main-page',
@@ -28,19 +29,25 @@ export class MainPageComponent implements OnInit {
     reviews: "assets/images/reviews.svg",  // Image of reviews
   }
   deviceInfo: DeviceInfo;
+  userData: any;
 
-  constructor(deviceService: DeviceService) {
+  constructor(deviceService: DeviceService, private authService: AuthService) {
     this.deviceInfo = deviceService.getClientInfo();
     console.log('Client Info:', this.deviceInfo);
   }
 
   ngOnInit(): void {
-    let topOfPage = document.getElementById("top-of-page");
-    console.log(topOfPage);
-    if (topOfPage != null) {
-      topOfPage.style.width = `${this.deviceInfo.viewScreen.width}px`;
-      // topOfPage.style.height = `${this.deviceInfo.viewScreen.height}px`;
-      console.log(`${topOfPage.style.width} ${topOfPage.style.height} something`);
-    }
+    this.getUserData();
+    // let topOfPage = document.getElementById("top-of-page");
+    // console.log(topOfPage);
+    // if (topOfPage != null) {
+    //   topOfPage.style.width = `${this.deviceInfo.viewScreen.width}px`;
+    //   // topOfPage.style.height = `${this.deviceInfo.viewScreen.height}px`;
+    //   console.log(`${topOfPage.style.width} ${topOfPage.style.height} something`);
+    // }
+  }
+
+  getUserData(): void {
+    this.userData = this.authService.getUserData();
   }
 }

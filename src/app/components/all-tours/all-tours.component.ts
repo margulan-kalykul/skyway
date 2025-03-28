@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TourCardComponent } from '../tour-card/tour-card.component';
 import { ToursService } from '../../services/tours.service';
 import { Tour } from '../../models/interfaces';
@@ -19,6 +19,7 @@ export class AllToursComponent implements OnInit {
   currentPart = 0;
   isRightArrowShown = true;
   isLeftArrowShown = false;
+  @Input() userId!: number | null;
 
   constructor(private toursService: ToursService) {
     this.tours = [];
