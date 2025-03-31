@@ -5,12 +5,13 @@
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  background: white
+  background: white;
+  padding-left: 20px;
 }
 
 .logo {
   height: 50px; 
-  width: 256px; 
+  width: 245px; 
   display: flex; 
   justify-content: space-between; 
   align-items: center;
