@@ -1,0 +1,33 @@
+<div class="tour-type-text">Day Trip</div>
+<div class="title-field">
+    <div class="tour-title">Kolsay, Kaindy Lakes & Charyn Canyon</div>
+
+    <div class="icon" style="margin-left: 50px;">
+        <img class="icon-image" [src]="imageNames.favorite" alt="">
+    </div>
+    <div class="icon" style="margin-left: 15px;">
+        <img class="icon-image" [src]="imageNames.share" alt="">
+    </div>
+</div>
+
+<div class="rate-field">
+    <div class="top-rated">
+        Top Rated
+    </div>
+    <div class="stars">
+        @for (i of [1, 2, 3, 4, 5]; track $index) {
+            <div class="star">
+                <img [src]="imageNames.star" alt="">
+            </div>
+        }
+        <div class="rating">
+            {{ 4.9 }}
+        </div>
+    </div>
+</div>
+
+<img class="tour-image" [src]="imageNames.tourImage" alt="">
+
+<div class="description">
+    This tour is the best way to visit the most popular natural places of Almaty region in 1 day and if you do not have enough time to go on a full 2-day tour. Within a day you will visit the TOP natural landmarks of Almaty - Charyn Canyon, Black and Moon Canyons, Kolsai and Kaindy Lakes. In this regard, this tour is long and has a tight schedule.
+</div>

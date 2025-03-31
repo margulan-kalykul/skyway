@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { TourOld } from '../../models/interfaces';
 import { ToursService } from '../../services/tours.service';
 import { ActivatedRoute } from '@angular/router';
+import { HeaderComponent } from "../../components/header/header.component";
+import { MainDetailsComponent } from "../../components/main-details/main-details.component";
 
 @Component({
   selector: 'app-tour-details',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent, MainDetailsComponent],
   templateUrl: './tour-details.component.html',
   styleUrl: './tour-details.component.css'
 })

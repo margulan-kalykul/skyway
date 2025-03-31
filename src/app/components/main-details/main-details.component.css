@@ -1,0 +1,99 @@
+.tour-type-text {
+    color: #626577;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    width: 100%;
+}
+
+.title-field {
+    height: 55px;
+    width: 100%;
+}
+
+.tour-title {
+    color: black;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 700;
+    width: fit-content;
+    display: inline-block;
+}
+
+.icon {
+    width: 35px;
+    height: 55px;
+    display: inline-block;
+}
+
+.icon-image {
+    width: 35px;
+    height: 35px;
+    top: 5px;
+    position: relative;
+}
+
+.rate-field {
+    margin-top: 10px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+}
+
+.top-rated {
+    width: 100px; 
+    height: 30px; 
+    background: #222222; 
+    border-radius: 7.5px;
+    color: white;
+    font-family: Poppins;
+    text-align: center;
+    line-height: 30px;
+    display: inline-block;
+}
+
+.stars {
+    display: inline-flex;
+    justify-content: center;
+    height: 100%;
+    margin-left: 25px;
+}
+
+.star {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 2.5px;
+    margin-right: 2.5px;
+}
+
+.rating {
+    margin-left: 20px;
+    display: inline-block;
+    color: black; 
+    font-size: 20px;
+    line-height: 30px;
+    font-family: Poppins; 
+    font-weight: 500;
+    height: 30px;
+    position: relative;
+}
+
+.tour-image {
+    display: block;
+    margin-top: 15px;
+    width: 700px;
+    height: 447px;
+}
+
+.description {
+    margin-top: 30px;
+    width: 700px;
+    height: fit-content;
+    color: black;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    word-wrap: break-word;
+    /* text-wrap: wrap; */
+}

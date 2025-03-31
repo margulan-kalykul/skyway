@@ -10,4 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'skyway';
+  globalImages = {
+    mainBackground: "assets/images/mountains-background.png",
+  };
 }
