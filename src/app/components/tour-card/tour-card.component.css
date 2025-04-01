@@ -36,16 +36,21 @@
 }
 
 .title {
-  width: 156px; 
+  height: 100%;
+  max-height: 100%;
+  width: 50%; 
   padding-left: 15px; 
   overflow: hidden; 
+  /* Ellipsis is done in the script */
+  /* display: block;
+  white-space: nowrap; */
   text-overflow: ellipsis; 
   color: black; 
   font-size: 15px; 
   font-family: Poppins; 
   font-weight: 600; 
   text-transform: capitalize; 
-  line-height: 24px;
+  line-height: 20px;
 }
 
 .price {
@@ -61,6 +66,7 @@
   top: 190px; 
   overflow: hidden; 
   text-overflow: ellipsis; 
+  /* Ellipsis is done in the script */
   color: black; 
   font-size: 15px; 
   font-family: Poppins; 
