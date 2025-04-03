@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { TourOld } from '../../models/interfaces';
+import { Tour } from '../../models/interfaces';
 import { ToursService } from '../../services/tours.service';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from "../../components/header/header.component";
 import { MainDetailsComponent } from "../../components/main-details/main-details.component";
+import { AboutAndPurchaseComponent } from "../../components/about-and-purchase/about-and-purchase.component";
 
 @Component({
   selector: 'app-tour-details',
   standalone: true,
-  imports: [HeaderComponent, MainDetailsComponent],
+  imports: [HeaderComponent, MainDetailsComponent, AboutAndPurchaseComponent],
   templateUrl: './tour-details.component.html',
   styleUrl: './tour-details.component.css'
 })
 export class TourDetailsComponent implements OnInit {
-  tour: TourOld;
+  tour: Tour;
 
   constructor (private toursService: ToursService, private router: ActivatedRoute) {
-    this.tour = {} as TourOld;
+    this.tour = {} as Tour;
   }
 
   ngOnInit(): void {
