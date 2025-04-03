@@ -18,9 +18,16 @@ export interface Tour {
     route: string;
     tour_categories: object[] | null;  // TODO
     tour_events: object[] | null;
-    tour_images: object[] | null;
+    tour_images: Image[] | null;
     tour_location: object | null;
     tour_videos: object[] | null;
+}
+
+export interface Image {
+    ID: string;
+    image_url: string;
+    tour: object | null;
+    tour_id: string;
 }
 
 export interface UserCredentials {

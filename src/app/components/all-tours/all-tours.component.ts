@@ -12,29 +12,19 @@ import { Tour } from '../../models/interfaces';
 })
 export class AllToursComponent implements OnInit {
   // tours: TourOld[][];
-  tours: Tour[];
-  hiddenTours: Tour[];
-  multiTours: Tour[];
-  headers_list: string[];
+  tours: Tour[] = [];
+  hiddenTours: Tour[] = [];
+  multiTours: Tour[] = [];
   currentPart = 0;
   isRightArrowShown = true;
   isLeftArrowShown = false;
   @Input() userId!: number | null;
 
   constructor(private toursService: ToursService) {
-    this.tours = [];
-    this.hiddenTours = [];
-    this.multiTours = [];
-    this.headers_list = [];
   }
 
   ngOnInit(): void {
-    this.getTours();
-    if (this.tours.length > 6) {
-      this.hiddenTours = this.tours.slice(6);
-      this.tours = this.tours.slice(0, 6);
-    }
-    // this.getHeaders();
+    this.showTours();
   }
 
   expandTours(): void {
@@ -78,22 +68,14 @@ export class AllToursComponent implements OnInit {
     }
   }
 
-  getTours(): void {
-    // this.toursService.getToursWithHeaders().subscribe((toursWithHeaders) => {
-    //   this.tours = toursWithHeaders;
-    // })
-    this.tours = [
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route2', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route3', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route4', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route5', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route6', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route7', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route8', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route9', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-      {id: '1', description: 'Desc1', owner_id: '1', route: 'Route10', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
-    ];
+  showTours(): void {
+    this.toursService.getAllTours().subscribe((toursData) => {
+      this.tours = toursData;
+      if (this.tours.length > 6) {
+        this.hiddenTours = this.tours.slice(6);
+        this.tours = this.tours.slice(0, 6);
+      }
+    });
     this.multiTours = [
       {id: '1', description: 'Desc1', owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
       {id: '1', description: 'Desc1', owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
@@ -106,11 +88,5 @@ export class AllToursComponent implements OnInit {
       {id: '1', description: 'Desc1', owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
       {id: '1', description: 'Desc1', owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: null, tour_location: null, tour_videos: null},
     ];
-  }
-
-  getHeaders(): void {
-    this.toursService.getHeaders().subscribe((headers) => {
-      this.headers_list = headers;
-    })
   }
 }

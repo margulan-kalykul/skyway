@@ -1,13 +1,13 @@
 <div class="card-container">
   <div class="top-part">
-    <img class="tour-image" src="assets/images/tour-example-1.png" alt="">
-    <img class="fav-button" src="assets/images/heart-icon.svg" alt="" (click)="favoritesClicked()">
+    <img class="tour-image" [src]="imageNames.cardImage" alt="">
+    <img class="fav-button" [src]="imageNames.favorite" alt="" (click)="favoritesClicked()">
     <!-- TODO: Maybe show the tours the logged in user added to their favorites -->
   </div>
   
   <div class="main-field">
     <div class="title">
-      Kolsay, kaindy lakes & charyn canyon
+      {{ tour.route }}
     </div>
     <div class="price">$150</div>
   </div>

@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Tour, TourOld } from '../../models/interfaces';
+import { Tour } from '../../models/interfaces';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-tour-card',
@@ -11,6 +10,13 @@ import { AuthService } from '../../services/auth.service';
   styleUrl: './tour-card.component.css'
 })
 export class TourCardComponent implements OnInit {
+  defaultImages = {
+    cardImage: "assets/images/tour-example-1.png",  // TODO: Download correct default image
+  };
+  imageNames = {
+    favorite: "assets/images/heart-icon.svg",
+    cardImage: this.defaultImages.cardImage,
+  };
   @Input() tour: Tour = {
     id: '',
     description: '',
@@ -25,9 +31,8 @@ export class TourCardComponent implements OnInit {
   @Input() userId!: number | null;
   ellipsedDesc: string;
 
-  constructor(private router: Router, private authService: AuthService) {
-    // TODO: fetch
-    this.tour.description = 'TOP natural landmarks of Almaty - Charyn Canyon, Black and Moon Canyons, Kolsay and Kaindy Lakes';
+  constructor(private router: Router) {
+    this.imageNames.cardImage = this.tour.tour_images ? this.tour.tour_images[0].image_url : this.defaultImages.cardImage;
     // Default value
     this.ellipsedDesc = this.tour.description;
   }
@@ -40,7 +45,6 @@ export class TourCardComponent implements OnInit {
     let letters = 0, lines = 0, limit = 36;
     for (let i = 0; i < words.length; i++) {
       const word = words[i];
-      console.log(word, letters, lines);
       if (lines == 2) {
         limit = 31;
       }
@@ -58,7 +62,6 @@ export class TourCardComponent implements OnInit {
         letters += word.length;
       }
     }
-    console.log(this.ellipsedDesc);
   }
 
   favoritesClicked(): void {
