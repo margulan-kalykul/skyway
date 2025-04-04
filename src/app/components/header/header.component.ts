@@ -63,6 +63,6 @@ export class HeaderComponent implements OnInit {
   }
   
   goToRegister(): void {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/auth']);
   }
 }

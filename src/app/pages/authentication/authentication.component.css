@@ -1,0 +1,100 @@
+.page-container {
+    background-image: url("../../../assets/images/mountains-background.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+  
+.form-container {
+    position: relative;
+    background-color: #FEFEFE;
+    height: 100%;
+    width: 50%;
+    justify-self: end;
+    /* padding-left: 115px; */
+}
+
+.title-box {
+    padding-top: 68px;
+    padding-left: 115px;
+    /* width: fit-content; */
+}
+  
+.title {
+    color: black;
+    font-size: 55px;
+    font-family: Playfair Display;
+    font-weight: 700;
+    margin: 0;
+}
+
+.subtitle {
+    color: black;
+    font-size: 48px;
+    font-family: Playfair Display;
+    font-weight: 600;
+    margin: 0;
+}
+
+.link-button {
+    /* Button default css */
+    /* text-indent: 0px;
+    box-sizing: border-box;
+    margin: 0em;
+    padding-inline: 6px; */
+    display: flex;
+    align-items: center;
+    color: black;
+    background-color: white;
+    border-radius: 40px; 
+    /* border: 1px black solid; */
+    outline: 1px black solid; 
+    outline-offset: -1px;
+    width: 418px;
+    height: 80px;
+    margin-left: 100px;
+}
+.link-button:hover {
+    cursor: pointer;
+    background-color: rgb(201, 199, 199);
+}
+
+.button-icon {
+    width: 30px;
+    height: 30px;
+    margin-left: 58px;
+}
+
+.button-text {
+    color: black;
+    font-size: 25px;
+    font-family: Poppins;
+    font-weight: 400;
+    margin-left: 30px;
+}
+
+.agreement-text {
+    color: rgba(0, 0, 0, 0.87);
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 360px;
+    margin-left: 115px;
+    margin-top: 15px;
+}
+
+.sub-text {
+    margin-left: 115px;
+    margin-top: 48px;
+    color: black;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.centered-text {
+    width: fit-content;
+    margin: auto;
+}

@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<div class="page-container">
+  <div class="form-container">
+    <div class="title-box">
+        <h5 class="title">Travel with us<br></h5>
+        <h6 class="subtitle">Join us today</h6>
+        <!-- <div class="title">Travel with us<br></div>
+        <div class="subtitle">Join us today</div> -->
+    </div>
+
+    <button class="link-button" style="margin-top: 45px;" (click)="goToRegisterByEmail()">
+        <img class="button-icon" [src]="imageNames.email" alt="">
+        <div class="button-text">Sign up with email</div>
+    </button>
+
+    <div class="agreement-text">
+        By signing up, you agree to our 
+        <a [href]="filePaths.terms" target="_blank">Terms of Service</a> and 
+        <a [href]="filePaths.privacy" target="_blank">Privacy Policy</a>
+    </div>
+
+    <div class="sub-text">Already have an account?</div>
+    <button class="link-button" (click)="goToSignIn()">
+        <div class="button-text centered-text">Log In</div>
+    </button>
+  </div>
+</div>
