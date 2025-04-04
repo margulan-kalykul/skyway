@@ -5,11 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from "../../components/header/header.component";
 import { MainDetailsComponent } from "../../components/main-details/main-details.component";
 import { AboutAndPurchaseComponent } from "../../components/about-and-purchase/about-and-purchase.component";
+import { TourPlanComponent } from "../../components/tour-plan/tour-plan.component";
 
 @Component({
   selector: 'app-tour-details',
   standalone: true,
-  imports: [HeaderComponent, MainDetailsComponent, AboutAndPurchaseComponent],
+  imports: [HeaderComponent, MainDetailsComponent, AboutAndPurchaseComponent, TourPlanComponent],
   templateUrl: './tour-details.component.html',
   styleUrl: './tour-details.component.css'
 })

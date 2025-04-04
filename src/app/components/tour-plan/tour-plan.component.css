@@ -1,0 +1,66 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.info {
+
+}
+
+.header {
+    color: black;
+    font-size: 32px;
+    font-family: Poppins;
+    font-weight: 700;
+}
+
+.plan {
+    width: 450px;
+    color: #626577;
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 400;
+}
+
+.location-box {
+
+}
+
+.location-label {
+    display: flex;
+}
+
+.location-label-text {
+    margin-left: 5px;
+    color: black;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.location-map {
+    margin-top: 10px;
+}
+
+.field {
+    height: 150px;
+    display: flex;
+    border-top: 1px #626577 solid;
+}
+
+.field-label {
+    color: black;
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 700;
+    width: 366px;
+    height: 100%;
+    line-height: 150px;
+}
+
+.field-text {
+    color: #626577;
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 400;
+}
