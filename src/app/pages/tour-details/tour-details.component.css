@@ -1,5 +1,5 @@
 .page-container {
-  /* background-image: url("../../../assets/images/mountains-background.png"); */
+  background-image: url("../../../assets/images/mountains-background.png");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -9,9 +9,8 @@
 .detail {
   position: relative;
   background-color: #FEFEFE;
-  /* width: 100%; */
   height: 100%;
   top: 100px;
-  margin-left: 100px;
-  margin-right: 125px;
+  padding-left: 100px;
+  padding-right: 125px;
 }
