@@ -17,7 +17,7 @@
         <!-- <img class="icon" [src]="imageNames.favorite" alt="favorites"> -->
         
         <!-- <img [matMenuTriggerFor]="menu" class="icon" [src]="imageNames.userProfile" alt="user profile"> -->
-        @if (isLoggedIn) {
+        @if (userData != null || userData != undefined) {
             <img [matMenuTriggerFor]="loggedMenu" class="icon" [src]="imageNames.userProfile" alt="user profile">
             <mat-menu #loggedMenu="matMenu">
                 <button mat-menu-item (click)="goToProfile()">Profile</button>

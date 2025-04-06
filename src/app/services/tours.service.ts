@@ -11,16 +11,17 @@ export class ToursService {
 
   constructor(private http: HttpClient) { }
 
-  BASE_URL = 'https://690bdb6e-fe5f-4a85-a24b-6df9a324b136.mock.pstmn.io';
+  // BASE_URL = 'https://690bdb6e-fe5f-4a85-a24b-6df9a324b136.mock.pstmn.io';
+  BASE_URL = 'http://localhost:8000/v1';
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
   getAllTours(): Observable<Tour[]> {
-    return this.http.get<Tour[]>(`${this.BASE_URL}/v1/tours`, this.httpOptions);
+    return this.http.get<Tour[]>(`${this.BASE_URL}/tours`, this.httpOptions);
   }
 
   getTourById(tourId: number): Observable<Tour> {
-    return this.http.get<Tour>(`${this.BASE_URL}/v1tours/${tourId}/`, this.httpOptions);
+    return this.http.get<Tour>(`${this.BASE_URL}/tours/${tourId}/`, this.httpOptions);
   }
 }

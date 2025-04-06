@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,12 +18,13 @@ export class HeaderComponent implements OnInit {
     // favorite: "assets/images/heart-icon.svg",
     userProfile: "assets/images/user-icon.svg",
   };
-  isLoggedIn = false;
+  // isLoggedIn = false;
+  @Input() userData: any;
 
-  constructor (private router: Router, private authService: AuthService) {}
+  constructor (private router: Router) {}
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn();
+    // this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   goToMain(): void {
@@ -33,7 +34,7 @@ export class HeaderComponent implements OnInit {
   goToAboutUs(): void {
     this.router.navigate(['/about-us']);
   }
-  
+
   goToSchedule(): void {
     this.router.navigate(['/schedule']);
   }
@@ -47,21 +48,22 @@ export class HeaderComponent implements OnInit {
   }
 
   goToProfile(): void {
-    this.router.navigate(['/profile']);
+    console.log("Profile pressed")
+    this.router.navigate(['/profile', this.userData.user_id]);
   }
 
   goToFavorites(): void {
     this.router.navigate(['/favorites']);
   }
-  
+
   goToNotifications(): void {
     this.router.navigate(['/notifications']);
   }
-  
+
   goToSignIn(): void {
     this.router.navigate(['/sign-in']);
   }
-  
+
   goToRegister(): void {
     this.router.navigate(['/auth']);
   }
