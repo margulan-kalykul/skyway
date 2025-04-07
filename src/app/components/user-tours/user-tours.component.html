@@ -1,0 +1,16 @@
+<div class="grid-cards">
+    @for (tour of tours; track tour) {
+        <div class="card-container">
+            <img class="tour-image" [src]="tour.tour_images ? tour.tour_images[0].image_url : defaultImages.cardImage" alt="">
+            
+            <div class="main-part">
+                <div class="title">{{ tour.route }}</div>
+                <div class="date-field">
+                    <img class="calendar-icon" [src]="imageNames.calendarIcon" alt="">
+                    <div class="date-text">April 18</div>
+                </div>
+                <div class="price">$ 150</div>
+            </div>
+        </div>
+    }
+</div>

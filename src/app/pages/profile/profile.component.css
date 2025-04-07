@@ -21,6 +21,83 @@
     height: 100%;
     padding-left: 100px;
     padding-right: 125px;
+    /*top: -100px;*/
 }
 
+.profile-field {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 30px;
+    margin-left: 50px;
+    width: 100%;
+    height: fit-content;
+}
 
+.profile-data {
+    display: flex;
+}
+
+.avatar {
+    /*background-image: url("../../../assets/images/avatar-test.jpeg");*/
+    border-radius: 100%;
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    /* position: relative;
+    top: 30px;
+    margin-left: 50px; */
+}
+
+.login-field {
+    height: fit-content;
+    align-self: center;
+    margin-left: 23px;
+}
+
+.username {
+    color: black;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+}
+
+.email {
+    opacity: 0.50; 
+    color: black; 
+    font-size: 15px; 
+    font-family: Poppins; 
+    font-weight: 400;
+}
+
+.profile-button {
+    /* display: inline-block;
+    box-sizing: border-box;
+    margin: 0em; */
+    border: none;
+
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: 400;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 7.5px;
+    width: 105px;
+    height: 40px;
+    align-self: center;
+}
+.profile-button:hover {
+    cursor: pointer;
+}
+
+.header {
+    color: black;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 600;
+    margin-top: 68px;
+}

@@ -35,6 +35,13 @@ export interface UserCredentials {
     password: string;
 }
 
+export interface UserData {
+    ID: string;
+    Email: string;
+    Role: string;
+    Username: string;
+}
+
 export interface Token {
     token: string;
 }

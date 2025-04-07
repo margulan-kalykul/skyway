@@ -48,8 +48,7 @@ export class HeaderComponent implements OnInit {
   }
 
   goToProfile(): void {
-    console.log("Profile pressed")
-    this.router.navigate(['/profile', this.userData.user_id]);
+    this.router.navigate(['/profile', this.userData.userId]);
   }
 
   goToFavorites(): void {

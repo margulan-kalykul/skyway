@@ -2,7 +2,34 @@
 
 <div class="page-container">
     <div class="welcome-text">Welcome, Alexa</div>
-    <div class="main-box">
 
+    <div class="main-box">
+        <div class="profile-field">
+            <div class="profile-data">
+                <div class="avatar" [ngStyle]="styles"></div>
+                <div class="login-field">
+                    <div class="username">Alexa Rawles</div>
+                    <div class="email">alexarawles$gmail.com</div>
+                </div>
+            </div>
+
+            @if (shownPage == pages.events) {
+                <button class="profile-button" (click)="editProfile()">Edit</button>
+            }
+            @else if (shownPage == pages.editProfile) {
+                <button style="margin-left: 700px;" class="profile-button" (click)="saveChanges()">Save</button> <!-- TODO: For now -->
+                <button class="profile-button" (click)="returnToProfile()">Cancel</button>
+            }
+        </div>
+
+        <!-- <app-edit-profile></app-edit-profile> -->
+        @if (shownPage == pages.events) {
+            <div class="header">Favorites</div>
+
+            <app-user-tours [tours]="userTours"></app-user-tours>
+        }
+        @else if (shownPage == pages.editProfile) {
+            <app-edit-profile></app-edit-profile>
+        }
     </div>
 </div>
