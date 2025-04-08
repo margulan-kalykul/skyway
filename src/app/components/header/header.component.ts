@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
   // isLoggedIn = false;
   @Input() userData: any;
 
-  constructor (private router: Router) {}
+  constructor (private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     // this.isLoggedIn = this.authService.isLoggedIn();
@@ -57,6 +57,11 @@ export class HeaderComponent implements OnInit {
 
   goToNotifications(): void {
     this.router.navigate(['/notifications']);
+  }
+
+  logOut() {
+    this.authService.clearTokens();
+    this.userData = null;
   }
 
   goToSignIn(): void {

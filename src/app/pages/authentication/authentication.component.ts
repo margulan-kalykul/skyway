@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AuthenticationComponent {
   imageNames = {
     email: "assets/images/email-white.svg",
+    google: "assets/images/google-icon.svg",
   };
   filePaths = {
     terms: "https://docs.google.com/document/d/1MomfzGKo3FumSV9ACjVe-Dm6o2RUhs_RLBBsVeojPIA/edit?usp=sharing",

@@ -1,54 +1,41 @@
-<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()" >
-    <!-- <div class="form-field">
-      <label class="form-label" for="emailInput">Email</label>
-      <input
-        id="emailInput"
-        class="form-input"
-        type="email"
-        aria-label="Email input field"
-        placeholder="Enter your email" /> -->
-       <!-- [attr.aria-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" -->
-    <!-- </div> -->
-    <div class="form-field">
-      <label class="form-label" for="loginInput">Login or email</label>
-      <input
-        id="loginInput"
-        formControlName="login"
-        class="form-input"
-        type="text"
-        aria-label="Email input field"
-        placeholder="Enter your login or email">
-    </div>
-    
-    <div class="form-field">
-      <label class="form-label" for="passwordInput">Password</label>
-      <input
-        id="passwordInput"
-        formControlName="password"
-        class="form-input"
-        type="password"
-        aria-label="Password input field"
-        placeholder="Enter your password"
-      /> <!-- [attr.aria-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" -->
-    </div>
+<app-header></app-header>
 
-    <div class="button-container">
-      <button 
-        class="submit-button"
-        type="submit" 
-        aria-label="Sign in button"
-      >
-        Sign In
-      </button>
-    </div>
+<div class="page-container">
+  <div class="form-container">
+      <h5 class="title">Sign In<br></h5>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-field">
+          <label class="form-label" for="loginInput">Login or email</label>
+          <input
+            id="loginInput"
+            formControlName="login"
+            class="form-input"
+            type="text"
+            aria-label="Email input field"
+            placeholder="Enter your login or email">
+        </div>
 
-    <a 
-      href="/forgot-password" 
-      class="forgot-password-link"
-      tabindex="0"
-      role="button"
-      aria-label="Forgot password link"
-    >
-      Forgot password?
-    </a>
-</form>
+        <div class="form-field">
+          <label class="form-label" for="passwordInput">Password</label>
+          <input
+            id="passwordInput"
+            formControlName="password"
+            class="form-input"
+            type="password"
+            aria-label="Password input field"
+            placeholder="Enter your password"
+          >
+        </div>
+
+        <button class="link-button" style="margin-top: 45px;" type="submit">
+          <div class="button-text">Sign in</div>
+        </button>
+  
+        <div class="agreement-text">
+          By signing up, you agree to our 
+          <a [href]="filePaths.terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> and 
+          <a [href]="filePaths.privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+        </div>
+    </form>
+  </div>
+</div>

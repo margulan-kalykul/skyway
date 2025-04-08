@@ -68,7 +68,9 @@ export class AuthService {
     return localStorage.getItem('jwtToken');
   }
   
-  clearToken(): void {
+  clearTokens(): void {
     localStorage.removeItem('jwtToken');
+    localStorage.removeItem('username');
+    localStorage.removeItem('userId');
   }  
 }
