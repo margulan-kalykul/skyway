@@ -22,11 +22,11 @@ export class TourDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let id = Number(this.router.snapshot.paramMap.get('tourId'));
-    this.getTour(id);
+    let id = this.router.snapshot.paramMap.get('tourId');
+    this.getTour(id!);
   }
 
-  getTour(tourId: number): void {
+  getTour(tourId: string): void {
     this.toursService.getTourById(tourId).subscribe((tour) => {
       this.tour = tour; // TODO: Fetch from the dedicated endpoint
     })

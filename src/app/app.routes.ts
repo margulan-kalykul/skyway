@@ -14,5 +14,6 @@ export const routes: Routes = [
     { path: 'forgot-password', redirectTo: 'home' }, // TODO: Reset password functionality
     { path: 'profile/:userId', component: ProfileComponent },
     { path: 'tours/:tourId', component: TourDetailsComponent },
+    // { path: 'purchase/:userId/:tourId', component:  },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

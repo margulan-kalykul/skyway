@@ -18,7 +18,7 @@ export class TourCardComponent implements OnInit {
     cardImage: this.defaultImages.cardImage,
   };
   @Input() tour: Tour = {
-    id: '',
+    ID: '',
     description: '',
     owner_id: '',
     route: '',
@@ -26,7 +26,11 @@ export class TourCardComponent implements OnInit {
     tour_events: null,
     tour_images: null,
     tour_location: null,
-    tour_videos: null
+    tour_videos: null,
+    name: '',
+    telegram_chat_url: null,
+    tour_panoramas: null,
+    tour_user_favorites: null
   };
   @Input() userId!: number | null;
   ellipsedDesc: string;
@@ -38,30 +42,31 @@ export class TourCardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tour.description = 'TOP natural landmarks of Almaty - Charyn Canyon, Black and Moon Canyons, Kolsay and Kaindy Lakes';
-    this.ellipsedDesc = '';
-    this.tour.description.replaceAll('\n', ' ');
-    let words = this.tour.description.split(' ');
-    let letters = 0, lines = 0, limit = 36;
-    for (let i = 0; i < words.length; i++) {
-      const word = words[i];
-      if (lines == 2) {
-        limit = 31;
-      }
-      if (lines == 3) {
-        this.ellipsedDesc += '...';
-      }
-      else {
-        this.ellipsedDesc += word + ' ';
-      }
-      if (letters + word.length >= limit) {
-        lines++;
-        letters = 0;
-      }
-      else {
-        letters += word.length;
-      }
-    }
+    this.ellipsedDesc = this.tour.description;
+    // this.tour.description = 'TOP natural landmarks of Almaty - Charyn Canyon, Black and Moon Canyons, Kolsay and Kaindy Lakes';
+    // this.ellipsedDesc = '';
+    // this.tour.description.replaceAll('\n', ' ');
+    // let words = this.tour.description.split(' ');
+    // let letters = 0, lines = 0, limit = 36;
+    // for (let i = 0; i < words.length; i++) {
+    //   const word = words[i];
+    //   if (lines == 2) {
+    //     limit = 31;
+    //   }
+    //   if (lines == 3) {
+    //     this.ellipsedDesc += '...';
+    //   }
+    //   else {
+    //     this.ellipsedDesc += word + ' ';
+    //   }
+    //   if (letters + word.length >= limit) {
+    //     lines++;
+    //     letters = 0;
+    //   }
+    //   else {
+    //     letters += word.length;
+    //   }
+    // }
   }
 
   favoritesClicked(): void {
@@ -73,7 +78,7 @@ export class TourCardComponent implements OnInit {
     }
   }
 
-  seeDetails(tourId: string): void {
-    this.router.navigate(['/tours', tourId]);
+  seeDetails(): void {
+    this.router.navigate(['/tours', this.tour.ID]);
   }
 }

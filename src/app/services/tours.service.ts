@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Tour } from '../models/interfaces';
+import { Tour, WeatherInfo } from '../models/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,11 @@ export class ToursService {
     return this.http.get<Tour[]>(`${this.BASE_URL}/tours/`, this.httpOptions);
   }
 
-  getTourById(tourId: number): Observable<Tour> {
+  getTourById(tourId: string): Observable<Tour> {
     return this.http.get<Tour>(`${this.BASE_URL}/tours/${tourId}/`, this.httpOptions);
+  }
+
+  getWeather(tourEventId: string): Observable<WeatherInfo> {
+    return this.http.get<WeatherInfo>(`${this.BASE_URL}/tours/tour-events/${tourEventId}/weather/`, this.httpOptions);
   }
 }
