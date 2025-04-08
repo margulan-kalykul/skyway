@@ -1,0 +1,179 @@
+.page-container {
+    background-image: url("../../../assets/images/mountains-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+  
+.box {
+    position: relative;
+    background-color: #FEFEFE;
+    height: 100%;
+    top: 100px;
+    padding-left: 100px;
+    padding-right: 125px;
+}
+
+.header {
+    color: black;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 600;
+    position: relative;
+    top: 90px;
+}
+
+.fields-header {
+    width: 875px;
+    height: 78px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 500;
+    margin-top: 110px;
+    padding-left: 45px;
+    line-height: 78px;
+}
+
+.fields-box {
+    width: 873px; 
+    height: 468px; 
+    background-color: #F9F9F9; 
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 1px #DEDFE1 solid;
+    padding-left: 45px;
+    padding-right: 50px;
+}
+
+.tour-name {
+    color: black;
+    font-size: 32px;
+    font-family: Poppins;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+.field {
+    height: 34px;
+    display: flex;
+    margin-top: 40px;
+}
+
+.icon {
+    width: 34px;
+    height: 34px;
+}
+
+.data {
+    color: #949494;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 400;
+    text-transform: capitalize;
+    line-height: 34px;
+    margin-left: 15px;
+}
+
+.total {
+    display: flex;
+    margin-top: 110px;
+    justify-content: space-between;
+}
+
+.total-text {
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.card-header {
+    width: 657px;
+}
+
+.card-box {
+    width: 605px;
+}
+
+.form-field {
+    margin-top: 25px;
+}
+
+.form-label {
+    display: block;
+    color: black;
+    font-size: 16px;
+    font-family: Oxygen Poppins serif;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.field-input {
+    /* padding-block: 1px;
+    padding-inline: 2px; */
+
+    margin-top: 15px;
+    height: 43px;
+    width: 565px;
+    color: black;
+    line-height: 43px;
+    background-color: white; 
+    border-radius: 10px;
+    border: 1px #DEDFE1 solid;
+    padding-left: 18px;
+}
+
+.split-form-fields {
+    display: flex;
+    gap: 45px;
+}
+
+.small-input {
+    width: 250px;
+}
+
+.default-field {
+    margin-top: 25px;
+    width: 280px; 
+    height: 32px; 
+    justify-content: flex-start; 
+    align-items: center; 
+    gap: 10px; 
+    display: flex;
+}
+
+.checkbox {
+    width: 32px; 
+    height: 32px; 
+    background-color: #F0F2F5; 
+    border-radius: 5px;
+}
+
+.default-text {
+    color: #3D3D3D; 
+    font-size: 16px; 
+    font-family: Oxygen Poppins serif; 
+    font-weight: 400;
+}
+
+.pay-button {
+    width: 130px;
+    height: 60px;
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+    margin-top: 25px;
+    color: white;
+    font-size: 20px; 
+    font-family: Exo Poppins serif; 
+    font-weight: 600;
+    text-align: center;
+}
+.pay-button:hover {
+    cursor: pointer;
+}

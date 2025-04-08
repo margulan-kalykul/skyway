@@ -1,1 +1,81 @@
 <app-header></app-header>
+
+<div class="page-container">
+    <div class="box">
+        <div class="header">Payment</div>
+
+        <div class="fields-header">Cart details</div>
+        <div class="fields-box">
+            <div class="tour-name">Kolasi</div>
+
+            <div class="field">
+                <img class="icon" [src]="imageNames.clock" alt="">
+                <div class="data">Monday, April 23, 2025 - 06:00 AM</div>
+            </div>
+            <div class="field">
+                <img class="icon" [src]="imageNames.people" alt="">
+                <div class="data">2 Adults</div>
+            </div>
+            <div class="field">
+                <img class="icon" [src]="imageNames.globe" alt="">
+                <div class="data">Language: English</div>
+            </div>
+
+            <div class="total">
+                <div class="total-text">Total</div>
+                <div class="total-text">$150</div>
+            </div>
+        </div>
+
+        <div class="fields-header card-header">Personal Billing Conformation</div>
+        <form class="" [formGroup]="cardForm">
+            <div class="fields-box card-box">
+                <div class="form-field">
+                    <label class="form-label" for="name">Name On Card*</label>
+                    <input 
+                        id="name"
+                        formControlName="name"
+                        class="field-input"
+                        type="text"
+                    >
+                </div>
+                <div class="form-field">
+                    <label class="form-label" for="cardNumber">Card Number*</label>
+                    <input 
+                        id="cardNumber"
+                        formControlName="cardNumber"
+                        class="field-input"
+                        type="text"
+                    >
+                </div>
+                <div class="split-form-fields">
+                    <div class="form-field">
+                        <label class="form-label" for="cardNumber">Valid Through*</label>
+                        <input 
+                            id="cardNumber"
+                            formControlName="cardNumber"
+                            class="field-input small-input"
+                            type="text"
+                        >
+                    </div>
+                    <div class="form-field">
+                        <label class="form-label" for="cardNumber">CVV*</label>
+                        <input 
+                            id="cardNumber"
+                            formControlName="cardNumber"
+                            class="field-input small-input"
+                            type="text"
+                        >
+                    </div>
+                </div>
+                <div class="default-field">
+                    <div class="checkbox"></div>
+                    <div class="default-text">Save as default payment method</div>
+                </div>
+                <button class="pay-button" type="submit">Pay Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- <app-footer></app-footer> -->
