@@ -1,3 +1,124 @@
+.search-field {
+  width: 615px; 
+  height: 62px; 
+  background: white; 
+  border-radius: 14px; 
+  border: 1px black solid;
+  padding-left: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 55px;
+}
+
+.search-icon {
+  width: 27px;
+  height: 27px;
+}
+
+.search-input {
+  width: 500px;
+  margin-left: 15px;
+  border: none;
+  height: 98%;
+  /* background-color: red; */
+}
+
+.search-button {
+  width: 128px;
+  height: 62px;
+  border: none;
+  background-color: black;
+  border-radius: 14px;
+  color: white;
+  color: white;
+  font-size: 16px;
+  font-family: Poppins;
+  font-weight: 700;
+}
+.search-button:hover {
+  cursor: pointer;
+}
+
+.date-selection {
+  display: flex;
+  flex-direction: column;
+}
+
+.months {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.month {
+  color: black;
+  font-size: 28px;
+  font-family: Poppins;
+  font-weight: 700;
+}
+
+.days {
+  display: flex;
+}
+
+.day-box {
+  width: 60px;
+  height: 75px; 
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 22px;
+  font-family: Poppins;
+}
+.day-box-white {
+  background: white;
+}
+.day-box-black {
+  background: black; 
+  color: white;
+}
+
+.weekday {
+  font-weight: 700;
+}
+
+.day {
+  font-weight: 600;
+}
+
+.categories {
+  display: flex;
+  gap: 17px;
+  margin-left: 20px;
+  margin-top: 40px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.category {
+  height: 53px;
+  width: max-content;
+  padding: 10px 30px;
+  line-height: 53px;
+  font-size: 22px;
+  font-family: Poppins;
+  font-weight: 700;
+  border-radius: 10px;
+}
+.selected-category {
+  background-color: black;
+  color: white;
+}
+.non-selected {
+  background-color: white;
+  color: black;
+}
+
 .part-header {
   color: #5A5A5A; 
   font-size: 33.90px; 
@@ -15,7 +136,8 @@
   justify-content: center; 
   width: 100%; 
   height: min-content; 
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto auto auto auto;
+  margin-top: 65px;
 }
 
 .see-more {

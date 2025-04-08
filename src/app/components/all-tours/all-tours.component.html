@@ -6,8 +6,33 @@
   }
 } -->
 
-<!-- Almaty Day Tours -->
-<div class="part-header" style="margin-bottom: 30px;">Almaty Day Tours</div>
+<div class="search-field">
+  <img class="search-icon" [src]="imageNames.search" alt="">
+  <input class="search-input" type="text" placeholder="Search for your favourite destination">
+  <button class="search-button">Search</button>
+</div>
+
+<div class="date-selection">
+  <div class="months">
+    <div class="month">April</div>
+    <div class="month">May</div>
+  </div>
+  <div class="days">
+    @for (day of days; track $index) {
+      <div [class.day-box]="true" [class.day-box-black]="$index == blackDay" [class.day-box-white]="$index != blackDay">
+        <div class="weekday">{{ weekday[$index] }}</div>
+        <div class="day">{{ days[$index] }}</div>
+      </div>
+    }
+  </div>
+  <div class="categories">
+    @for (category of categories; track $index) {
+      <div [class.category]="true" [class.selected-category]="$index == selectedCategory" [class.non-selected]="$index != selectedCategory">
+        {{ categories[$index].name }}
+      </div>
+    }
+  </div>
+</div>
 
 <div class="grid-cards">
   @for (tourEventData of tourEvents; track tourEventData) {

@@ -26,11 +26,11 @@ export class TopOfPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.startAutoSlide();
+    // this.startAutoSlide();
   }
 
   ngOnDestroy(): void {
-    this.endAutoSlide();
+    // this.endAutoSlide();
   }
 
   startAutoSlide(): void {
@@ -44,8 +44,14 @@ export class TopOfPageComponent implements OnInit, OnDestroy {
   }
 
   getImages() {
+    // this.slides = [
+    //   {image: 'assets/images/angular.jpg', text: 'text1', button: 'MORE'},
+    //   {image: 'assets/images/react.jpg', text: 'text1', button: 'MORE'},
+    //   {image: 'assets/images/vue.jpg', text: 'text1', button: 'MORE'},
+    //   {image: 'assets/images/angular.jpg', text: 'text1', button: 'MORE'},
+    // ];
     this.slides = [
-      {image: 'assets/images/angular.jpg', text: 'text1', button: 'MORE'},
+      {image: 'assets/images/lake.png', text: 'text1', button: 'MORE'},
       {image: 'assets/images/react.jpg', text: 'text1', button: 'MORE'},
       {image: 'assets/images/vue.jpg', text: 'text1', button: 'MORE'},
       {image: 'assets/images/angular.jpg', text: 'text1', button: 'MORE'},

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TourCardComponent } from '../tour-card/tour-card.component';
 import { ToursService } from '../../services/tours.service';
-import { Tour, TourEvent } from '../../models/interfaces';
+import { Category, Tour, TourEvent } from '../../models/interfaces';
 
 @Component({
   selector: 'app-all-tours',
@@ -11,6 +11,10 @@ import { Tour, TourEvent } from '../../models/interfaces';
   styleUrl: './all-tours.component.css'
 })
 export class AllToursComponent implements OnInit {
+  imageNames = {
+    search: "assets/images/search.svg",
+  };
+  maxSeenTours = 12;
   tourEvents: TourEvent[] = [];
   hiddenTours: TourEvent[] = [];
   multiTours: Tour[] = [];
@@ -18,17 +22,26 @@ export class AllToursComponent implements OnInit {
   isRightArrowShown = true;
   isLeftArrowShown = false;
   @Input() userId!: number | null;
-
+  days = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 1, 2, 3];
+  weekday = ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  blackDay = 3;
+  categories: Category[] = [];
+  selectedCategory = 0;
+  
   constructor(private toursService: ToursService) {
   }
 
   ngOnInit(): void {
     this.showTours();
+    this.toursService.getCategories().subscribe((categories) => {
+      this.categories = categories.Categories;
+      console.log(this.categories);
+    });
   }
 
   expandTours(): void {
-    this.tourEvents = this.tourEvents.concat(this.hiddenTours.slice(0, 6));
-    this.hiddenTours = this.hiddenTours.slice(6);
+    this.tourEvents = this.tourEvents.concat(this.hiddenTours.slice(0, this.maxSeenTours));
+    this.hiddenTours = this.hiddenTours.slice(this.maxSeenTours);
   }
 
   nextMultiTours(): void {
@@ -70,9 +83,9 @@ export class AllToursComponent implements OnInit {
   showTours(): void {
     this.toursService.getAllTourEvents().subscribe((tourEvents) => {
       this.tourEvents = tourEvents;
-      if (this.tourEvents.length > 6) {
-        this.hiddenTours = this.tourEvents.slice(6);
-        this.tourEvents = this.tourEvents.slice(0, 6);
+      if (this.tourEvents.length > this.maxSeenTours) {
+        this.hiddenTours = this.tourEvents.slice(this.maxSeenTours);
+        this.tourEvents = this.tourEvents.slice(0, this.maxSeenTours);
       }
     });
     this.multiTours = [

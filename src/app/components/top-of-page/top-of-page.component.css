@@ -45,6 +45,20 @@
     /* flex-shrink: 0;   */
 }
 
+.carousel-text {
+    height: 56px; 
+    color: white; 
+    font-size: 40px;
+    font-family: "Playfair Display" "Poppins" serif;
+    font-weight: 700;
+    text-align: center; 
+    line-height: 56px; 
+    /* border-radius: 20px;  */
+    position: absolute; 
+    text-transform: uppercase; 
+    /* background: black;  */
+}
+
 .carousel-button {
     width: 182px; 
     height: 55.8px; 
