@@ -28,7 +28,7 @@
         </div>
 
         <div class="fields-header card-header">Personal Billing Conformation</div>
-        <form class="" [formGroup]="cardForm">
+        <form class="" [formGroup]="cardForm" (ngSubmit)="submit()">
             <div class="fields-box card-box">
                 <div class="form-field">
                     <label class="form-label" for="name">Name On Card*</label>
@@ -50,19 +50,19 @@
                 </div>
                 <div class="split-form-fields">
                     <div class="form-field">
-                        <label class="form-label" for="cardNumber">Valid Through*</label>
+                        <label class="form-label" for="validDate">Valid Through*</label>
                         <input 
-                            id="cardNumber"
-                            formControlName="cardNumber"
+                            id="validDate"
+                            formControlName="validDate"
                             class="field-input small-input"
                             type="text"
                         >
                     </div>
                     <div class="form-field">
-                        <label class="form-label" for="cardNumber">CVV*</label>
+                        <label class="form-label" for="CVV">CVV*</label>
                         <input 
-                            id="cardNumber"
-                            formControlName="cardNumber"
+                            id="CVV"
+                            formControlName="CVV"
                             class="field-input small-input"
                             type="text"
                         >
@@ -78,4 +78,22 @@
     </div>
 </div>
 
-<!-- <app-footer></app-footer> -->
+@if (requestStage == 1) {
+    <div class="waiting-box">
+        <img class="loading-icon" [src]="imageNames.loading" alt="">
+        <div class="loading-text">In Progress</div>
+        <div class="sub-text">Please do not close the tab</div>
+    </div>
+}
+@else if (requestStage == 2) {
+    <div class="waiting-box">
+        <img class="check-icon" [src]="imageNames.check" alt="">
+        <div class="loading-text">Thank you!</div>
+        <div class="sub-text">Your order has been confirmed & it is on the way. Check your email for the details</div>
+        <div class="buttons">
+            <button class="button black-button" (click)="goToHome()">Go To Homepage</button>
+            <button class="button white-button">Check Order Details</button>
+        </div>
+    </div>
+}
+

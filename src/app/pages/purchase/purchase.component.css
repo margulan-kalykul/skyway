@@ -40,7 +40,7 @@
 }
 
 .fields-box {
-    width: 873px; 
+    width: 823px; 
     height: 468px; 
     background-color: #F9F9F9; 
     border-bottom-right-radius: 10px;
@@ -176,4 +176,78 @@
 }
 .pay-button:hover {
     cursor: pointer;
+}
+
+.waiting-box {
+    width: 800px;
+    height: 456px;
+    border: 1px #3D3D3D solid;
+    border-radius: 10px;
+    position: fixed;
+    top: 100px;
+    left: 350px;
+    z-index: 9999;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-icon {
+    width: 150px;
+    height: 100px;
+}
+
+.loading-text {
+    font-size: 36px;
+    color: #3D3D3D;
+    font-family: Poppins;
+    font-weight: 400;
+}
+
+.sub-text {
+    color: #949494;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    width: 480px;
+    text-align: center;
+}
+
+.check-icon {
+    width: 69px;
+    height: 69px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.button {
+    width: 220px;
+    height: 52px;
+    border-radius: 8px; 
+    justify-content: center; 
+    align-items: center;
+    outline: 1px #282828 solid; 
+    outline-offset: -1px;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+.button:hover {
+    cursor: pointer;
+}
+
+.black-button {
+    background-color: black;
+    color: white;
+}
+.white-button {
+    background-color: white;
+    color: black;
 }

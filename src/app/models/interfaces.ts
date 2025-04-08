@@ -49,6 +49,10 @@ export interface Purchase {
     UserID: string;
 }
 
+export interface PurchaseRequest {
+    tour_event_id: string;
+}
+
 export interface Panorama {
     ID: string;
     panorama_url: string;
