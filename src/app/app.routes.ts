@@ -5,6 +5,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TourDetailsComponent } from './pages/tour-details/tour-details.component';
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { PurchaseComponent } from './pages/purchase/purchase.component';
 
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
@@ -14,6 +15,6 @@ export const routes: Routes = [
     { path: 'forgot-password', redirectTo: 'home' }, // TODO: Reset password functionality
     { path: 'profile/:userId', component: ProfileComponent },
     { path: 'tours/:tourId', component: TourDetailsComponent },
-    // { path: 'purchase/:userId/:tourId', component:  },
+    { path: 'purchase/:userId/:tourId', component: PurchaseComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

@@ -96,3 +96,6 @@
     text-align: center;
     line-height: 52px;
 }
+.buy-button:hover {
+    cursor: pointer;
+}

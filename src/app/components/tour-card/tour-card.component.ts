@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Tour } from '../../models/interfaces';
+import { TourEvent } from '../../models/interfaces';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,56 +17,27 @@ export class TourCardComponent implements OnInit {
     favorite: "assets/images/heart-icon.svg",
     cardImage: this.defaultImages.cardImage,
   };
-  @Input() tour: Tour = {
+  @Input() tourEvent: TourEvent = {
     ID: '',
-    description: '',
-    owner_id: '',
-    route: '',
-    tour_categories: null,
-    tour_events: null,
-    tour_images: null,
-    tour_location: null,
-    tour_videos: null,
-    name: '',
-    telegram_chat_url: null,
-    tour_panoramas: null,
-    tour_user_favorites: null
+    amount: 0,
+    data: '',
+    insta_post_url: '',
+    is_opened: false,
+    place: '',
+    price: 0,
+    purchases: [],
+    Tour: null,
+    tour_id: ''
   };
   @Input() userId!: number | null;
-  ellipsedDesc: string;
+  ellipsedDesc: string = '';
 
-  constructor(private router: Router) {
-    this.imageNames.cardImage = this.tour.tour_images ? this.tour.tour_images[0].image_url : this.defaultImages.cardImage;
-    // Default value
-    this.ellipsedDesc = this.tour.description;
-  }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.ellipsedDesc = this.tour.description;
-    // this.tour.description = 'TOP natural landmarks of Almaty - Charyn Canyon, Black and Moon Canyons, Kolsay and Kaindy Lakes';
-    // this.ellipsedDesc = '';
-    // this.tour.description.replaceAll('\n', ' ');
-    // let words = this.tour.description.split(' ');
-    // let letters = 0, lines = 0, limit = 36;
-    // for (let i = 0; i < words.length; i++) {
-    //   const word = words[i];
-    //   if (lines == 2) {
-    //     limit = 31;
-    //   }
-    //   if (lines == 3) {
-    //     this.ellipsedDesc += '...';
-    //   }
-    //   else {
-    //     this.ellipsedDesc += word + ' ';
-    //   }
-    //   if (letters + word.length >= limit) {
-    //     lines++;
-    //     letters = 0;
-    //   }
-    //   else {
-    //     letters += word.length;
-    //   }
-    // }
+    this.imageNames.cardImage = this.tourEvent.Tour!.tour_images ? this.tourEvent.Tour!.tour_images[0].image_url : this.defaultImages.cardImage;
+    // Default value
+    this.ellipsedDesc = this.tourEvent.Tour!.description;
   }
 
   favoritesClicked(): void {
@@ -79,6 +50,6 @@ export class TourCardComponent implements OnInit {
   }
 
   seeDetails(): void {
-    this.router.navigate(['/tours', this.tour.ID]);
+    this.router.navigate(['/tours', this.tourEvent.ID]);
   }
 }

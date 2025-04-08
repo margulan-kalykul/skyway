@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { TourEvent, UserData } from '../../models/interfaces';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-about-and-purchase',
@@ -9,10 +11,32 @@ import { Router } from '@angular/router';
   styleUrl: './about-and-purchase.component.css'
 })
 export class AboutAndPurchaseComponent {
+  @Input() tourEvent: TourEvent = {
+    ID: '',
+    amount: 0,
+    data: '',
+    insta_post_url: '',
+    is_opened: false,
+    place: '',
+    price: 0,
+    purchases: [],
+    Tour: null,
+    tour_id: ''
+  };
+  @Input() userData: UserData | null = null;
+  userId: string | null = null;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {
+    this.userId = this.authService.getUserData().userId;
+  }
 
   goToPurchase() {
-    // this.router.navigate(['purchase', userId, tourId]);
+    console.log(this.userId);
+    if (this.userId != null) {
+      this.router.navigate(['purchase', this.userId, this.tourEvent.ID]);
+    }
+    else {
+      this.router.navigate(['sign-in']);
+    }
   }
 }

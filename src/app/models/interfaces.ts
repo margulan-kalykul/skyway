@@ -7,7 +7,7 @@ export interface Tour {
     telegram_chat_url: string | null;
     tour_categories: object[] | null;  // TODO
     tour_events: object[] | null;
-    tour_images: Image[] | null;
+    tour_images: Image[];
     tour_location: object | null;
     tour_panoramas: Panorama[] | null;
     tour_user_favorites: UserFavorites[] | null;
@@ -23,7 +23,7 @@ export interface TourEvent {
     place: string;
     price: number;
     purchases: Purchase[];
-    tour: object | null;
+    Tour: Tour | null;
     tour_id: string;
 }
 

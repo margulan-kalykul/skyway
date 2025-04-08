@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Token, UserCredentials } from '../models/interfaces';
+import { Token, UserCredentials, UserData } from '../models/interfaces';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
@@ -20,10 +20,10 @@ export class AuthService {
   };
 
   login(credentials: UserCredentials): void {
-    this.http.post<Token>(`${this.BASE_URL}/login`, credentials, this.httpOptions).subscribe((token) => {
+    this.http.post<Token>(`${this.BASE_URL}/login/`, credentials, this.httpOptions).subscribe((token) => {
       try {
         this.saveToken(token.token);
-        // this.saveCredentials(token.token);
+        this.saveCredentials(token.token);
       }
       catch (error) {
         throw error;  // TODO: handle errors
@@ -37,33 +37,38 @@ export class AuthService {
 
   getUserData() {
     return {
-      username: sessionStorage.getItem('username'),
-      userId: sessionStorage.getItem('userId'),
+      username: localStorage.getItem('username'),
+      userId: localStorage.getItem('userId'),
     }
   }
 
   saveCredentials(tokenString: string): void {
-    try {
-      let decodedToken = jwtDecode(tokenString);
-      // TODO: save user credentials
-      // sessionStorage.setItem('username', decodedToken.user_id);
-      sessionStorage.setItem('username', 'Margulan');
-      sessionStorage.setItem('userId', '1');
-    }
-    catch (error) {
-      throw error;
-    }
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${tokenString}`
+      }),
+    };
+    this.http.get<UserData>(`${this.BASE_URL}/me/`, options).subscribe((userData) => {
+      try {
+        localStorage.setItem('username', userData.Username);
+        localStorage.setItem('userId', userData.ID);
+      } 
+      catch (error) {
+        throw error;
+      }
+    });
   }
 
   private saveToken(tokenString: string): void {
-    sessionStorage.setItem('jwtToken', tokenString);
+    localStorage.setItem('jwtToken', tokenString);
   }
   
   getToken(): string | null {
-    return sessionStorage.getItem('jwtToken');
+    return localStorage.getItem('jwtToken');
   }
   
   clearToken(): void {
-    sessionStorage.removeItem('jwtToken');
+    localStorage.removeItem('jwtToken');
   }  
 }

@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { WeatherInfo } from '../../models/interfaces';
 import { ToursService } from '../../services/tours.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main-details',
@@ -30,13 +29,9 @@ export class MainDetailsComponent implements OnInit {
     wind_kph: 0,
     wind_mph: 0
   };
-  tourEventId: string | null = null;
+  @Input() tourEventId: string | null = null;
 
-  constructor(private activatedRouter: ActivatedRoute, private toursService: ToursService) {
-    this.activatedRouter.paramMap.subscribe(params => {
-      this.tourEventId = params.get('tourId');
-    });
-  }
+  constructor(private toursService: ToursService) {  }
 
   ngOnInit(): void {
     this.toursService.getWeather(this.tourEventId!).subscribe(weatherInfo => {

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserCredentials } from '../../models/interfaces';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
 export class SignInComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       login: ['', 
         // [Validators.required, Validators.email]
@@ -31,7 +32,9 @@ export class SignInComponent {
       password: this.loginForm.value.password
     }
     this.login(credentials);
-    console.log(this.authService.saveCredentials(this.authService.getToken()!));
+    setTimeout(() => {
+      this.router.navigate(['home']);
+    }, 500);
     // if (this.loginForm.valid) {
     //   console.log(this.loginForm.value);
     // }

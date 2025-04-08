@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Tour } from '../../models/interfaces';
+import { Tour, TourEvent, UserData } from '../../models/interfaces';
 import { ToursService } from '../../services/tours.service';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from "../../components/header/header.component";
 import { MainDetailsComponent } from "../../components/main-details/main-details.component";
 import { AboutAndPurchaseComponent } from "../../components/about-and-purchase/about-and-purchase.component";
 import { TourPlanComponent } from "../../components/tour-plan/tour-plan.component";
+import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-tour-details',
@@ -15,20 +17,42 @@ import { TourPlanComponent } from "../../components/tour-plan/tour-plan.componen
   styleUrl: './tour-details.component.css'
 })
 export class TourDetailsComponent implements OnInit {
-  tour: Tour;
+  tourEvent: TourEvent = {
+    ID: '',
+    amount: 0,
+    data: '',
+    insta_post_url: '',
+    is_opened: false,
+    place: '',
+    price: 0,
+    purchases: [],
+    Tour: null,
+    tour_id: ''
+  };
+  userData: UserData | null = null;
+  tourEventId: string | null = null;
 
-  constructor (private toursService: ToursService, private router: ActivatedRoute) {
-    this.tour = {} as Tour;
-  }
+  constructor (
+    private toursService: ToursService, 
+    private userService: UserService,
+    private authService: AuthService, 
+    private router: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    let id = this.router.snapshot.paramMap.get('tourId');
-    this.getTour(id!);
+    if (this.authService.isLoggedIn()) {
+      this.userService.getUserData(this.authService.getToken()!).subscribe(user => {
+        this.userData = user;
+        console.log(this.userData);
+      });
+    }
+    this.tourEventId = this.router.snapshot.paramMap.get('tourId');
+    this.getTour(this.tourEventId!);
   }
 
-  getTour(tourId: string): void {
-    this.toursService.getTourById(tourId).subscribe((tour) => {
-      this.tour = tour; // TODO: Fetch from the dedicated endpoint
+  getTour(tourEventId: string): void {
+    this.toursService.getTourEventById(tourEventId).subscribe((tourEvent) => {
+      this.tourEvent = tourEvent;
     })
   }
 

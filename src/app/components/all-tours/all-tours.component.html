@@ -10,8 +10,8 @@
 <div class="part-header" style="margin-bottom: 30px;">Almaty Day Tours</div>
 
 <div class="grid-cards">
-  @for (tourData of tours; track tourData) {
-    <app-tour-card [tour]="tourData" [userId]="userId"></app-tour-card>
+  @for (tourEventData of tourEvents; track tourEventData) {
+    <app-tour-card [tourEvent]="tourEventData" [userId]="userId"></app-tour-card>
   }
 </div>
 
