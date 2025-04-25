@@ -19,7 +19,7 @@
   height: 40px; 
   position: absolute; 
   right: 10px; 
-  top: 10px
+  top: 10px;
 }
 .fav-button:hover {
   cursor: pointer;
