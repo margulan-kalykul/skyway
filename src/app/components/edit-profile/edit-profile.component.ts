@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -10,8 +10,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class EditProfileComponent {
   profileForm: FormGroup;
+  @Input() username = '';
+  @Input() email = '';
 
   constructor(private fb: FormBuilder) {
+    // TODO: Send the update data if implemented
     this.profileForm = this.fb.group({
       fullName: [''],
       email: [''],

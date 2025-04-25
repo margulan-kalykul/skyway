@@ -1,20 +1,66 @@
 <form class="profile-form" [formGroup]="profileForm">
-    <div class="form-field">
-        <label class="form-label" for="fullName">Full Name</label>
-        <input 
-            id="fullName"
-            formControlName="fullName"
-            class="field-input"
-            type="text"
-        >
+    <div>
+        <div class="form-field">
+            <label class="form-label" for="fullName">Full Name</label>
+            <input 
+                id="fullName"
+                formControlName="fullName"
+                class="field-input"
+                type="text"
+                [ngModel]="username"
+            >
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <input 
+                id="email"
+                formControlName="email"
+                class="field-input"
+                type="email"
+                [(ngModel)]="email"
+            >
+        </div>
+        <div class="form-field">  <!-- TODO: make them work if added -->
+            <label class="form-label" for="language">Language</label>
+            <input 
+                id="language"
+                formControlName="language"
+                class="field-input"
+                type="text"
+                placeholder="Choose Your Language"
+            >
+        </div>
     </div>
-    <div class="form-field">
-        <label class="form-label" for="email">Email</label>
-        <input 
-            id="email"
-            formControlName="email"
-            class="field-input"
-            type="email"
-        >
+    <div>
+        <div class="form-field">
+            <label class="form-label" for="lastName">Last Name</label>
+            <input 
+                id="lastName"
+                formControlName="lastName"
+                class="field-input"
+                type="text"
+                placeholder="Your last name"
+            >
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="country">Country</label>
+            <input 
+                id="country"
+                formControlName="country"
+                class="field-input"
+                type="text"
+                placeholder="Choose Your Country"
+            >
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="timeZone">Time Zone</label>
+            <input 
+                id="timeZone"
+                formControlName="timeZone"
+                class="field-input"
+                type="text"
+                placeholder="Choose Your Time Zone"
+            >
+        </div>
     </div>
 </form>
