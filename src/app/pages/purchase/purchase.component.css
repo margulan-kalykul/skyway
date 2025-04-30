@@ -178,7 +178,7 @@
     cursor: pointer;
 }
 
-.waiting-box {
+.not-box {
     width: 800px;
     height: 456px;
     border: 1px #3D3D3D solid;
