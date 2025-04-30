@@ -1,8 +1,7 @@
 <div class="card-container">
   <div class="top-part">
     <img class="tour-image" [src]="imageNames.cardImage" alt="">
-    <img class="fav-button" [src]="imageNames.favorite" alt="" (click)="favoritesClicked()">
-    <!-- TODO: Maybe show the tours the logged in user added to their favorites -->
+    <img class="fav-button" [src]="favButton" alt="" (click)="favoritesClicked()">
   </div>
   
   <div class="main-field">

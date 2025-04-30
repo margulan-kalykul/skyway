@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TourScheduleComponent } from '../../components/tour-schedule/tour-schedule.component';
 import { AllToursComponent } from '../../components/all-tours/all-tours.component';
-import { Router, RouterLink } from '@angular/router';
 import { DeviceService } from '../../services/device.service';
 import { DeviceInfo } from '../../models/device-info';
 import { TopOfPageComponent } from "../../components/top-of-page/top-of-page.component";
@@ -10,11 +8,12 @@ import { ShortSearchComponent } from "../../components/short-search/short-search
 import { TopDestinationsComponent } from "../../components/top-destinations/top-destinations.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { AuthService } from '../../services/auth.service';
+import { ToursService } from '../../services/tours.service';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [TourScheduleComponent, AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent, TopDestinationsComponent, FooterComponent],
+  imports: [AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent, TopDestinationsComponent, FooterComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
@@ -30,10 +29,17 @@ export class MainPageComponent implements OnInit {
   }
   deviceInfo: DeviceInfo;
   userData: any;
+  favTourIds: string[] = [];
 
-  constructor(deviceService: DeviceService, private authService: AuthService) {
+  constructor(deviceService: DeviceService, private authService: AuthService, private toursService: ToursService) {
     this.deviceInfo = deviceService.getClientInfo();
     console.log('Client Info:', this.deviceInfo);
+    this.toursService.getUserInfo().subscribe((userMe) => {
+      for (let i = 0; i < userMe.FavoriteTours.length; i++) {
+        let fav = userMe.FavoriteTours[i].tour_id;
+        this.favTourIds.push(fav);
+      }
+    });
   }
 
   ngOnInit(): void {

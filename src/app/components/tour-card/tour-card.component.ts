@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TourEvent } from '../../models/interfaces';
 import { Router } from '@angular/router';
+import { ToursService } from '../../services/tours.service';
 
 @Component({
   selector: 'app-tour-card',
@@ -16,6 +17,7 @@ export class TourCardComponent implements OnInit {
   imageNames = {
     favorite: "assets/images/heart-icon.svg",
     cardImage: this.defaultImages.cardImage,
+    heartFilled: "assets/images/heart-icon-filled.svg",
   };
   @Input() tourEvent: TourEvent = {
     ID: '',
@@ -30,9 +32,15 @@ export class TourCardComponent implements OnInit {
     tour_id: ''
   };
   @Input() userId!: number | null;
+  @Input() favTourIds!: string[];
   ellipsedDesc: string = '';
+  favButton = this.imageNames.favorite;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private toursService: ToursService) {
+    if (this.userId != null && this.tourEvent.tour_id in this.favTourIds) {
+      this.favButton = this.imageNames.heartFilled;
+    }
+  }
 
   ngOnInit(): void {
     this.imageNames.cardImage = this.tourEvent.Tour!.tour_images ? this.tourEvent.Tour!.tour_images[0].image_url : this.defaultImages.cardImage;
@@ -42,7 +50,9 @@ export class TourCardComponent implements OnInit {
 
   favoritesClicked(): void {
     if (this.userId != null) {
-      this.router.navigate(['/user', this.userId, 'favorites']);
+      // this.router.navigate(['/user', this.userId, 'favorites']);
+      this.toursService.likeTour(this.tourEvent.tour_id);
+      this.favButton = this.imageNames.heartFilled;
     }
     else {
       this.router.navigate(['/sign-in']);
