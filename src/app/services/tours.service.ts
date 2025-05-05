@@ -18,7 +18,7 @@ export class ToursService {
       this.httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.authService.getToken()!}`
+          'Authorization': `${this.authService.getToken()!}`
         }),
         withCredentials: true,
       };

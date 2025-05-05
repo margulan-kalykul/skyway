@@ -34,16 +34,18 @@ export class MainPageComponent implements OnInit {
   constructor(deviceService: DeviceService, private authService: AuthService, private toursService: ToursService) {
     this.deviceInfo = deviceService.getClientInfo();
     console.log('Client Info:', this.deviceInfo);
-    this.toursService.getUserInfo().subscribe((userMe) => {
-      for (let i = 0; i < userMe.FavoriteTours.length; i++) {
-        let fav = userMe.FavoriteTours[i].tour_id;
-        this.favTourIds.push(fav);
-      }
-    });
+    this.getUserData();
+    if (this.userData.username != null && this.userData.userId != null) {
+      this.toursService.getUserInfo().subscribe((userMe) => {
+        for (let i = 0; i < userMe.FavoriteTours.length; i++) {
+          let fav = userMe.FavoriteTours[i].tour_id;
+          this.favTourIds.push(fav);
+        }
+      });
+    }
   }
 
   ngOnInit(): void {
-    this.getUserData();
     // let topOfPage = document.getElementById("top-of-page");
     // console.log(topOfPage);
     // if (topOfPage != null) {
