@@ -1,18 +1,34 @@
 <div class="grid-cards">
-    @for (tourEvent of tourEvents; track $index) {
-        <div class="card-container">
-            <img class="tour-image"
-                 [ngSrc]="tourEvent.Tour!.tour_images ? tourEvent.Tour!.tour_images[0].image_url : defaultImages.cardImage"
-                 alt="" fill>
+    @if (cardType == showTypes.tourEvent) {
+        @for (tourEvent of tourEvents; track $index) {
+            <div class="card-container">
+                <img class="tour-image"
+                    [ngSrc]="tourEvent.Tour!.tour_images ? tourEvent.Tour!.tour_images[0].image_url : defaultImages.cardImage"
+                    alt="" fill>
 
-            <div class="main-part">
-                <div class="title">{{ tourEvent.Tour!.route }}</div>
-                <div class="date-field">
-                    <img class="calendar-icon" [src]="imageNames.calendarIcon" alt="">
-                    <div class="date-text">{{ tourEvent.data }}</div>
+                <div class="main-part">
+                    <div class="title">{{ tourEvent.Tour!.route }}</div>
+                    <div class="date-field">
+                        <img class="calendar-icon" [src]="imageNames.calendarIcon" alt="">
+                        <div class="date-text">{{ tourEvent.data }}</div>
+                    </div>
+                    <div class="price">$ {{ tourEvent.price }}</div>
                 </div>
-                <div class="price">$ {{ tourEvent.price }}</div>
             </div>
-        </div>
+        }
     }
+    @else {
+        @for (tour of tours; track $index) {
+            <div class="card-container">
+                <img class="tour-image" 
+                    [src]="tour!.tour_images ? tour!.tour_images[0].image_url : defaultImages.cardImage"
+                    alt="">
+
+                <div class="main-part">
+                    <div class="title">{{ tour!.route }}</div>
+                </div>
+            </div>
+        }
+    }
+
 </div>

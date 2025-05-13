@@ -6,6 +6,7 @@ import { TourDetailsComponent } from './pages/tour-details/tour-details.componen
 import { AuthenticationComponent } from './pages/authentication/authentication.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
+import { FavoritesComponent } from './pages/favorites/favorites.component';
 
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
@@ -16,5 +17,6 @@ export const routes: Routes = [
     { path: 'profile/:userId', component: ProfileComponent },
     { path: 'tours/:tourId', component: TourDetailsComponent },
     { path: 'purchase/:userId/:tourId', component: PurchaseComponent},
+    { path: 'favorites/:userId', component: FavoritesComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
