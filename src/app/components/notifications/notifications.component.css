@@ -1,0 +1,68 @@
+.not-box {
+    width: 653px;
+    height: 436px;
+    background-color: white;
+    border-radius: 24px;
+    border: 1px black solid;
+}
+
+.header-text {
+    color: black;
+    font-size: 36px;
+    font-family: Poppins;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 33px;
+}
+
+.close-icon {
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    display: flex;
+    right: 30px;
+    top: 33px;
+}
+.close-icon:hover {
+    cursor: pointer;
+}
+
+.not-field {
+    height: 70px;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+    display: flex;
+    align-items: center;
+}
+
+.field-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 25px;
+}
+
+.text-field {
+    margin-left: 15px;
+}
+
+.main-text {
+    color: black;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.sub-text {
+    font-size: 15px;
+    font-family: Poppins;
+    font-weight: 400;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    background: #00A3FF;
+    border-radius: 9999px;
+    position: absolute;
+    right: 45px;
+}

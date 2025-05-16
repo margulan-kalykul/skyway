@@ -35,3 +35,9 @@
         }
     </div>
 </div>
+
+@if (showNotifications) {
+    <div class="notifications-popup">
+        <app-notifications (childShow)="closeNotifications()"></app-notifications>
+    </div>
+}

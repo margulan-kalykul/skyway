@@ -1,0 +1,18 @@
+<div class="not-box">
+    <div class="header-text">Notifications</div>
+    <img class="close-icon" [src]="imageNames.cross" alt="" (click)="closeNot()">
+    <div class="not-field" style="margin-top: 35px;">
+        <img class="field-icon" [src]="imageNames.chat" alt="">
+        <div class="text-field">
+            <div class="main-text">You got a new message</div>
+        </div>
+        <div class="circle"></div>
+    </div>
+    <div class="not-field">
+        <img class="field-icon" [src]="imageNames.alertIcon" alt="">
+        <div class="text-field">
+            <div class="main-text">New tour available!</div>
+            <div class="sub-text">Tap to see more</div>
+        </div>
+    </div>
+</div>
