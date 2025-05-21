@@ -20,16 +20,17 @@ export class AuthService {
         withCredentials: true,
     };
 
-    login(credentials: UserCredentials): void {
-        this.http.post<Token>(`${this.BASE_URL}/login/`, credentials, this.httpOptions).subscribe((token) => {
-            try {
-                this.saveToken(token.token);
-                this.saveCredentials(token.token);
-            }
-            catch (error) {
-                throw error;  // TODO: handle errors
-            }
-        })
+    login(credentials: UserCredentials): Observable<Token> {
+        return this.http.post<Token>(`${this.BASE_URL}/login/`, credentials, this.httpOptions);
+        // .subscribe((token) => {
+        //     try {
+        //         this.saveToken(token.token);
+        //         this.saveCredentials(token.token);
+        //     }
+        //     catch (error) {
+        //         throw error;  // TODO: handle errors
+        //     }
+        // })
     }
 
     isLoggedIn(): boolean {
@@ -51,17 +52,12 @@ export class AuthService {
             }),
         };
         this.http.get<UserData>(`${this.BASE_URL}/me/`, options).subscribe((userData) => {
-            try {
-                localStorage.setItem('username', userData.Username);
-                localStorage.setItem('userId', userData.ID);
-            }
-            catch (error) {
-                throw error;
-            }
+            localStorage.setItem('username', userData.Username);
+            localStorage.setItem('userId', userData.ID);
         });
     }
 
-    private saveToken(tokenString: string): void {
+    saveToken(tokenString: string): void {
         localStorage.setItem('jwtToken', tokenString);
     }
 

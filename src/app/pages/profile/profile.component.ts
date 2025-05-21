@@ -32,7 +32,7 @@ export class ProfileComponent implements OnInit {
     defaultEvent: TourEvent = {
         ID: '',
         amount: 0,
-        data: '',
+        date: '',
         insta_post_url: '',
         is_opened: false,
         place: '',

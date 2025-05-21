@@ -17,7 +17,7 @@ export interface Tour {
 export interface TourEvent {
     ID: string;
     amount: number;
-    data: string;
+    date: string;
     insta_post_url: string;
     is_opened: boolean;
     place: string;
@@ -111,6 +111,14 @@ export interface UserData {
 
 export interface Token {
     token: string;
+}
+
+export interface PaymentIntent {
+    clientSecret: string;
+}
+
+export interface IStripeSession {
+    id: string;
 }
 
 // TODO: implement all interfaces and use them instead

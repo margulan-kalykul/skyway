@@ -22,7 +22,7 @@ export class TourCardComponent implements OnInit {
   @Input() tourEvent: TourEvent = {
     ID: '',
     amount: 0,
-    data: '',
+    date: '',
     insta_post_url: '',
     is_opened: false,
     place: '',

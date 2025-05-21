@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category, LikeTourDTO, Tour, TourEvent, UserData, WeatherInfo } from '../models/interfaces';
+import { Category, LikeTourDTO, PaymentIntent, Tour, TourEvent, UserData, WeatherInfo } from '../models/interfaces';
 import { AuthService } from './auth.service';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ToursService {
       this.httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `${this.authService.getToken()!}`
+          'Authorization': `Bearer ${this.authService.getToken()!}`
         }),
         withCredentials: true,
       };
@@ -55,5 +55,20 @@ export class ToursService {
 
   getWeather(tourEventId: string): Observable<WeatherInfo> {
     return this.http.get<WeatherInfo>(`${this.BASE_URL}/tour-events/${tourEventId}/weather/`, this.httpOptions);
+  }
+
+  getPaymentIntent(): Observable<PaymentIntent> {
+    // TODO: Use httpOptions in the real one
+    let options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    // TODO: add body to request
+    // let body = {
+    //   amount: 
+    // }
+    return this.http.post(`https://690bdb6e-fe5f-4a85-a24b-6df9a324b136.mock.pstmn.io/payment/create-payment-intent/`, null, options) as Observable<PaymentIntent>;
+    // return this.http.post(`${this.BASE_URL}/payment/create-payment-intent/`, null, this.httpOptions) as Observable<PaymentIntent>;
   }
 }
