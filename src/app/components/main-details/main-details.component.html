@@ -1,6 +1,6 @@
 <div class="tour-type-text">Day Trip</div>
 <div class="title-field">
-    <div class="tour-title">Kolsay, Kaindy Lakes & Charyn Canyon</div>
+    <div class="tour-title">{{tourEvent?.place}}</div>
 
     <div class="icon" style="margin-left: 50px;">
         <img class="icon-image" [src]="imageNames.favorite" alt="">
@@ -31,24 +31,24 @@
     <div class="weather-panoramas">
         <div class="date-field">
             <img class="calendar-icon" [src]="imageNames.calendarIcon" alt="">
-            <div class="date-text">Date: April 23, 2025</div>
+            <div class="date-text">{{today}}</div>
         </div>
 
-        <div class="weather-box">
-            <div class="degrees">21&deg;</div>
-            <div class="weather-text">Wednesday, 23 April<br>Almaty, Kazakhstan</div>
+        <div *ngIf="weather.condition.code > 0" class="weather-box">
+            <div class="degrees">{{weather.temp_c}}&deg;</div>
+            <div class="weather-text">{{weatherDate}}</div>
             <img class="weather-icon" [src]="weather.condition.icon" alt="">
         </div>
 
         <div class="instagram-box"></div>
 
         <div class="panoramas">
-            
+
         </div>
     </div>
 </div>
 
 
 <div class="description">
-    This tour is the best way to visit the most popular natural places of Almaty region in 1 day and if you do not have enough time to go on a full 2-day tour. Within a day you will visit the TOP natural landmarks of Almaty - Charyn Canyon, Black and Moon Canyons, Kolsai and Kaindy Lakes. In this regard, this tour is long and has a tight schedule.
+    {{tourEvent?.Tour?.description}}
 </div>

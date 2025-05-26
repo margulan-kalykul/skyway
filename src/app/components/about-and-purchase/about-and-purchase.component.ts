@@ -2,11 +2,14 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { TourEvent, UserData } from '../../models/interfaces';
 import { AuthService } from '../../services/auth.service';
+import {CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-about-and-purchase',
   standalone: true,
-  imports: [],
+    imports: [
+        CurrencyPipe
+    ],
   templateUrl: './about-and-purchase.component.html',
   styleUrl: './about-and-purchase.component.css'
 })
