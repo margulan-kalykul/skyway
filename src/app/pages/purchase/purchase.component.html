@@ -1,99 +1,145 @@
 <app-header></app-header>
 
-<div class="page-container">
-    <div class="box">
-        <div class="header">Payment</div>
+@if (tourEvent != null) {
 
-        <div class="fields-header">Cart details</div>
-        <div class="fields-box">
-            <div class="tour-name">Kolasi</div>
+    <div class="page-container">
+        <div class="box">
+            <div class="header">Payment</div>
 
-            <div class="field">
-                <img class="icon" [src]="imageNames.clock" alt="">
-                <div class="data">Monday, April 23, 2025 - 06:00 AM</div>
-            </div>
-            <div class="field">
-                <img class="icon" [src]="imageNames.people" alt="">
-                <div class="data">2 Adults</div>
-            </div>
-            <div class="field">
-                <img class="icon" [src]="imageNames.globe" alt="">
-                <div class="data">Language: English</div>
+            <div class="fields-header">Cart details</div>
+            <div class="fields-box">
+                <div class="tour-name">{{tourEvent.place}}</div>
+
+                <div class="field">
+                    <img class="icon" [src]="imageNames.clock" alt="">
+                    <div class="data">{{tourDate}}</div>
+                </div>
+                <div class="field">
+                    <img class="icon" [src]="imageNames.people" alt="">
+                    <div class="data">2 Adults</div>
+                </div>
+                <div class="field">
+                    <img class="icon" [src]="imageNames.globe" alt="">
+                    <div class="data">Language: English</div>
+                </div>
+
+                <div class="total">
+                    <div class="total-text">Total</div>
+                    <div class="total-text">{{tourEvent.amount | currency}}</div>
+                </div>
             </div>
 
-            <div class="total">
-                <div class="total-text">Total</div>
-                <div class="total-text">$150</div>
+
+    <!--        Previous card data input -->
+            <div class="fields-header card-header">Personal Billing Conformation</div>
+    <!--        <form class="" [formGroup]="cardForm" (ngSubmit)="submit()">-->
+                <div class="fields-box card-box">
+                    @if (elementsOptions.clientSecret) {
+                        <ngx-stripe-elements
+                            [stripe]="stripe"
+                            [elementsOptions]="elementsOptions"
+                        >
+                            <ngx-stripe-payment [options]="paymentElementOptions" />
+                        </ngx-stripe-elements>
+                    }
+                    <!--    <ngx-stripe-card-->
+                    <!--        [options]="cardOptions"-->
+                    <!--        [elementsOptions]="elementsOptions"-->
+                    <!--    ></ngx-stripe-card>-->
+
+
+    <!--                <div class="form-field">-->
+    <!--                    <label class="form-label" for="name">Name On Card*</label>-->
+    <!--                    <input -->
+    <!--                        id="name"-->
+    <!--                        formControlName="name"-->
+    <!--                        class="field-input"-->
+    <!--                        type="text"-->
+    <!--                    >-->
+    <!--                </div>-->
+    <!--                <div class="form-field">-->
+    <!--                    <label class="form-label" for="cardNumber">Card Number*</label>-->
+    <!--                    <input -->
+    <!--                        id="cardNumber"-->
+    <!--                        formControlName="cardNumber"-->
+    <!--                        class="field-input"-->
+    <!--                        type="text"-->
+    <!--                    >-->
+    <!--                </div>-->
+    <!--                <div class="split-form-fields">-->
+    <!--                    <div class="form-field">-->
+    <!--                        <label class="form-label" for="validDate">Valid Through*</label>-->
+    <!--                        <input -->
+    <!--                            id="validDate"-->
+    <!--                            formControlName="validDate"-->
+    <!--                            class="field-input small-input"-->
+    <!--                            type="text"-->
+    <!--                        >-->
+    <!--                    </div>-->
+    <!--                    <div class="form-field">-->
+    <!--                        <label class="form-label" for="CVV">CVV*</label>-->
+    <!--                        <input -->
+    <!--                            id="CVV"-->
+    <!--                            formControlName="CVV"-->
+    <!--                            class="field-input small-input"-->
+    <!--                            type="text"-->
+    <!--                        >-->
+    <!--                    </div>-->
+    <!--                </div>-->
+    <!--                <div class="default-field">-->
+    <!--                    <div class="checkbox"></div>-->
+    <!--                    <div class="default-text">Save as default payment method</div>-->
+    <!--                </div>-->
+    <!--                <button class="pay-button" type="submit">Pay Now</button>-->
+                </div>
+                <div style="text-align: right; margin-top: 30px;">
+                <!--                        <button-->
+                <!--                            mat-stroked-button-->
+                <!--                            color="warn"-->
+                <!--                            [disabled]="paying"-->
+                <!--                            (click)="clear()"-->
+                <!--                            style="margin-right: 16px"-->
+                <!--                        >-->
+                <!--                            CLEAR-->
+                <!--                        </button>-->
+                    <button
+                        mat-raised-button
+                        color="primary"
+                        [disabled]="paying()"
+                        (click)="pay()"
+                    >
+                        @if (paying()) {
+                            <span>PROCESSING...</span>
+                        } @else {
+                            <span>
+                                        PAY @if (tourEvent) {
+                                <span>{{ tourEvent.amount | currency }}</span>
+                            }
+                                    </span>
+                        }
+                    </button>
+                </div>
+    <!--        </form>-->
+        </div>
+    </div>
+
+    @if (requestStage == 1) {
+        <div class="waiting-box">
+            <img class="loading-icon" [src]="imageNames.loading" alt="">
+            <div class="loading-text">In Progress</div>
+            <div class="sub-text">Please do not close the tab</div>
+        </div>
+    }
+    @else if (requestStage == 2) {
+        <div class="not-box">
+            <img class="check-icon" [src]="imageNames.check" alt="">
+            <div class="loading-text">Thank you!</div>
+            <div class="sub-text">Your order has been confirmed & it is on the way. Check your email for the details</div>
+            <div class="buttons">
+                <button class="button black-button" (click)="goToHome()">Go To Homepage</button>
+                <button class="button white-button">Check Order Details</button>
             </div>
         </div>
+    }
 
-        <div class="fields-header card-header">Personal Billing Conformation</div>
-        <form class="" [formGroup]="cardForm" (ngSubmit)="submit()">
-            <div class="fields-box card-box">
-                <div class="form-field">
-                    <label class="form-label" for="name">Name On Card*</label>
-                    <input 
-                        id="name"
-                        formControlName="name"
-                        class="field-input"
-                        type="text"
-                    >
-                </div>
-                <div class="form-field">
-                    <label class="form-label" for="cardNumber">Card Number*</label>
-                    <input 
-                        id="cardNumber"
-                        formControlName="cardNumber"
-                        class="field-input"
-                        type="text"
-                    >
-                </div>
-                <div class="split-form-fields">
-                    <div class="form-field">
-                        <label class="form-label" for="validDate">Valid Through*</label>
-                        <input 
-                            id="validDate"
-                            formControlName="validDate"
-                            class="field-input small-input"
-                            type="text"
-                        >
-                    </div>
-                    <div class="form-field">
-                        <label class="form-label" for="CVV">CVV*</label>
-                        <input 
-                            id="CVV"
-                            formControlName="CVV"
-                            class="field-input small-input"
-                            type="text"
-                        >
-                    </div>
-                </div>
-                <div class="default-field">
-                    <div class="checkbox"></div>
-                    <div class="default-text">Save as default payment method</div>
-                </div>
-                <button class="pay-button" type="submit">Pay Now</button>
-            </div>
-        </form>
-    </div>
-</div>
-
-@if (requestStage == 1) {
-    <div class="waiting-box">
-        <img class="loading-icon" [src]="imageNames.loading" alt="">
-        <div class="loading-text">In Progress</div>
-        <div class="sub-text">Please do not close the tab</div>
-    </div>
 }
-@else if (requestStage == 2) {
-    <div class="not-box">
-        <img class="check-icon" [src]="imageNames.check" alt="">
-        <div class="loading-text">Thank you!</div>
-        <div class="sub-text">Your order has been confirmed & it is on the way. Check your email for the details</div>
-        <div class="buttons">
-            <button class="button black-button" (click)="goToHome()">Go To Homepage</button>
-            <button class="button white-button">Check Order Details</button>
-        </div>
-    </div>
-}
-

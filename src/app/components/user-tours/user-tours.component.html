@@ -10,7 +10,7 @@
                     <div class="title">{{ tourEvent.Tour!.route }}</div>
                     <div class="date-field">
                         <img class="calendar-icon" [src]="imageNames.calendarIcon" alt="">
-                        <div class="date-text">{{ tourEvent.data }}</div>
+                        <div class="date-text">{{ tourEvent.date }}</div>
                     </div>
                     <div class="price">$ {{ tourEvent.price }}</div>
                 </div>
@@ -20,7 +20,7 @@
     @else {
         @for (tour of tours; track $index) {
             <div class="card-container">
-                <img class="tour-image" 
+                <img class="tour-image"
                     [src]="tour!.tour_images ? tour!.tour_images[0].image_url : defaultImages.cardImage"
                     alt="">
 

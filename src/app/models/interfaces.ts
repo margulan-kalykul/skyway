@@ -113,7 +113,7 @@ export interface Token {
     token: string;
 }
 
-export interface PaymentIntent {
+export interface CustomPaymentIntent {
     clientSecret: string;
 }
 
