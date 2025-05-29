@@ -7,15 +7,15 @@
 } -->
 
 <div class="search-field">
-  <img class="search-icon" [src]="imageNames.search" alt="">
-  <input class="search-input" type="text" placeholder="Search for your favourite destination">
-  <button class="search-button">Search</button>
+  <img class="search-icon" [src]="imageNames.search" alt="search-icon" i18n-alt>
+  <input class="search-input" type="text" placeholder="Search for your favourite destination" i18n>
+  <button class="search-button" i18n>Search</button>
 </div>
 
 <div class="date-selection">
   <div class="months">
-    <div class="month">April</div>
-    <div class="month">May</div>
+    <div class="month" i18n>April</div>
+    <div class="month" i18n>May</div>
   </div>
   <div class="days">
     @for (day of days; track $index) {
@@ -41,13 +41,13 @@
 </div>
 
 @if (hiddenTours.length > 0) {
-  <div class="see-more" (click)="expandTours()">
+  <div class="see-more" (click)="expandTours()" i18n>
     See More
   </div>
 }
 
 <!-- Almaty Multi Day Tours -->
-<div class="part-header" style="margin-bottom: 35px;">Almaty Multi Day Tours</div>
+<div class="part-header" style="margin-bottom: 35px;" i18n>Almaty Multi Day Tours</div>
 
 <div class="simple-cards-scroll">
   <div class="arrow-section">
@@ -59,7 +59,7 @@
   <div class="list-cards" [style.transform]="'translateX(' + (-currentPart * 280) + 'px)'">
     @for (multiTour of multiTours; track multiTour) {  
       <div class="simple-card">
-        <img class="simple-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+        <img class="simple-card-image" src="assets/images/simple-tour-card-example-1.png" alt="simple-card-image" i18n-alt>
         <div class="simple-card-route">{{ multiTour.route }}</div>
         <div class="simple-card-duration">4 days tour</div>
       </div>

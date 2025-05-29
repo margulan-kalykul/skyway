@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="page-container">
-    <div class="welcome-text">Welcome, {{ username }}</div>
+    <div class="welcome-text" i18n>Welcome, {{ username }}</div>
     <div class="main-box">
-        <div class="header">Favorites</div>
+        <div class="header" i18n>Favorites</div>
         <app-user-tours *ngIf="favTours.length > 0" [tours]="favTours"></app-user-tours>
     </div>
 </div>

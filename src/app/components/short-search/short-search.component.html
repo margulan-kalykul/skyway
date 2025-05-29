@@ -1,25 +1,27 @@
 <div class="search-container">
-    <div class="header">Plan a trip with us</div>
-    <div class="subheader">travel experiences you’ll remember</div>
+    <div class="header" i18n>Plan a trip with us</div>
+    <div class="subheader" i18n>travel experiences you’ll remember</div>
     <div class="search-fields">
         <div class="where">
-            <label class="field-label" for="place-input">Where to?</label>
+            <label class="field-label" for="place-input" i18n>Where to?</label>
             <input 
                 id="place-input"
                 class="field-search" 
                 type="text"
                 placeholder="Search for a place or activity"
                 [(ngModel)]="place"
+                i18n
             >
         </div>
         <div class="when">
-            <label class="field-label" for="date-input">When</label>
+            <label class="field-label" for="date-input" i18n>When</label>
             <input 
                 id="date-input"
                 class="field-search" 
                 type="text"
                 placeholder="Select dates"
                 [(ngModel)]="date"
+                i18n
             >
             <div class="search-submit" (click)="goToSearch()">
                 <img class="search-icon" [src]="imageNames.searchSubmit" alt="Search icon">

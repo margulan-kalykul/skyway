@@ -4,6 +4,27 @@
   "newProjectRoot": "projects",
   "projects": {
     "skyway": {
+      "i18n": {
+        "sourceLocale":"en-US",
+        "locales": {
+          "kz-KZ": {
+            "translation":"src/locale/messages.kz.xlf",
+            "baseHref": "kz-KZ/"
+          },
+          "ar-SA": {
+            "translation":"src/locale/messages.ar.xlf",
+            "baseHref": "ar-SA/"
+          },
+          "zh-CN": {
+            "translation":"src/locale/messages.zh.xlf",
+            "baseHref": "zh-CN/"
+          },
+          "hi-IN": {
+            "translation":"src/locale/messages.hi.xlf",
+            "baseHref": "hi-IN/"
+          }
+        }
+      },
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,11 +34,19 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "localize":
+            [
+              "ar-SA",
+              "zh-CN",
+              "hi-IN",
+              "kz-KZ"
+            ],
             "outputPath": "dist/skyway",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -77,7 +106,8 @@
           "options": {
             "polyfills": [
               "zone.js",
-              "zone.js/testing"
+              "zone.js/testing",
+              "@angular/localize/init"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -95,5 +125,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
