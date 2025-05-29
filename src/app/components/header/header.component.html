@@ -6,10 +6,10 @@
     </div>
     <!-- Pages -->
     <div class="links-to-pages">
-        <div class="link" (click)="goToAboutUs()">About</div>
-        <div class="link" (click)="goToSchedule()">Schedule</div>
-        <div class="link" (click)="goToTrips()">Trips</div>
-        <div class="link" (click)="goToContacts()">Contacts</div>
+        <div class="link" (click)="goToAboutUs()" i18n>About</div>
+        <div class="link" (click)="goToSchedule()" i18n>Schedule</div>
+        <div class="link" (click)="goToTrips()" i18n>Trips</div>
+        <div class="link" (click)="goToContacts()" i18n>Contacts</div>
     </div>
     <!-- Icons -->
     <div class="icon-container">
@@ -29,8 +29,8 @@
         @else {
             <img [matMenuTriggerFor]="menu" class="icon" [src]="imageNames.userProfile" alt="user profile">
             <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="goToSignIn()">Sign In</button>
-                <button mat-menu-item (click)="goToRegister()">Register</button>
+                <button mat-menu-item (click)="goToSignIn()" i18n>Sign In</button>
+                <button mat-menu-item (click)="goToRegister()" i18n>Register</button>
             </mat-menu>
         }
     </div>

@@ -3,31 +3,31 @@
 <div class="page-container">
   <div class="form-container">
     <div class="title-box">
-        <h5 class="title">Travel with us<br></h5>
-        <h6 class="subtitle">Join us today</h6>
+        <h5 class="title" i18n>Travel with us<br></h5>
+        <h6 class="subtitle" i18n>Join us today</h6>
         <!-- <div class="title">Travel with us<br></div>
         <div class="subtitle">Join us today</div> -->
     </div>
 
     <button class="link-button" style="margin-top: 45px;" (click)="goToRegisterByEmail()">
       <img class="button-icon" [src]="imageNames.google" alt="">
-      <div class="button-text">Sign up with Google</div>
+      <div class="button-text" i18n>Sign up with Google</div>
     </button>
 
     <button class="link-button" style="margin-top: 25px;" (click)="goToRegisterByEmail()">
         <img class="button-icon" [src]="imageNames.email" alt="">
-        <div class="button-text">Sign up with email</div>
+        <div class="button-text" i18n>Sign up with email</div>
     </button>
 
-    <div class="agreement-text">
+    <div class="agreement-text" i18n>
         By signing up, you agree to our 
         <a [href]="filePaths.terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> and 
         <a [href]="filePaths.privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
     </div>
 
-    <div class="sub-text">Already have an account?</div>
+    <div class="sub-text" i18n>Already have an account?</div>
     <button class="link-button" (click)="goToSignIn()">
-        <div class="button-text centered-text">Log In</div>
+        <div class="button-text centered-text" i18n>Log In</div>
     </button>
   </div>
 </div>

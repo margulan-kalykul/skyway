@@ -1,6 +1,6 @@
 <form class="form-register" formGroup="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-field">
-      <label class="form-label" for="emailInput">Email</label>
+      <label class="form-label" for="emailInput" i18n>Email</label>
       <input
         id="emailInput"
         class="form-input"
@@ -12,10 +12,11 @@
         <div *ngIf="email?.errors?.['required']">Email is required.</div>
         <div *ngIf="email?.errors?.['email']">Enter a valid email.</div>
       </div> -->
+        i18n
     </div>
   
     <div class="form-field">
-      <label class="form-label" for="passwordInput">Password</label>
+      <label class="form-label" for="passwordInput" i18n>Password</label>
       <input
         id="passwordInput"
         class="form-input"
@@ -33,7 +34,8 @@
       class="button" 
       type="submit" 
       aria-label="Sign in button"
-    >
+      i18n
+      >
       Register
     </button>
   </form>

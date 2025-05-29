@@ -5,7 +5,7 @@
       <h5 class="title">Sign In<br></h5>
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <div class="form-field">
-          <label class="form-label" for="loginInput">Login or email</label>
+          <label class="form-label" for="loginInput" i18n>Login or email</label>
           <input
             id="loginInput"
             formControlName="login"
@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-field">
-          <label class="form-label" for="passwordInput">Password</label>
+          <label class="form-label" for="passwordInput" i18n>Password</label>
           <input
             id="passwordInput"
             formControlName="password"
@@ -28,10 +28,10 @@
         </div>
 
         <button class="link-button" style="margin-top: 45px;" type="submit">
-          <div class="button-text">Sign in</div>
+          <div class="button-text" i18n>Sign in</div>
         </button>
   
-        <div class="agreement-text">
+        <div class="agreement-text" i18n>
           By signing up, you agree to our 
           <a [href]="filePaths.terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> and 
           <a [href]="filePaths.privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>

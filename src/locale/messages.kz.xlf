@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="7152149846668561498" datatype="html">
+        <source>search-icon</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4580988005648117665" datatype="html">
+        <source>Search</source>
+        <target>Іздеу</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1809521303476565743" datatype="html">
+        <source>April</source>
+        <target>Сәуір</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8469692700277617405" datatype="html">
+        <source>May</source>
+        <target>Мамыр</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">18,19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7235351338866057845" datatype="html">
+        <source> See More </source>
+        <target> Толығырақ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">45,46</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="213065766893673766" datatype="html">
+        <source>Almaty Multi Day Tours</source>
+        <target>Алматы Көпкүндік Турлар</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">50,52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3678090931784815690" datatype="html">
+        <source>simple-card-image</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/all-tours/all-tours.component.html</context>
+          <context context-type="linenumber">62</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1726363342938046830" datatype="html">
+        <source>About</source>
+        <target>Біз Туралы</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">9,10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5433782699501161466" datatype="html">
+        <source>Schedule</source>
+        <target>Кесте</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">10,11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1691261770947793611" datatype="html">
+        <source>Trips</source>
+        <target>Сапарлар</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">11,12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5945986349492910662" datatype="html">
+        <source>Contacts</source>
+        <target>Байланыстар</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">12,13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="840692109692540367" datatype="html">
+        <source>Sign In</source>
+        <target>Кіру</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">32,33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3301086086650990787" datatype="html">
+        <source>Register</source>
+        <target>Тіркелу</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/header/header.component.html</context>
+          <context context-type="linenumber">33,34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8300693021360448350" datatype="html">
+        <source>Plan a trip with us</source>
+        <target>Бізбен бірге сапар жоспарлаңыз</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/short-search/short-search.component.html</context>
+          <context context-type="linenumber">2,3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8050523427161204215" datatype="html">
+        <source>travel experiences you'll remember</source>
+        <target>сіз есте сақтайтын саяхат тәжірибесі</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/short-search/short-search.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6410453183950620341" datatype="html">
+        <source>Where to?</source>
+        <target>Қайда?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/short-search/short-search.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3198123723060667787" datatype="html">
+        <source>When</source>
+        <target>Қашан</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/short-search/short-search.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6133879739752057106" datatype="html">
+        <source>Top destinations</source>
+        <target>Үздік бағыттар</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-destinations/top-destinations.component.html</context>
+          <context context-type="linenumber">1,2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2028747142234068875" datatype="html">
+        <source>Recommended for you</source>
+        <target>Сізге ұсынылады</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-destinations/top-destinations.component.html</context>
+          <context context-type="linenumber">2,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7282375931236204313" datatype="html">
+        <source>Tours &amp; trips in almaty</source>
+        <target>Алматыдағы турлар мен саяхаттар</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/top-of-page/top-of-page.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4423253549935469768" datatype="html">
+        <source> Details </source>
+        <target> Толығырақ </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/tour-card/tour-card.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4017166743202633470" datatype="html">
+        <source>Travel with us<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/></source>
+        <target>Бізбен бірге саяхаттаңыз<x id="LINE_BREAK" ctype="lb" equiv-text="&lt;br&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5594695714330375190" datatype="html">
+        <source>Join us today</source>
+        <target> Бүгін бізге қосылыңыз </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">7,8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1517635326922656876" datatype="html">
+        <source>Sign up with Google</source>
+        <target> Google арқылы тіркеліңіз </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">14,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7672814291242769821" datatype="html">
+        <source>Sign up with email</source>
+        <target> Электрондық пошта арқылы тіркеліңіз </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4370373260695530063" datatype="html">
+        <source> By signing up, you agree to our <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [href]=&quot;filePaths.terms&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>Terms of Service<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> and <x id="START_LINK_1" equiv-text="&lt;a [href]=&quot;filePaths.privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>Privacy Policy<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
+        <target> Тіркелу арқылы сіз біздің <x id="START_LINK" ctype="x-a" equiv-text="&lt;a [href]=&quot;filePaths.terms&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>қызмет көрсету шарттарымен<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> және <x id="START_LINK_1" equiv-text="&lt;a [href]=&quot;filePaths.privacy&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;"/>құпиялылық саясатымен<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/>  келісімдерге келісесіз</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">23,28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">35,38</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5277739594710154939" datatype="html">
+        <source>Already have an account?</source>
+        <target> Есептік жазбаңыз бар ма? </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">28,29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8520023152129279437" datatype="html">
+        <source>Log In</source>
+        <target> Кіру </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/authentication/authentication.component.html</context>
+          <context context-type="linenumber">30,31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1688683156203780908" datatype="html">
+        <source>Welcome, <x id="INTERPOLATION" equiv-text="{{ username }}"/></source>
+        <target>Қош келдіңіз, <x id="INTERPOLATION" equiv-text="{{ username }}"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/favorites/favorites.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">4,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4085930761302974863" datatype="html">
+        <source>Favorites</source>
+        <target>Таңдаулылар</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/favorites/favorites.component.html</context>
+          <context context-type="linenumber">5,6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3993763767395285828" datatype="html">
+        <source>How to book a tour?</source>
+        <target>Турға қалай тапсырыс беруге болады?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/main-page/main-page.component.html</context>
+          <context context-type="linenumber">29,30</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7585826646011739428" datatype="html">
+        <source>Edit</source>
+        <target> Өңдеу </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">17,18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3768927257183755959" datatype="html">
+        <source>Save</source>
+        <target> Сақтау </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">20,21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2159130950882492111" datatype="html">
+        <source>Cancel</source>
+        <target> Болдырмау </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">21,22</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4441030743613739576" datatype="html">
+        <source>Upcoming events</source>
+        <target> Алдағы іс-шаралар </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/profile/profile.component.html</context>
+          <context context-type="linenumber">26,28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4768749765465246664" datatype="html">
+        <source>Email</source>
+        <target> Электрондық пошта </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register/register.component.html</context>
+          <context context-type="linenumber">3,4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1431416938026210429" datatype="html">
+        <source>Password</source>
+        <target> Құпия сөз </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register/register.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">19,20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2907733796351584017" datatype="html">
+        <source> Register </source>
+        <target> Тіркелу </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/register/register.component.html</context>
+          <context context-type="linenumber">39,40</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3128502162662343155" datatype="html">
+        <source>Login or email</source>
+        <target> Пайдаланушы аты немесе электрондық пошта </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">8,9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5207635742003539443" datatype="html">
+        <source>Sign in</source>
+        <target> Кіру </target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/pages/sign-in/sign-in.component.html</context>
+          <context context-type="linenumber">31,32</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

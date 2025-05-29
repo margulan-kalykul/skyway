@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <div class="page-container">
-    <div class="welcome-text">Welcome, {{ username }}</div>
+    <div class="welcome-text" i18n>Welcome, {{ username }}</div>
 
     <div class="main-box">
         <div class="profile-field">
@@ -14,16 +14,16 @@
             </div>
 
             @if (shownPage == pages.events) {
-                <button class="profile-button" (click)="editProfile()">Edit</button>
+                <button class="profile-button" (click)="editProfile()" i18n>Edit</button>
             }
             @else if (shownPage == pages.editProfile) {
-                <button style="margin-left: 700px;" class="profile-button" (click)="saveChanges()">Save</button>
-                <button class="profile-button" (click)="returnToProfile()">Cancel</button>
+                <button style="margin-left: 700px;" class="profile-button" (click)="saveChanges()" i18n>Save</button>
+                <button class="profile-button" (click)="returnToProfile()" i18n>Cancel</button>
             }
         </div>
         <!-- Show different pages in the profile -->
         @if (shownPage == pages.events) {
-            <div class="header">Upcoming events</div>
+            <div class="header" i18n>Upcoming events</div>
 
             <app-user-tours [tourEvents]="userTours"></app-user-tours>
         }
