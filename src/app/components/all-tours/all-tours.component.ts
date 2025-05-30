@@ -1,12 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TourCardComponent } from '../tour-card/tour-card.component';
 import { ToursService } from '../../services/tours.service';
-import { Category, Tour, TourEvent } from '../../models/interfaces';
+import { Category, Tour, TourEvent, TourSearchResults } from '../../models/interfaces';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-all-tours',
   standalone: true,
-  imports: [TourCardComponent],
+  imports: [CommonModule, TourCardComponent, FormsModule],
   templateUrl: './all-tours.component.html',
   styleUrl: './all-tours.component.css'
 })
@@ -31,6 +33,10 @@ export class AllToursComponent implements OnInit {
   selectedCategory = 0;
   defaultImageUrl = 'assets/images/simple-tour-card-example-1.png';
 
+  searchQuery = '';
+  searchResults: TourSearchResults[] = [];
+  showDropdown = false;
+
   constructor(private toursService: ToursService) {
   }
 
@@ -38,6 +44,26 @@ export class AllToursComponent implements OnInit {
     this.showTours();
     this.toursService.getCategories().subscribe((categories) => {
       this.categories = categories.Categories;
+    });
+  }
+
+ fetchSearchResults(query: string): void {
+    if (!query.trim()) {
+      this.searchResults = [];
+      this.showDropdown = false;
+      return;
+    }
+
+    this.toursService.searchTours(query).subscribe({
+      next: (response) => {
+        this.searchResults = response.Results;
+        this.showDropdown = this.searchResults.length > 0;
+      },
+      error: (err) => {
+        console.error('Search error:', err);
+        this.searchResults = [];
+        this.showDropdown = false;
+      }
     });
   }
 
@@ -121,7 +147,11 @@ export class AllToursComponent implements OnInit {
   isCategorySelected(categoryId: string): boolean {
     return this.selectedCategories.includes(categoryId);
   }
-
+  clearSearch() {
+    this.searchQuery = '';
+    this.searchResults = [];
+    this.showDropdown = false;
+  }
   
 
 }

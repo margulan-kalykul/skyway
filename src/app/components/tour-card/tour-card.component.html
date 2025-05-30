@@ -1,21 +1,25 @@
-<div class="card-container">
-  <div class="top-part">
-    <img class="tour-image" [src]="imageNames.cardImage" alt="">
-    <img class="fav-button" [src]="favButton" alt="" (click)="favoritesClicked()">
+<div class="card-container" (click)="seeDetails()">
+  <div class="poster-image">
+    <img [src]="imageNames.cardImage" alt="Tour poster">
+    <!-- <img class="fav-button" [src]="favButton" alt="Favorite" (click)="$event.stopPropagation(); favoritesClicked()"> -->
   </div>
   
-  <div class="main-field">
-    <div class="title">
-      {{ tourEvent.Tour!.route }}
+  <div class="poster-content">
+    <h3 class="tour-title">{{ tourEvent.Tour?.route }}</h3>
+    
+    <div class="info-row">
+      <img src="assets/images/calendar-icon.svg" alt="Date" class="icon">
+      <span>{{ formattedDate }}</span>
     </div>
-    <div class="price">${{ tourEvent.price }}</div>
-  </div>
-
-  <div class="desc">
-    {{ ellipsedDesc }}
-  </div>
-
-  <div class="details" (click)="seeDetails()" i18n>
-    Details
+    
+    <div class="info-row">
+      <img src="assets/images/location-icon.svg" alt="Location" class="icon">
+      <span>{{ tourEvent.place }}</span>
+    </div>
+    
+    <div class="info-row">
+      <img src="assets/images/price-icon.svg" alt="Price" class="icon">
+      <span>${{ tourEvent.price }}</span>
+    </div>
   </div>
 </div>

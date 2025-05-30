@@ -6,11 +6,43 @@
   }
 } -->
 
-<div class="search-field">
-  <img class="search-icon" [src]="imageNames.search" alt="search-icon" i18n-alt>
-  <input class="search-input" type="text" placeholder="Search for your favourite destination" i18n>
-  <button class="search-button" i18n>Search</button>
+<div class="search-container">
+  <input
+    class="search-input"
+    type="text"
+    [(ngModel)]="searchQuery"
+    (input)="fetchSearchResults(searchQuery)"
+    placeholder="Search for your favourite destination"
+    i18n
+  />
+
+  <img
+    *ngIf="searchQuery"
+    class="clear-icon"
+    src="assets/images/clear.svg"
+    alt="Clear"
+    (click)="clearSearch()"
+  />
+
+  <img
+    class="search-icon"
+    src="assets/images/search.svg"
+    alt="Search"
+    i18n-alt
+  />
+
+  <ul class="search-dropdown" *ngIf="showDropdown">
+    <li *ngFor="let tour of searchResults">
+      <div class="search-item-name">{{ tour.name }}</div>
+      <div class="search-item-description">{{ tour.description }}</div>
+      <div class="search-item-categories" *ngIf="tour.categories?.length">
+        {{ tour.categories?.join(', ') }}
+      </div>
+    </li>
+  </ul>
 </div>
+
+
 
 <div class="date-selection">
   <div class="months">

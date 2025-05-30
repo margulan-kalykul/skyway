@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category, LikeTourDTO, CustomPaymentIntent, Tour, TourEvent, UserData, WeatherInfo } from '../models/interfaces';
+import { Category, LikeTourDTO, CustomPaymentIntent, Tour, TourEvent, UserData, WeatherInfo, TourSearchResults } from '../models/interfaces';
 import { AuthService } from './auth.service';
 import { HttpParams } from '@angular/common/http';
 
@@ -83,4 +83,17 @@ export class ToursService {
     return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { params });
     }
 
+
+    searchTours(query: string): Observable<{ Results: TourSearchResults[] }> {
+    const url = `http://localhost:8000/v1/recommendations/search/${encodeURIComponent(query)}`;
+    const params = {
+        page: 1,
+        size: 5
+    };
+
+    return this.http.get<{ Results: TourSearchResults[] }>(url, {
+        ...this.httpOptions(),
+        params,
+    });
+    }
 }
