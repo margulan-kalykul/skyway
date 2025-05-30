@@ -1,3 +1,11 @@
+export interface TourSearchResults {
+    id: string;
+    description: string;
+    name: string;
+    categories: string[] | null;
+}
+
+
 export interface Tour {
     ID: string;
     description: string;

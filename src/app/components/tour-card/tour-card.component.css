@@ -1,99 +1,69 @@
 .card-container {
-  width: 312px; 
-  height: 345px; 
+  width: 250px;
+  height: 400px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  background: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container:hover {
+  transform: scale(1.03);
+}
+
+.poster-image {
+  width: 100%;
+  height: 60%;
   position: relative;
 }
 
-.top-part {
-  position: relative;
-}
-
-.tour-image {
-  width: 312px; 
-  height: 186px; 
-  position: absolute;
+.poster-image img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .fav-button {
-  width: 40px; 
-  height: 40px; 
-  position: absolute; 
-  right: 10px; 
+  position: absolute;
   top: 10px;
-}
-.fav-button:hover {
+  right: 10px;
+  width: 24px;
+  height: 24px;
   cursor: pointer;
+  z-index: 10;
 }
 
-.main-field {
-  width: 100%; 
-  height: 40px; 
-  position: relative; 
-  top: 186px; 
-  display: flex; 
-  justify-content: space-between; 
+.poster-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tour-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info-row {
+  display: flex;
   align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  color: #555;
 }
 
-.title {
-  height: 100%;
-  max-height: 100%;
-  width: 50%; 
-  padding-left: 15px; 
-  overflow: hidden; 
-  /* Ellipsis is done in the script */
-  /* display: block;
-  white-space: nowrap; */
-  text-overflow: ellipsis; 
-  color: black; 
-  font-size: 15px; 
-  font-family: Poppins; 
-  font-weight: 600; 
-  text-transform: capitalize; 
-  line-height: 20px;
-}
-
-.price {
-  width: 156px; 
-  text-align: end; 
-  padding-right: 15px;
-}
-
-.desc {
-  position: relative; 
-  width: 100%; 
-  height: 72px; 
-  top: 190px; 
-  overflow: hidden; 
-  text-overflow: ellipsis; 
-  /* Ellipsis is done in the script */
-  color: black; 
-  font-size: 15px; 
-  font-family: Poppins; 
-  font-weight: 400; 
-  text-transform: capitalize; 
-  line-height: 24px;
-}
-
-.details {
-  margin: auto; 
-  position: relative; 
-  width: 55px; 
-  height: 24px; 
-  top: 60%; 
-  background-color: black; 
-  color: white; 
-  text-align: center; 
-  line-height: 22.5px; 
-  padding-left: 32px; 
-  padding-right: 32px; 
-  border-radius: 10px; 
-  font-size: 16px; 
-  font-family: Poppins; 
-  font-weight: 400; 
-  text-transform: capitalize;
-}
-.details:hover {
-  cursor: pointer;
+.icon {
+  width: 18px;
+  height: 18px;
 }

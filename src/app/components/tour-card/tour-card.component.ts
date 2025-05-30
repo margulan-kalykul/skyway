@@ -36,6 +36,7 @@ export class TourCardComponent implements OnInit {
   @Input() favTourIds!: string[];
   ellipsedDesc: string = '';
   favButton = this.imageNames.favorite;
+  formattedDate = '';
 
   constructor(private router: Router, private toursService: ToursService) {
     if (this.userId != null && this.tourEvent.tour_id in this.favTourIds) {
@@ -47,7 +48,6 @@ ngOnInit(): void {
   const tourImages = this.tourEvent.Tour?.tour_images;
 
   if (tourImages && tourImages.length > 0 && tourImages[0].image_url) {
-    // Add full backend base URL if image_url is relative
     const imageUrl = tourImages[0].image_url;
     this.imageNames.cardImage = imageUrl.startsWith('http')
       ? imageUrl
@@ -56,8 +56,17 @@ ngOnInit(): void {
     this.imageNames.cardImage = this.defaultImages.cardImage;
   }
 
-  // Default description
-  this.ellipsedDesc = this.tourEvent.Tour?.description || '';
+  if (this.tourEvent.date) {
+    const date = new Date(this.tourEvent.date);
+    const options: Intl.DateTimeFormatOptions = { 
+      weekday: 'short', 
+      day: 'numeric', 
+      month: 'short', 
+      hour: '2-digit', 
+      minute: '2-digit' 
+    };
+    this.formattedDate = date.toLocaleDateString('en-US', options);
+  }
 }
 
   favoritesClicked(): void {
