@@ -12,6 +12,7 @@
   width: 312px; 
   height: 186px; 
   position: absolute;
+  object-fit: cover;
 }
 
 .fav-button {

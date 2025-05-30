@@ -24,7 +24,8 @@ export class AboutAndPurchaseComponent {
     price: 0,
     purchases: [],
     Tour: null,
-    tour_id: ''
+    tour_id: '',
+    tour_image_url: ''
   };
   @Input() userData: UserData | null = null;
   userId: string | null = null;

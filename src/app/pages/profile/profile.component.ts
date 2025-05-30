@@ -39,7 +39,8 @@ export class ProfileComponent implements OnInit {
         price: 0,
         purchases: [],
         Tour: null,
-        tour_id: ''
+        tour_id: '',
+        tour_image_url: ''
     };
     // defaultTour: Tour = {
     //     ID: '',

@@ -27,8 +27,12 @@
   </div>
   <div class="categories">
     @for (category of categories; track $index) {
-      <div [class.category]="true" [class.selected-category]="$index == selectedCategory" [class.non-selected]="$index != selectedCategory">
-        {{ categories[$index].name }}
+      <div 
+        [class.category]="true" 
+        [class.selected-category]="isCategorySelected(category.ID)" 
+        [class.non-selected]="!isCategorySelected(category.ID)"
+        (click)="toggleCategorySelection(category.ID)">
+        {{ category.name }}
       </div>
     }
   </div>

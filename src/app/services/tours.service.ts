@@ -4,6 +4,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Category, LikeTourDTO, CustomPaymentIntent, Tour, TourEvent, UserData, WeatherInfo } from '../models/interfaces';
 import { AuthService } from './auth.service';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
       providedIn: 'root'
@@ -71,4 +72,15 @@ export class ToursService {
     getWeather(tourEventId: string, specialOptions: {} = {}): Observable<WeatherInfo> {
         return this.http.get<WeatherInfo>(`${this.BASE_URL}/tour-events/${tourEventId}/weather/`, this.httpOptions(specialOptions));
     }
+    getTourEventsByCategories(categoryIds: string[]): Observable<TourEvent[]> {
+    // Convert array of category IDs to query parameters
+    const params = new HttpParams({
+        fromObject: {
+        'category_ids': categoryIds
+        }
+    });
+    
+    return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { params });
+    }
+
 }
