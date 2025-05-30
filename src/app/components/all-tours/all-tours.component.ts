@@ -27,7 +27,9 @@ export class AllToursComponent implements OnInit {
   weekday = ['S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S', 'S', 'M', 'T', 'W', 'T', 'F', 'S'];
   blackDay = 3;
   categories: Category[] = [];
+  selectedCategories: string[] = [];
   selectedCategory = 0;
+  defaultImageUrl = 'assets/images/simple-tour-card-example-1.png';
 
   constructor(private toursService: ToursService) {
   }
@@ -81,26 +83,45 @@ export class AllToursComponent implements OnInit {
   }
 
   showTours(): void {
-    this.toursService.getAllTourEvents().subscribe((tourEvents) => {
-      this.tourEvents = tourEvents;
-      if (this.tourEvents.length > this.maxSeenTours) {
-        this.hiddenTours = this.tourEvents.slice(this.maxSeenTours);
-        this.tourEvents = this.tourEvents.slice(0, this.maxSeenTours);
-      }
-    });
-    // this.tourEvents = pseudoEvents();
-    // this.multiTours = pseudoTours();
-    this.multiTours = [
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-    ];
+    if (this.selectedCategories.length === 0) {
+      this.toursService.getAllTourEvents().subscribe((tourEvents) => {
+        this.processTourEvents(tourEvents);
+      });
+    } else {
+      this.toursService.getTourEventsByCategories(this.selectedCategories).subscribe((tourEvents) => {
+        this.processTourEvents(tourEvents);
+      });
+    }
+  }  
+
+  private processTourEvents(tourEvents: TourEvent[]): void {
+    this.tourEvents = tourEvents;
+    if (this.tourEvents.length > this.maxSeenTours) {
+      this.hiddenTours = this.tourEvents.slice(this.maxSeenTours);
+      this.tourEvents = this.tourEvents.slice(0, this.maxSeenTours);
+    } else {
+      this.hiddenTours = [];
+    }
   }
+
+  toggleCategorySelection(categoryId: string): void {
+    const index = this.selectedCategories.indexOf(categoryId);
+    
+    if (index === -1) {
+      // Add to selection if not already selected
+      this.selectedCategories.push(categoryId);
+    } else {
+      // Remove from selection if already selected
+      this.selectedCategories.splice(index, 1);
+    }
+    
+    // Refresh tours with new filter
+    this.showTours();
+  }
+  isCategorySelected(categoryId: string): boolean {
+    return this.selectedCategories.includes(categoryId);
+  }
+
+  
+
 }

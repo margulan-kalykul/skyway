@@ -29,7 +29,8 @@ export class TourCardComponent implements OnInit {
     price: 0,
     purchases: [],
     Tour: null,
-    tour_id: ''
+    tour_id: '',
+    tour_image_url: ''
   };
   @Input() userId!: number | null;
   @Input() favTourIds!: string[];
@@ -42,11 +43,22 @@ export class TourCardComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    this.imageNames.cardImage = this.tourEvent.Tour!.tour_images ? this.tourEvent.Tour!.tour_images[0].image_url : this.defaultImages.cardImage;
-    // Default value
-    this.ellipsedDesc = this.tourEvent.Tour!.description;
+ngOnInit(): void {
+  const tourImages = this.tourEvent.Tour?.tour_images;
+
+  if (tourImages && tourImages.length > 0 && tourImages[0].image_url) {
+    // Add full backend base URL if image_url is relative
+    const imageUrl = tourImages[0].image_url;
+    this.imageNames.cardImage = imageUrl.startsWith('http')
+      ? imageUrl
+      : `http://localhost:8000${imageUrl.replace('./', '/')}`;
+  } else {
+    this.imageNames.cardImage = this.defaultImages.cardImage;
   }
+
+  // Default description
+  this.ellipsedDesc = this.tourEvent.Tour?.description || '';
+}
 
   favoritesClicked(): void {
     if (this.userId != null) {

@@ -2,7 +2,7 @@
 
 <div class="page-container">
   <div class="detail">
-    <app-main-details [tourEventId]="tourEventId"></app-main-details>
+    <app-main-details [tourEventId]="tourEventId || ''"></app-main-details>
     <div style="margin-top: 70px;">
       <app-about-and-purchase [tourEvent]="tourEvent" [userData]="userData"></app-about-and-purchase>
     </div>

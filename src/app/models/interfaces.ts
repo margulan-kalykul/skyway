@@ -25,6 +25,7 @@ export interface TourEvent {
     purchases: Purchase[];
     Tour: Tour | null;
     tour_id: string;
+    tour_image_url: string;
 }
 
 export interface TourCategory {

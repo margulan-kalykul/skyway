@@ -28,7 +28,8 @@ export class TourDetailsComponent implements OnInit {
         price: 0,
         purchases: [],
         Tour: null,
-        tour_id: ''
+        tour_id: '',
+        tour_image_url: '',
     };
     userData: UserData | null = null;
     tourEventId: string | null = null;
