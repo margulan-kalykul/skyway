@@ -101,6 +101,9 @@ export class ToursService {
         return this.http.get<TourEvent[]>(`${this.BASE_URL}/${tourId}/tour-events/`, this.httpOptions(specialOptions));
     }
 
+    payTourEventByID(tourEventID: string, specialOptions: {} = {}): void{
+        this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions) ).subscribe();
+    }
     
     
 }

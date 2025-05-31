@@ -80,6 +80,7 @@ export class PurchaseComponent implements OnInit {
     };
     stripe!: StripeServiceInterface;
     paying = signal(false);
+    paymentSuccess = signal(false);
 
     constructor(
         private fb: FormBuilder,
@@ -202,7 +203,7 @@ export class PurchaseComponent implements OnInit {
                     // },
                     return_url: 'http://localhost:4200/home',  // TODO: redirect to purchased tours
                 },
-                // redirect: 'if_required'  // Makes it so no redirect happen (I think)
+                redirect: 'if_required'  // Makes it so no redirect happen (I think)
             })
             .subscribe(result => {
                 this.paying.set(false);
@@ -211,8 +212,14 @@ export class PurchaseComponent implements OnInit {
                     // Show error to your customer (e.g., insufficient funds)
                     console.error(result.error);
                     alert({ success: false, error: result.error.message });
+                }else{
+                    this.paymentSuccess.set(true);
+                    setTimeout(() => {
+                    this.router.navigate(['/home']);
+                    }, 3000);   
                 }
             });
+        this.toursService.payTourEventByID(this.tourEventId);
     }
 
   submit() {
