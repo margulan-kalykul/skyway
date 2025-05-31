@@ -31,7 +31,7 @@
     border-top-left-radius: 10px;
     background-color: black;
     color: white;
-    font-size: 20px;
+    font-size: 25px;
     font-family: Poppins;
     font-weight: 500;
     margin-top: 110px;
@@ -97,10 +97,38 @@
 }
 
 .card-box {
-    width: 605px;
-    height: 488px;
+    position: relative; /* Add this if not already present */
+    padding-bottom: 30px; /* Add some padding at the bottom */
 }
 
+.full-width-pay-button {
+    width: 100%;
+    height: 60px;
+    background-color: #1976d2;
+    color: white;
+    font-size: 20px;
+    font-family: Poppins;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s ease;
+}
+.full-width-pay-button.primary-state {
+    background-color: #1976d2 !important;
+    color: white !important;
+}
+
+.full-width-pay-button.success-state {
+    background-color: #4CAF50 !important;
+    color: white !important;
+}
+
+
+.card-box .mat-raised-button {
+    position: absolute;
+    right: 45px;
+    bottom: 30px;
+}
 .form-field {
     margin-top: 25px;
 }
@@ -252,3 +280,4 @@
     background-color: white;
     color: black;
 }
+
