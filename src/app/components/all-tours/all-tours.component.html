@@ -31,15 +31,15 @@
     i18n-alt
   />
 
-  <ul class="search-dropdown" *ngIf="showDropdown">
-    <li *ngFor="let tour of searchResults">
-      <div class="search-item-name">{{ tour.name }}</div>
-      <div class="search-item-description">{{ tour.description }}</div>
-      <div class="search-item-categories" *ngIf="tour.categories?.length">
-        {{ tour.categories?.join(', ') }}
-      </div>
-    </li>
-  </ul>
+ <ul class="search-dropdown" *ngIf="showDropdown">
+  <li *ngFor="let tour of searchResults" (click)="onTourSelect(tour.id)">
+    <div class="search-item-name">{{ tour.name }}</div>
+    <div class="search-item-description">{{ tour.description }}</div>
+    <div class="search-item-categories" *ngIf="tour.categories?.length">
+      {{ tour.categories?.join(', ') }}
+    </div>
+  </li>
+</ul>
 </div>
 
 

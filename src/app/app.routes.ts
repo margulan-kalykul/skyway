@@ -7,7 +7,7 @@ import { AuthenticationComponent } from './pages/authentication/authentication.c
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
-
+import { TourScheduleComponent } from './pages/tour-schedule/tour-schedule.component';
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
     { path: 'auth', component: AuthenticationComponent },
@@ -18,5 +18,7 @@ export const routes: Routes = [
     { path: 'tours/:tourId', component: TourDetailsComponent },
     { path: 'purchase/:userId/:tourId', component: PurchaseComponent},
     { path: 'favorites/:userId', component: FavoritesComponent},
+    { path: 'tours/:id/schedule', component: TourScheduleComponent },
+
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

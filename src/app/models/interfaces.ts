@@ -19,7 +19,7 @@ export interface Tour {
     tour_location: object | null;
     tour_panoramas: Panorama[] | null;
     tour_user_favorites: UserFavorites[] | null;
-    tour_videos: object[] | null;
+    tour_videos: Video[] | null;
 }
 
 export interface TourEvent {
@@ -69,6 +69,13 @@ export interface LikeTourDTO {
 export interface Panorama {
     ID: string;
     panorama_url: string;
+    tour: object | null;
+    tour_id: string;
+}
+
+export interface Video {
+    ID: string;
+    video_url: string;
     tour: object | null;
     tour_id: string;
 }

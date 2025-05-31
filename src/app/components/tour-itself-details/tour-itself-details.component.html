@@ -1,0 +1,73 @@
+<div class="tour-container">
+    <div class="tour-type-text">Day Trip</div>
+        <div class="title-field">
+            <div class="tour-title">{{tour?.name}}</div>
+            <div class="icons">
+                <div class="icon">
+                    <img class="icon-image" [src]="imageNames.favorite" alt="">
+                </div>
+                <div class="icon">
+                    <img class="icon-image" [src]="imageNames.share" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="rate-field">
+            <div class="top-rated">Top Rated</div>
+            <div class="stars">
+                @for (i of [1, 2, 3, 4, 5]; track $index) {
+                    <div class="star">
+                        <img [src]="imageNames.star" alt="">
+                    </div>
+                }
+                <div class="rating">{{ 4.9 }}</div>
+            </div>
+        </div>
+
+    <div class="tour-content">
+        <div class="visuals">
+            <img class="tour-image" [src]="imageNames.tourImage" alt="">
+        </div>
+
+        <div class="description">
+            {{tour?.description}}
+        </div>
+
+        @if (isLoading) {
+            <div class="loading">Loading tour events...</div>
+        } @else if (error) {
+            <div class="error">{{ error }}</div>
+        } @else {
+            <div class="tour-events-section">
+                <h3>Available Dates</h3>
+                <div class="tour-events-table">
+        <div class="table-header">
+            <div class="header-cell date">Date</div>
+            <div class="header-cell place">Place</div>
+            <div class="header-cell price">Price</div>
+            <div class="header-cell amount">Places Left</div>
+        </div>
+
+        <div class="table-body">
+    @for (event of tourEvents; track event.ID) {
+        <a class="table-row" [routerLink]="['/tours', event.ID]">
+        <div class="table-cell date-cell">
+            <span class="day">{{formatDate(event.date).day}}</span>
+            <div class="month-time">
+            <span class="month">{{formatDate(event.date).month}}</span>
+            <span class="time">{{formatDate(event.date).time}}</span>
+            </div>
+        </div>
+        <div class="table-cell place-cell">{{event.place}}</div>
+        <div class="table-cell price-cell">${{event.price.toFixed(2)}}</div>
+        <div class="table-cell amount-cell">{{event.amount}}</div>
+        </a>
+    }
+    </div>
+    
+    
+        </div>
+        </div>
+    }
+    </div>
+</div>

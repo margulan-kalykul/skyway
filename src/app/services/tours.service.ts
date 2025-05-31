@@ -85,15 +85,22 @@ export class ToursService {
 
 
     searchTours(query: string): Observable<{ Results: TourSearchResults[] }> {
-    const url = `http://localhost:8000/v1/recommendations/search/${encodeURIComponent(query)}`;
-    const params = {
-        page: 1,
-        size: 5
-    };
+        const url = `http://localhost:8000/v1/recommendations/search/${encodeURIComponent(query)}`;
+        const params = {
+            page: 1,
+            size: 5
+        };
 
-    return this.http.get<{ Results: TourSearchResults[] }>(url, {
-        ...this.httpOptions(),
-        params,
-    });
+        return this.http.get<{ Results: TourSearchResults[] }>(url, {
+            ...this.httpOptions(),
+            params,
+        });
     }
+
+    getTourEventsByTourId(tourId: string, specialOptions: {} = {}): Observable<TourEvent[]> {
+        return this.http.get<TourEvent[]>(`${this.BASE_URL}/${tourId}/tour-events/`, this.httpOptions(specialOptions));
+    }
+
+    
+    
 }
