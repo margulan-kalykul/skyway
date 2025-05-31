@@ -4,7 +4,7 @@ import { ToursService } from '../../services/tours.service';
 import { Category, Tour, TourEvent, TourSearchResults } from '../../models/interfaces';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-all-tours',
   standalone: true,
@@ -37,7 +37,7 @@ export class AllToursComponent implements OnInit {
   searchResults: TourSearchResults[] = [];
   showDropdown = false;
 
-  constructor(private toursService: ToursService) {
+  constructor(private toursService: ToursService, private router: Router ) {
   }
 
   ngOnInit(): void {
@@ -65,6 +65,10 @@ export class AllToursComponent implements OnInit {
         this.showDropdown = false;
       }
     });
+  }
+    onTourSelect(tourId: string): void {
+    this.router.navigate(['/tours', tourId, 'schedule']);
+    this.clearSearch();
   }
 
   expandTours(): void {

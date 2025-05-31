@@ -84,10 +84,15 @@
 }
 
 .tour-image {
-    display: block;
+  display: block;
     margin-top: 15px;
-    width: 700px;
-    height: 447px;
+    width: 350px;       /* Reduced width for vertical layout */
+    height: 500px;      /* Increased height for portrait orientation */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border: 8px solid #fff;
+    object-fit: cover;  /* Ensures the image fills the container without stretching */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .weather-panoramas {
