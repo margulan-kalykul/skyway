@@ -3,16 +3,20 @@
         @for (tourEvent of tourEvents; track $index) {
             <div class="card-container">
                 <img class="tour-image"
-                    [ngSrc]="tourEvent.Tour!.tour_images ? tourEvent.Tour!.tour_images[0].image_url : defaultImages.cardImage"
-                    alt="" fill>
+                    [src]="getTourImageUrl(tourEvent)"
+                    width="95"
+                    height="95"
+                    alt="Tour image">
 
                 <div class="main-part">
-                    <div class="title">{{ tourEvent.Tour!.route }}</div>
+<div class="title">{{ tourEvent.TourEvent.Tour?.name || 'Unknown tour' }}</div>
                     <div class="date-field">
                         <img class="calendar-icon" [src]="imageNames.calendarIcon" alt="">
-                        <div class="date-text">{{ tourEvent.date }}</div>
+                        <div class="date-text">
+                        {{ formatDate(tourEvent.TourEvent.date) || ' ' }}
+                        </div>                    
                     </div>
-                    <div class="price">$ {{ tourEvent.price }}</div>
+                    <div class="price">$ {{ tourEvent.TourEvent.price || '0' }}</div>
                 </div>
             </div>
         }
@@ -21,14 +25,13 @@
         @for (tour of tours; track $index) {
             <div class="card-container">
                 <img class="tour-image"
-                    [src]="tour!.tour_images ? tour!.tour_images[0].image_url : defaultImages.cardImage"
-                    alt="">
+                    [src]="getTourImage(tour)"
+                    alt="Tour image">
 
                 <div class="main-part">
-                    <div class="title">{{ tour!.route }}</div>
+                    <div class="title">{{ tour?.route || 'Unknown route' }}</div>
                 </div>
             </div>
         }
     }
-
 </div>
