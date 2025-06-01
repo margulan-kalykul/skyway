@@ -1,41 +1,63 @@
-<form class="form-register" formGroup="registerForm" (ngSubmit)="onSubmit()">
-    <div class="form-field">
-      <label class="form-label" for="emailInput" i18n>Email</label>
-      <input
-        id="emailInput"
-        class="form-input"
-        type="email"
-        aria-label="Email input field"
-        placeholder="Enter your email"
-      /> <!-- [attr.aria-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" -->
-      <!-- <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="error">
-        <div *ngIf="email?.errors?.['required']">Email is required.</div>
-        <div *ngIf="email?.errors?.['email']">Enter a valid email.</div>
-      </div> -->
-        i18n
+<app-header></app-header>
+
+<div class="page-container">
+    <div class="form-container">
+        <h5 class="title">Create an account<br></h5>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-field">
+                <label class="form-label" for="loginInput">First name</label>
+                <input
+                    id="loginInput"
+                    formControlName="login"
+                    class="form-input"
+                    type="text"
+                    aria-label="First name input field"
+                    placeholder="Enter your first name">
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="lastName">Last Name</label>
+                <input
+                    id="lastName"
+                    formControlName="lastName"
+                    class="form-input"
+                    type="text"
+                    aria-label="Last Name"
+                    placeholder="Enter your last name">
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="emailInput">Email</label>
+                <input
+                    id="emailInput"
+                    formControlName="email"
+                    class="form-input"
+                    type="text"
+                    aria-label="Email input field"
+                    placeholder="Enter your email">
+            </div>
+
+            <div class="form-field">
+                <label class="form-label" for="passwordInput">Password</label>
+                <input
+                    id="passwordInput"
+                    formControlName="password"
+                    class="form-input"
+                    type="password"
+                    aria-label="Password input field"
+                    placeholder="Enter your password"
+                >
+            </div>
+
+            <button class="link-button" style="margin-top: 45px;" type="submit">
+                <div class="button-text">Sign up</div>
+            </button>
+
+            <div class="agreement-text">
+                By signing up, you agree to our
+                <a [href]="filePaths.terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> and
+                <a [href]="filePaths.privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+            </div>
+        </form>
     </div>
-  
-    <div class="form-field">
-      <label class="form-label" for="passwordInput" i18n>Password</label>
-      <input
-        id="passwordInput"
-        class="form-input"
-        type="password"
-        aria-label="Password input field"
-        placeholder="Enter your password"
-      /> <!-- [attr.aria-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" -->
-      <!-- <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="error">
-        <div *ngIf="password?.errors?.['required']">Password is required.</div>
-        <div *ngIf="password?.errors?.['minlength']">Password must be at least 6 characters long.</div>
-      </div> -->
-    </div>
-  
-    <button 
-      class="button" 
-      type="submit" 
-      aria-label="Sign in button"
-      i18n
-      >
-      Register
-    </button>
-  </form>
+</div>

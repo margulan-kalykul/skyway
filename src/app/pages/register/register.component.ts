@@ -1,35 +1,66 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {HeaderComponent} from "../../components/header/header.component";
+import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
+import {RegisterForm, UserCredentials} from '../../models/interfaces';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule],
+    imports: [CommonModule, HeaderComponent, ReactiveFormsModule],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
+    filePaths = {
+        terms: "https://docs.google.com/document/d/1MomfzGKo3FumSV9ACjVe-Dm6o2RUhs_RLBBsVeojPIA/edit?usp=sharing",
+        privacy: "https://docs.google.com/document/d/1boK_WokBCDM2i4Lz-7gj1m12PUTQ5juAtVhck05PpNw/edit?usp=sharing",
+    };
+    registerForm: FormGroup;
+    loading = false;
 
-  constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]],
-    });
-  }
-
-  get email() {
-    return this.registerForm.get("email");
-  }
-
-  get password() {
-    return this.registerForm.get("password");
-  }
-
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log("Form Submitted!", this.registerForm.value);
+    constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+        this.registerForm = this.fb.group({
+            login: ['',
+                // [Validators.required, Validators.email]
+            ],
+            lastName: ['', ],
+            email: ['', ],
+            password: ['',
+                // [Validators.required, Validators.minLength(6)]
+            ]
+        });
     }
-  }
+
+    onSubmit() {
+        let credentials: RegisterForm = {
+            email: this.registerForm.value.email,
+            password: this.registerForm.value.password,
+            role: "user",
+            username: this.registerForm.value.login,
+        }
+        this.register(credentials);
+    }
+
+    register(credentials: RegisterForm): void {
+        // TODO: this wasn't tested
+        this.loading = true;
+        console.log(credentials);
+        this.authService.register(credentials).subscribe({
+            next: response => {
+                console.log(response);
+                setTimeout(() => {
+                    this.router.navigate(['sign-in', ]);
+                }, 500);
+            },
+            error: (err) => {
+                console.error('Register error: ', err);
+            },
+            complete: () => {
+                this.loading = false;
+            }
+        });
+    }
 }

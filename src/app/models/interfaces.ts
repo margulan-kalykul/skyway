@@ -137,6 +137,31 @@ export interface IStripeSession {
     id: string;
 }
 
+export interface Message {
+    ChatID: string;
+    ID: string;
+    UserID: string;
+    chat: any | null;
+    text: string;
+    user: any | null;
+}
+
+export interface Chat {
+    ChatMessages: Message[] | null;
+    ID: string;
+    description: string;
+    name: string;
+    owner: any | null;
+    owner_id: string;
+}
+
+export interface RegisterForm {
+    email: string,
+    role: string,
+    username: string,
+    password: string,
+}
+
 // TODO: implement all interfaces and use them instead
 // export class TourClass implements Tour {
 //     ID: string = '';

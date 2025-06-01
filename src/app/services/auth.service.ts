@@ -1,11 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Token, UserCredentials, UserData } from '../models/interfaces';
+import {RegisterForm, Token, UserCredentials, UserData} from '../models/interfaces';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
 
@@ -31,6 +31,10 @@ export class AuthService {
         //         throw error;  // TODO: handle errors
         //     }
         // })
+    }
+
+    register(credentials: RegisterForm): Observable<any> {
+        return this.http.post(`${this.BASE_URL}/`, credentials, this.httpOptions);
     }
 
     isLoggedIn(): boolean {
