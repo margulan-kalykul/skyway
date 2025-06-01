@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Category, LikeTourDTO, CustomPaymentIntent, Tour, TourEvent, UserData, WeatherInfo, TourSearchResults } from '../models/interfaces';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {LikeTourDTO,  Tour, TourEvent, UserData, WeatherInfo, TourSearchResults } from '../models/interfaces';
 import { AuthService } from './auth.service';
 import { HttpParams } from '@angular/common/http';
 
@@ -36,6 +35,11 @@ export class ToursService {
             };
         }
         return options;
+    }
+
+    getFilePath(localPath: string): string {
+        let relative_path = localPath.substring(localPath.indexOf("uploads"));
+        return `${this.BASE_URL}/${relative_path}`;
     }
 
     getAllTours(specialOptions: {} = {}): Observable<Tour[]> {
@@ -79,7 +83,7 @@ export class ToursService {
         'category_ids': categoryIds
         }
     });
-    
+
     return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { params });
     }
 
@@ -104,6 +108,31 @@ export class ToursService {
     payTourEventByID(tourEventID: string, specialOptions: {} = {}): void{
         this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions) ).subscribe();
     }
-    
-    
+
+
+
+    getAvatar(specialOptions: {} = {}): Observable<any> {
+        return this.http.get<any>(`${this.BASE_URL}/users/avatar/`, this.httpOptions(specialOptions));
+    }
+
+    uploadAvatar(formData: FormData, specialOptions: {} = {}): Observable<any> {
+        let options = {};
+        if (this.authService.isLoggedIn()) {
+            options = {
+                headers: new HttpHeaders({
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${this.authService.getToken()!}`,
+                }),
+                withCredentials: true,
+            };
+        }
+        else {
+            options = {
+                headers: new HttpHeaders({
+                    'Content-Type': 'multipart/form-data',
+                }),
+            };
+        }
+        return this.http.post(`${this.BASE_URL}/users/avatar/`, formData, options);
+    }
 }

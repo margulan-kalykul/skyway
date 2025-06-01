@@ -8,6 +8,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { TourScheduleComponent } from './pages/tour-schedule/tour-schedule.component';
+import { ChatsComponent } from './pages/chats/chats.component';
+
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
     { path: 'auth', component: AuthenticationComponent },
@@ -20,5 +22,6 @@ export const routes: Routes = [
     { path: 'favorites/:userId', component: FavoritesComponent},
     { path: 'tours/:id/schedule', component: TourScheduleComponent },
 
+    { path: 'chats/:userId', component: ChatsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

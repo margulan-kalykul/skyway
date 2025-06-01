@@ -1,0 +1,252 @@
+.page-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.side-panel {
+    width: 26%;
+    height: 100%;
+    background-color: white;
+    border-right: 1px darkgray solid
+}
+
+.search {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.input-field {
+    width: 284px;
+    height: 46px;
+    display: inline-block;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px #CCCFD0 solid;
+}
+
+.search-button {
+    background: #00A3FF;
+    border-radius: 12px;
+    border: none;
+    width: 46px;
+    height: 46px;
+}
+.search-image:hover {
+    cursor: pointer;
+}
+
+.search-image {
+    opacity: 0.3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: relative;
+}
+
+.groups-type {
+    display: flex;
+    margin-top: 26px;
+    margin-left: 40px;
+    align-items: center;
+}
+
+.groups-type > img {
+    width: 20px;
+    height: 20px;
+}
+
+.groups-type > div {
+    color: #818181;
+    font-size: 12px;
+    font-family: Poppins;
+    font-weight: 500;
+    margin-left: 2px;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    margin-left: 40px;
+    margin-top: 25px;
+}
+.group:hover {
+    cursor: pointer;
+}
+
+.group > img {
+    width: 58px;
+    height: 58px;
+    border-radius: 100%;
+}
+
+.group > div {
+    color: black;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+    margin-left: 16px;
+}
+
+.chat-container {
+    width: 77%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-between;*/
+}
+
+.top-bar {
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px #DFDFDF solid;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-info {
+    display: flex;
+    padding-left: 46px;
+    align-items: center;
+}
+
+.avatar {
+}
+
+.avatar-image {
+    width: 58px;
+    height: 58px;
+    border-radius: 9999px;
+}
+
+.main-text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 18px;
+}
+
+.group-name {
+    color: black;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+    text-transform: capitalize;
+    line-height: 24px;
+}
+
+.group-status {
+    color: #00A3FF;
+    font-size: 14px;
+    font-family: Poppins;
+    font-weight: 400;
+}
+
+.messages-window {
+    width: 100%;
+    height: calc(100% - 89px - 89px);
+    overflow-y: scroll;
+    padding-bottom: 25px;
+}
+
+.username {
+    color: #515151;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 500;
+}
+
+.own-username {
+    justify-self: flex-end;
+    margin-right: 40px;
+}
+
+.other-username {
+    justify-self: flex-start;
+    margin-left: 40px;
+}
+
+.message {
+    width: fit-content;
+    height: fit-content;
+    padding: 16px 24px;
+    /*overflow: hidden;*/
+    border-bottom-right-radius: 14px;
+    border-bottom-left-radius: 14px;
+    outline-offset: -1px;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.own-message {
+    color: white;
+    background: #00A3FF;
+    justify-self: flex-end;
+    border-top-left-radius: 14px;
+    outline: 1px #00A3FF solid;
+    margin-right: 40px;
+}
+
+.other-message {
+    color: #515151;
+    background: white;
+    justify-self: flex-start;
+    border-top-right-radius: 14px;
+    outline: 1px #E7E7E7 solid;
+    margin-left: 40px;
+}
+
+.message-bar {
+    width: 100%;
+    height: 90px;
+    border-top: 1px #DFDFDF solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-input {
+    height: 95%;
+    width: calc(100% - 120px);
+    font-size: 24px;
+    font-family: Poppins;
+    font-weight: 400;
+    word-wrap: break-word;
+    border: none;
+    margin-left: 40px;
+}
+.message-input:focus {
+    outline: none;
+}
+
+.send-button {
+    border: none;
+    width: 120px;
+    height: 46px;
+    background-color: #00A3FF;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 30px;
+}
+.send-button:hover {
+    cursor: pointer;
+}
+
+.send-button-image {
+    width: 20px;
+    height: 20px;
+}
+
+.send-button-text {
+    color: white;
+    font-size: 18px;
+    font-family: Poppins;
+    font-weight: 500;
+}
