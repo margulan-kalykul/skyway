@@ -4,7 +4,7 @@ import { NgStyle } from '@angular/common';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { UserToursComponent } from "../../components/user-tours/user-tours.component";
-import { Tour, TourEvent } from '../../models/interfaces';
+import { Tour, TourEvent, Purchase } from '../../models/interfaces';
 import { EditProfileComponent } from "../../components/edit-profile/edit-profile.component";
 import { ToursService } from '../../services/tours.service';
 
@@ -28,6 +28,7 @@ export class ProfileComponent implements OnInit {
         events: "events",
         editProfile: "edit_profile",
     };
+    userInfo: any
     shownPage: string = this.pages.events;
     defaultEvent: TourEvent = {
         ID: '',
@@ -42,22 +43,7 @@ export class ProfileComponent implements OnInit {
         tour_id: '',
         tour_image_url: ''
     };
-    // defaultTour: Tour = {
-    //     ID: '',
-    //     description: '',
-    //     name: '',
-    //     owner_id: '',
-    //     route: '',
-    //     telegram_chat_url: null,
-    //     tour_categories: null,
-    //     tour_events: null,
-    //     tour_images: [],
-    //     tour_location: null,
-    //     tour_panoramas: null,
-    //     tour_user_favorites: null,
-    //     tour_videos: null
-    // };
-    userTours: TourEvent[] = [this.defaultEvent, this.defaultEvent];
+    userTours: Purchase[] = [];
     favTours: Tour[] = [];
 
     constructor(private userService: UserService, private authService: AuthService, private toursService: ToursService) {
@@ -72,13 +58,8 @@ export class ProfileComponent implements OnInit {
         });
         // TODO: Optimize
         this.toursService.getUserInfo().subscribe((userInfo) => {
-            let purchasedEvents = userInfo.PurchasedTourEvents;
-            this.userTours = [];
-            for (let i = 0; i < purchasedEvents.length; i++) {
-                this.toursService.getTourEventById(purchasedEvents[i].TourEventID).subscribe((tourEvent) => {
-                    this.userTours.push(tourEvent);
-                });            
-            }
+            this.userInfo = userInfo;
+            this.userTours = userInfo.PurchasedTourEvents || [];
         });
     }
 

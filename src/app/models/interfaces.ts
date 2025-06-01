@@ -123,6 +123,7 @@ export interface UserData {
     PurchasedTourEvents: Purchase[];
     Role: string;
     Username: string;
+    AvatarURL: string;
 }
 
 export interface Token {
