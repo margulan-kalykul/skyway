@@ -1,51 +1,75 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
-import { Tour, TourEvent } from '../../models/interfaces';
+import { Purchase, Tour, TourEvent } from '../../models/interfaces';
 import { Router } from '@angular/router';
 import { NgOptimizedImage } from '@angular/common';
+import { ToursService } from '../../services/tours.service';
 
 @Component({
   selector: 'app-user-tours',
   standalone: true,
-    imports: [
-        NgOptimizedImage
-    ],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './user-tours.component.html',
   styleUrl: './user-tours.component.css'
 })
 export class UserToursComponent implements OnChanges {
-  @Input() tourEvents?: TourEvent[];
+  tourEvents?: Purchase[];
   @Input() tours?: Tour[];
-  defaultImages = {
-    cardImage: "assets/images/image-not-found.png",
+  defaultImages = {   
+    cardImage: "assets/images/tour-example-2.png",  // TODO: Download correct default image
   };
   imageNames = {
+    favorite: "assets/images/heart-icon.svg",
+    cardImage: this.defaultImages.cardImage,
+    heartFilled: "assets/images/heart-icon-filled.svg",
     calendarIcon: "assets/images/calendar-icon-small.svg",
   };
+  
+  
   showTypes = {
     tourEvent: "tourEvent",
     tour: "tour",
   };
+  
   cardType = this.showTypes.tourEvent;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private toursService: ToursService) {}
+
+  ngOnInit(): void {
+    this.toursService.getUserInfo().subscribe((userInfo) => {
+      this.tourEvents = userInfo.PurchasedTourEvents;
+      console.log(this.tourEvents);
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    const newTours = changes['tours']?.currentValue;
+  ngOnChanges(changes: SimpleChanges): void {}
 
-    if (Array.isArray(newTours) && newTours.length > 0) {
-      this.cardType = this.showTypes.tour;
-      const BASE_IMAGE_URL = "http://localhost:8000/v1/tours/"
-      for (let i = 0; i < this.tours!.length; i++) {
-        let url = this.tours![i].tour_images[0].image_url;
-        let relative_path = url.substring(url.indexOf("uploads"));
-        let full_path = BASE_IMAGE_URL + relative_path;
-        this.tours![i].tour_images[0].image_url = full_path;
-      }
-    }
+  getTourImageUrl(tourEvent: Purchase): string {
+      if (!tourEvent?.TourEvent?.Tour?.tour_images?.[0]?.image_url) {
+    return this.defaultImages.cardImage;
+  }
+    return `http://localhost:8000${tourEvent?.TourEvent?.Tour?.tour_images?.[0]?.image_url.replace('./','/')}` || this.defaultImages.cardImage;
+  }
+
+  getTourImage(tour: Tour): string {
+    return tour?.tour_images?.[0]?.image_url || this.defaultImages.cardImage;
   }
 
   seeDetails(tourId: string): void {
     this.router.navigate(['/tours', tourId]);
+  }
+
+  formatDate(dateString: string): string {
+    if (dateString) {
+      const date = new Date(dateString);
+      const options: Intl.DateTimeFormatOptions = { 
+        day: 'numeric', 
+        month: 'long', 
+      };
+      dateString = date.toLocaleDateString('en-US', options);
+      return dateString
+    }
+    return ''
   }
 }
