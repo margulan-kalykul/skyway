@@ -2,7 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ToursService } from '../../services/tours.service';
 import { CommonModule } from '@angular/common';
 import { TourEvent, Tour } from '../../models/interfaces';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { Viewer } from '@photo-sphere-viewer/core';
 
 @Component({
   selector: 'app-tour-itself-details',
@@ -24,18 +25,79 @@ export class TourItselfDetailsComponent implements OnInit {
       tourImage: "assets/images/tour-example-1.png",  // Change
       calendarIcon: "assets/images/calendar.svg",
   };
-  constructor(private toursService: ToursService, private router: Router) {}
+  panoramas: string[] = ['assets/images/panorama1.jpg', 'assets/images/panorama2.jpg', 'assets/images/panorama3.jpg', 'assets/images/panorama4.jpg', 'assets/images/panorama5.jpg', ];
+  viewerStyles = {
+    display: 'none'
+  };
+  viewer: any;
+  currentPart = 0;
+  isRightArrowShown = true;
+  isLeftArrowShown = false;
+
+  constructor(private toursService: ToursService, private router: Router, private activatedRoute: ActivatedRoute) {
+    if (this.tourId.length <= 0) {
+      this.tourId = this.activatedRoute.snapshot.paramMap.get('tourId')!;
+    }
+  }
 
   ngOnInit() {
     if (this.tourId) {
       this.loadTourData();
     }
+    this.viewer = new Viewer({
+      container: 'viewer',
+      panorama: this.panoramas[0],
+      // caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
+    });
+  }
+
+  nextMultiTours(): void {
+    if (this.currentPart < this.panoramas.length-4) {
+      this.currentPart++;
+    }
+    if (this.currentPart === this.panoramas.length-4) {
+      this.isRightArrowShown = false;
+    }
+    else {
+      this.isRightArrowShown = true;
+    }
+    if (this.currentPart === 0) {
+      this.isLeftArrowShown = false;
+    }
+    else {
+      this.isLeftArrowShown = true;
+    }
+  }
+
+  prevMultiTours(): void {
+    if (this.currentPart > 0) {
+      this.currentPart--;
+    }
+    if (this.currentPart === 0) {
+      this.isLeftArrowShown = false;
+    }
+    else {
+      this.isLeftArrowShown = true;
+    }
+    if (this.currentPart === this.panoramas.length-4) {
+      this.isRightArrowShown = false;
+    }
+    else {
+      this.isRightArrowShown = true;
+    }
+  }
+
+  selectPanorama(panorama: string) {
+    this.viewerStyles = {
+      display: 'block'
+    };
+    this.viewer.setPanorama(panorama, {transition: false});
   }
 
   loadTourData() {
     this.isLoading = true;
     this.error = null;
-    
+
     // Load tour details
     this.toursService.getTourById(this.tourId).subscribe({
       next: (tour) => {

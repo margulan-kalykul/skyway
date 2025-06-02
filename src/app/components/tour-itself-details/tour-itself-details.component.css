@@ -49,9 +49,9 @@
 }
 
 .top-rated {
-    width: 100px; 
-    height: 30px; 
-    background: #222222; 
+    width: 100px;
+    height: 30px;
+    background: #222222;
     border-radius: 7.5px;
     color: white;
     font-family: Poppins;
@@ -78,10 +78,10 @@
 .rating {
     margin-left: 20px;
     display: inline-block;
-    color: black; 
+    color: black;
     font-size: 20px;
     line-height: 30px;
-    font-family: Poppins; 
+    font-family: Poppins;
     font-weight: 500;
     height: 30px;
     position: relative;
@@ -107,6 +107,72 @@
 .tour-image:hover {
     transform: scale(1.02);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/*For panoramas*/
+.simple-cards-scroll {
+    display: flex;
+    justify-content: space-between;
+    width: min-content;
+    margin: auto;
+    overflow: hidden;
+}
+
+.list-cards {
+    display: flex;
+    gap: 45px;
+    padding-left: 45px;
+    padding-right: 45px;
+    /* overflow: hidden; */
+    width: 791px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.simple-card {
+    position: relative;
+    display: inline-block;
+}
+.simple-card:hover {
+    cursor: pointer;
+}
+
+.simple-card-image {
+    width: 164px;
+    height: 132px;
+    border-radius: 20px;
+}
+
+.arrow-section {
+    display: inline-block;
+    position: relative;
+    width: 66px;
+    height: 132px;
+    z-index: 10;
+    background-color: white;
+}
+
+.arrow {
+    /* display: inline-block; */
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 64px;
+    height: 54px;
+    color: #737373;
+    border: 1px #E8E8E8 solid;
+    border-radius: 10px;
+    font-size: 27px;
+    line-height: 54px;
+    margin: auto;
+    /* padding: 10px; */
+    cursor: pointer;
+}
+
+#viewer {
+    width: 600px;
+    height: 400px;
+    position: relative;
+    margin: auto;
 }
 
 .weather-panoramas {
@@ -307,11 +373,11 @@
         padding: 10px 8px;
         font-size: 14px;
     }
-    
+
     .day {
         font-size: 18px;
     }
-    
+
     .month-time {
         font-size: 12px;
     }
