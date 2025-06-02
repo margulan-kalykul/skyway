@@ -104,6 +104,10 @@ export class ToursService {
     payTourEventByID(tourEventID: string, specialOptions: {} = {}): void{
         this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions) ).subscribe();
     }
+
+    getPurchaseQRCode(purchaseId: string): Observable<any> {
+        return this.http.get(`${this.BASE_URL}/users/get-purchase-qr/${purchaseId}`, this.httpOptions());
+    }
     
     
 }
