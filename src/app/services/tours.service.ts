@@ -57,9 +57,6 @@ export class ToursService {
     getTourEventById(tourEventId: string, specialOptions: {} = {}): Observable<TourEvent> {
         return this.http.get<TourEvent>(`${this.BASE_URL}/tour-events/${tourEventId}/`, this.httpOptions(specialOptions));
     }
-    // getTourEventByIdResponse(tourEventId: string, specialOptions: {} = {}): Observable<TourEvent> {
-    //     return this.http.get<TourEvent>(`${this.BASE_URL}/tour-events/${tourEventId}/`, this.httpOptions(specialOptions));
-    // }
 
     getUserInfo(specialOptions: {} = {}): Observable<UserData> {
         return this.http.get<UserData>(`${this.BASE_URL}/users/me/`, this.httpOptions(specialOptions));
@@ -76,17 +73,19 @@ export class ToursService {
     getWeather(tourEventId: string, specialOptions: {} = {}): Observable<WeatherInfo> {
         return this.http.get<WeatherInfo>(`${this.BASE_URL}/tour-events/${tourEventId}/weather/`, this.httpOptions(specialOptions));
     }
+
     getTourEventsByCategories(categoryIds: string[]): Observable<TourEvent[]> {
-    // Convert array of category IDs to query parameters
-    const params = new HttpParams({
-        fromObject: {
-        'category_ids': categoryIds
-        }
-    });
+        const params = new HttpParams({
+            fromObject: {
+                'category_ids': categoryIds
+            }
+        });
 
-    return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { params });
+        return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { 
+            params,
+            ...this.httpOptions()
+        });
     }
-
 
     searchTours(query: string): Observable<{ Results: TourSearchResults[] }> {
         const url = `http://localhost:8000/v1/recommendations/search/${encodeURIComponent(query)}`;
@@ -105,11 +104,9 @@ export class ToursService {
         return this.http.get<TourEvent[]>(`${this.BASE_URL}/${tourId}/tour-events/`, this.httpOptions(specialOptions));
     }
 
-    payTourEventByID(tourEventID: string, specialOptions: {} = {}): void{
-        this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions) ).subscribe();
+    payTourEventByID(tourEventID: string, specialOptions: {} = {}): void {
+        this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions)).subscribe();
     }
-
-
 
     getAvatar(specialOptions: {} = {}): Observable<any> {
         return this.http.get<any>(`${this.BASE_URL}/users/avatar/`, this.httpOptions(specialOptions));
@@ -120,7 +117,6 @@ export class ToursService {
         if (this.authService.isLoggedIn()) {
             options = {
                 headers: new HttpHeaders({
-                    'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${this.authService.getToken()!}`,
                 }),
                 withCredentials: true,
@@ -128,11 +124,13 @@ export class ToursService {
         }
         else {
             options = {
-                headers: new HttpHeaders({
-                    'Content-Type': 'multipart/form-data',
-                }),
+                headers: new HttpHeaders(),
             };
         }
         return this.http.post(`${this.BASE_URL}/users/avatar/`, formData, options);
+    }
+
+    getPurchaseQRCode(purchaseId: string): Observable<any> {
+        return this.http.get(`${this.BASE_URL}/users/get-purchase-qr/${purchaseId}`, this.httpOptions());
     }
 }
