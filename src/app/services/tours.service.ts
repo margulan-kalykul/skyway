@@ -1,7 +1,8 @@
-import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {LikeTourDTO,  Tour, TourEvent, UserData, WeatherInfo, TourSearchResults } from '../models/interfaces';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Category, LikeTourDTO, CustomPaymentIntent, Tour, TourEvent, UserData, WeatherInfo, TourSearchResults } from '../models/interfaces';
 import { AuthService } from './auth.service';
 import { HttpParams } from '@angular/common/http';
 
@@ -81,11 +82,12 @@ export class ToursService {
             }
         });
 
-        return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { 
+        return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, {
             params,
             ...this.httpOptions()
         });
     }
+
 
     searchTours(query: string): Observable<{ Results: TourSearchResults[] }> {
         const url = `http://localhost:8000/v1/recommendations/search/${encodeURIComponent(query)}`;
@@ -104,8 +106,8 @@ export class ToursService {
         return this.http.get<TourEvent[]>(`${this.BASE_URL}/${tourId}/tour-events/`, this.httpOptions(specialOptions));
     }
 
-    payTourEventByID(tourEventID: string, specialOptions: {} = {}): void {
-        this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions)).subscribe();
+    payTourEventByID(tourEventID: string, specialOptions: {} = {}): void{
+        this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions) ).subscribe();
     }
 
     getAvatar(specialOptions: {} = {}): Observable<any> {
@@ -133,4 +135,6 @@ export class ToursService {
     getPurchaseQRCode(purchaseId: string): Observable<any> {
         return this.http.get(`${this.BASE_URL}/users/get-purchase-qr/${purchaseId}`, this.httpOptions());
     }
+
+
 }
