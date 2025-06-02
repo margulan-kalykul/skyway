@@ -24,6 +24,7 @@ export class UserToursComponent implements OnChanges {
     cardImage: this.defaultImages.cardImage,
     heartFilled: "assets/images/heart-icon-filled.svg",
     calendarIcon: "assets/images/calendar-icon-small.svg",
+    qrIcon: "assets/images/qr-code.svg"
   };
   
   
@@ -33,7 +34,9 @@ export class UserToursComponent implements OnChanges {
   };
   
   cardType = this.showTypes.tourEvent;
-
+  showQRModal = false;
+  selectedTourEvent: Purchase | null = null;
+  qrCodeImage: string | null = null;
   constructor(private router: Router, private toursService: ToursService) {}
 
   ngOnInit(): void {
@@ -71,5 +74,27 @@ export class UserToursComponent implements OnChanges {
       return dateString
     }
     return ''
+  }
+
+    showQRCode(tourEvent: Purchase): void {
+    this.selectedTourEvent = tourEvent;
+    this.showQRModal = true;
+    this.qrCodeImage = null;
+    
+    // Fetch QR code from backend
+    this.toursService.getPurchaseQRCode(tourEvent.ID).subscribe({
+      next: (response: any) => {
+        this.qrCodeImage = response.qr_code;
+      },
+      error: (error) => {
+        console.error('Error fetching QR code:', error);
+      }
+    });
+  }
+
+  closeQRModal(): void {
+    this.showQRModal = false;
+    this.selectedTourEvent = null;
+    this.qrCodeImage = null;
   }
 }
