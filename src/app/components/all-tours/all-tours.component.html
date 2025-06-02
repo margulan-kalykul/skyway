@@ -1,112 +1,104 @@
-<!-- @for (tours_header of headers_list; track tours_header; let id = $index) {
-  <div class="part-header" style="margin-bottom: 30px;">{{ tours_header }}</div>
-
-  @for (tour_data of tours[id]; track tour_data) {
-    <app-tour-card [tour]="tour_data" style="margin-left: 20px;"></app-tour-card>
-  }
-} -->
-
+<!-- HTML Template -->
+<div class="tours-container">
 <div class="search-container">
-  <input
-    class="search-input"
-    type="text"
-    [(ngModel)]="searchQuery"
-    (input)="fetchSearchResults(searchQuery)"
-    placeholder="Search for your favourite destination"
-    i18n
-  />
-
-  <img
-    *ngIf="searchQuery"
-    class="clear-icon"
-    src="assets/images/clear.svg"
-    alt="Clear"
-    (click)="clearSearch()"
-  />
-
-  <img
-    class="search-icon"
-    src="assets/images/search.svg"
-    alt="Search"
-    i18n-alt
-  />
-
- <ul class="search-dropdown" *ngIf="showDropdown">
-  <li *ngFor="let tour of searchResults" (click)="onTourSelect(tour.id)">
-    <div class="search-item-name">{{ tour.name }}</div>
-    <div class="search-item-description">{{ tour.description }}</div>
-    <div class="search-item-categories" *ngIf="tour.categories?.length">
-      {{ tour.categories?.join(', ') }}
+  <div class="search-fields-container">
+    <div class="search-input-container">
+      <input
+        class="search-input"
+        type="text"
+        [(ngModel)]="searchQuery"
+        (input)="fetchSearchResults(searchQuery)"
+        placeholder="Search for your favourite destination"
+        i18n
+      />
+      <img
+        *ngIf="searchQuery"
+        class="clear-icon"
+        src="assets/images/clear.svg"
+        alt="Clear"
+        (click)="clearSearch()"
+      />
+      <img
+        class="search-icon"
+        src="assets/images/search.svg"
+        alt="Search"
+        i18n-alt
+      />
+      <ul class="search-dropdown" *ngIf="showDropdown">
+        <li *ngFor="let tour of searchResults" (click)="onTourSelect(tour.id)">
+          <div class="search-item-name">{{ tour.name }}</div>
+          <div class="search-item-description">{{ tour.description }}</div>
+          <div class="search-item-categories" *ngIf="tour.categories?.length">
+            {{ tour.categories?.join(', ') }}
+          </div>
+        </li>
+      </ul>
     </div>
-  </li>
-</ul>
+
+    <div class="date-pickers-container">
+      <div class="date-input-wrapper">
+        <ejs-datepicker
+          class="date-input" 
+          [(ngModel)]="startDate"
+          placeholder="Start Date" 
+          (change)="onDateChange()"
+        ></ejs-datepicker>
+      </div>
+      <span class="date-separator">—</span>
+      <div class="date-input-wrapper">
+        <ejs-datepicker
+          class="date-input"
+          [(ngModel)]="endDate"
+          (change)="onDateChange()"
+          placeholder="End Date"
+        ></ejs-datepicker>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-<div class="date-selection">
-  <div class="months">
-    <div class="month" i18n>April</div>
-    <div class="month" i18n>May</div>
-  </div>
-  <div class="days">
-    @for (day of days; track $index) {
-      <div [class.day-box]="true" [class.day-box-black]="$index == blackDay" [class.day-box-white]="$index != blackDay">
-        <div class="weekday">{{ weekday[$index] }}</div>
-        <div class="day">{{ days[$index] }}</div>
-      </div>
-    }
-  </div>
-  <div class="categories">
+  <div class="categories-container">
     @for (category of categories; track $index) {
       <div 
-        [class.category]="true" 
-        [class.selected-category]="isCategorySelected(category.ID)" 
-        [class.non-selected]="!isCategorySelected(category.ID)"
+        class="category"
+        [class.selected]="isCategorySelected(category.ID)" 
         (click)="toggleCategorySelection(category.ID)">
         {{ category.name }}
       </div>
     }
   </div>
-</div>
 
-<div class="grid-cards">
-  @for (tourEventData of tourEvents; track tourEventData) {
-    <app-tour-card [tourEvent]="tourEventData" [userId]="userId" [favTourIds]="favTourIds"></app-tour-card>
+  <div class="tours-grid">
+    @for (tourEventData of tourEvents; track tourEventData) {
+      <app-tour-card [tourEvent]="tourEventData" [userId]="userId" [favTourIds]="favTourIds"></app-tour-card>
+    }
+  </div>
+
+  @if (hiddenTours.length > 0) {
+    <div class="see-more" (click)="expandTours()" i18n>
+      See More
+    </div>
   }
-</div>
 
-@if (hiddenTours.length > 0) {
-  <div class="see-more" (click)="expandTours()" i18n>
-    See More
-  </div>
-}
+  <div class="section-header" i18n>Almaty Multi Day Tours</div>
 
-<!-- Almaty Multi Day Tours -->
-<div class="part-header" style="margin-bottom: 35px;" i18n>Almaty Multi Day Tours</div>
-
-<div class="simple-cards-scroll">
-  <div class="arrow-section">
+  <div class="multi-tours-carousel">
     @if (isLeftArrowShown) {
-      <div class="arrow" (click)="prevMultiTours()">&#10094;</div>
+      <button class="carousel-arrow prev" (click)="prevMultiTours()">&#10094;</button>
     }
-  </div>
-
-  <div class="list-cards" [style.transform]="'translateX(' + (-currentPart * 280) + 'px)'">
-    @for (multiTour of multiTours; track multiTour) {  
-      <div class="simple-card">
-        <img class="simple-card-image" src="assets/images/simple-tour-card-example-1.png" alt="simple-card-image" i18n-alt>
-        <div class="simple-card-route">{{ multiTour.route }}</div>
-        <div class="simple-card-duration">4 days tour</div>
-      </div>
-    }
-  </div>
-
-  <div class="arrow-section">
+    
+    <div class="multi-tours-list" [style.transform]="'translateX(' + (-currentPart * 280) + 'px)'">
+      @for (multiTour of multiTours; track multiTour) {  
+        <div class="multi-tour-card">
+          <img class="multi-tour-image" src="assets/images/simple-tour-card-example-1.png" alt="Tour image">
+          <div class="multi-tour-route">{{ multiTour.route }}</div>
+          <div class="multi-tour-duration">4 days tour</div>
+        </div>
+      }
+    </div>
+    
     @if (isRightArrowShown) {
-      <div class="arrow" (click)="nextMultiTours()">&#10095;</div>
+      <button class="carousel-arrow next" (click)="nextMultiTours()">&#10095;</button>
     }
   </div>
-  
 </div>
-

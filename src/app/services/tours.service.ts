@@ -51,8 +51,20 @@ export class ToursService {
         return this.http.get<Tour>(`${this.BASE_URL}/${tourId}/`, this.httpOptions(specialOptions));
     }
 
-    getAllTourEvents(specialOptions: {} = {}): Observable<TourEvent[]> {
-        return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, this.httpOptions(specialOptions));
+    getAllTourEvents(startDate?: string | null, endDate?: string | null): Observable<TourEvent[]> {
+        let params = new HttpParams();
+        
+        if (startDate) {
+            params = params.append('start_date', startDate);
+        }
+        if (endDate) {
+            params = params.append('end_date', endDate);
+        }
+
+        return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, {
+            params,
+            ...this.httpOptions()
+        });
     }
 
     getTourEventById(tourEventId: string, specialOptions: {} = {}): Observable<TourEvent> {
@@ -75,18 +87,27 @@ export class ToursService {
         return this.http.get<WeatherInfo>(`${this.BASE_URL}/tour-events/${tourEventId}/weather/`, this.httpOptions(specialOptions));
     }
 
-    getTourEventsByCategories(categoryIds: string[]): Observable<TourEvent[]> {
-        const params = new HttpParams({
+    getTourEventsByCategories(categoryIds: string[], startDate?: string | null, endDate?: string | null): Observable<TourEvent[]> {
+        let params = new HttpParams({
             fromObject: {
                 'category_ids': categoryIds
             }
         });
+
+        if (startDate) {
+            params = params.append('start_date', startDate);
+        }
+        if (endDate) {
+            params = params.append('end_date', endDate);
+        }
 
         return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, {
             params,
             ...this.httpOptions()
         });
     }
+
+
 
 
     searchTours(query: string): Observable<{ Results: TourSearchResults[] }> {
