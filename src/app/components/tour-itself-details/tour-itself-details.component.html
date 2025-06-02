@@ -29,6 +29,32 @@
             <img class="tour-image" [src]="imageNames.tourImage" alt="">
         </div>
 
+        <!-- Panoramas -->
+        <div class="simple-cards-scroll" style="margin-top: 40px;">
+            <div class="arrow-section">
+                @if (isLeftArrowShown) {
+                    <div class="arrow" (click)="prevMultiTours()">&#10094;</div>
+                }
+            </div>
+
+            <div class="list-cards" [style.transform]="'translateX(' + (-currentPart * 209) + 'px)'">
+                @for (panorama of panoramas; track $index) {
+                    <div class="simple-card" (click)="selectPanorama(panorama)">
+                        <img class="simple-card-image" [src]="panorama" alt="simple-card-image" i18n-alt>
+                    </div>
+                }
+            </div>
+
+            <div class="arrow-section">
+                @if (isRightArrowShown) {
+                    <div class="arrow" (click)="nextMultiTours()">&#10095;</div>
+                }
+            </div>
+
+        </div>
+        <div id="viewer" style="margin-top: 40px;" [ngStyle]="viewerStyles"></div>
+
+
         <div class="description">
             {{tour?.description}}
         </div>
@@ -64,8 +90,8 @@
         </a>
     }
     </div>
-    
-    
+
+
         </div>
         </div>
     }
