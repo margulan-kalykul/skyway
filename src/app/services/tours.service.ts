@@ -38,6 +38,11 @@ export class ToursService {
         return options;
     }
 
+    getFilePath(localPath: string): string {
+        let relative_path = localPath.substring(localPath.indexOf("uploads"));
+        return `${this.BASE_URL}/${relative_path}`;
+    }
+
     getAllTours(specialOptions: {} = {}): Observable<Tour[]> {
         return this.http.get<Tour[]>(`${this.BASE_URL}/`, this.httpOptions(specialOptions));
     }
@@ -53,9 +58,6 @@ export class ToursService {
     getTourEventById(tourEventId: string, specialOptions: {} = {}): Observable<TourEvent> {
         return this.http.get<TourEvent>(`${this.BASE_URL}/tour-events/${tourEventId}/`, this.httpOptions(specialOptions));
     }
-    // getTourEventByIdResponse(tourEventId: string, specialOptions: {} = {}): Observable<TourEvent> {
-    //     return this.http.get<TourEvent>(`${this.BASE_URL}/tour-events/${tourEventId}/`, this.httpOptions(specialOptions));
-    // }
 
     getUserInfo(specialOptions: {} = {}): Observable<UserData> {
         return this.http.get<UserData>(`${this.BASE_URL}/users/me/`, this.httpOptions(specialOptions));
@@ -72,15 +74,18 @@ export class ToursService {
     getWeather(tourEventId: string, specialOptions: {} = {}): Observable<WeatherInfo> {
         return this.http.get<WeatherInfo>(`${this.BASE_URL}/tour-events/${tourEventId}/weather/`, this.httpOptions(specialOptions));
     }
+
     getTourEventsByCategories(categoryIds: string[]): Observable<TourEvent[]> {
-    // Convert array of category IDs to query parameters
-    const params = new HttpParams({
-        fromObject: {
-        'category_ids': categoryIds
-        }
-    });
-    
-    return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, { params });
+        const params = new HttpParams({
+            fromObject: {
+                'category_ids': categoryIds
+            }
+        });
+
+        return this.http.get<TourEvent[]>(`${this.BASE_URL}/tour-events/`, {
+            params,
+            ...this.httpOptions()
+        });
     }
 
 
@@ -105,9 +110,31 @@ export class ToursService {
         this.http.post(`${this.BASE_URL}/payment/`, {tour_event_id: tourEventID}, this.httpOptions(specialOptions) ).subscribe();
     }
 
+    getAvatar(specialOptions: {} = {}): Observable<any> {
+        return this.http.get<any>(`${this.BASE_URL}/users/avatar/`, this.httpOptions(specialOptions));
+    }
+
+    uploadAvatar(formData: FormData, specialOptions: {} = {}): Observable<any> {
+        let options = {};
+        if (this.authService.isLoggedIn()) {
+            options = {
+                headers: new HttpHeaders({
+                    'Authorization': `Bearer ${this.authService.getToken()!}`,
+                }),
+                withCredentials: true,
+            };
+        }
+        else {
+            options = {
+                headers: new HttpHeaders(),
+            };
+        }
+        return this.http.post(`${this.BASE_URL}/users/avatar/`, formData, options);
+    }
+
     getPurchaseQRCode(purchaseId: string): Observable<any> {
         return this.http.get(`${this.BASE_URL}/users/get-purchase-qr/${purchaseId}`, this.httpOptions());
     }
-    
-    
+
+
 }

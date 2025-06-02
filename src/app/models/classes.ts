@@ -13,3 +13,13 @@
 //     tour_id: string;
 //
 // }
+
+export class WebsocketMessage {
+    userId: string;
+    message: string;
+
+    constructor(user: string, message: string) {
+        this.userId = user;
+        this.message = message;
+    }
+}

@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<div class="page-container">
+    <div class="side-panel">
+        <div class="search">
+            <input
+                id="group-input"
+                class="input-field"
+                type="text"
+                placeholder="Search groups"
+            >
+            <button class="search-button" type="submit">
+                <img class="search-image" [src]="imageNames.searchIcon" alt="">
+            </button>
+        </div>
+        <div class="groups-type">
+            <img [src]="imageNames.yourGroups">
+            <div>Your groups</div>
+        </div>
+        @for (chat of userChats; track chat.ID) {
+            <div class="group" (click)="openChat(chat.ID)">
+                <img [src]="imageNames.groupImg">
+                <div>{{chat.name}}</div>
+            </div>
+        }
+    </div>
+
+    @if (chat != null) {
+        <div class="chat-container">
+            <div class="top-bar">
+                <!-- Avatar, group name and number of people online -->
+                <div class="main-info">
+                    <div class="avatar"><img class="avatar-image" src="assets/images/avatar-test.jpeg" alt=""></div>
+                    <div class="main-text">
+                        <div class="group-name">{{chat.name}}</div>
+                        <div class="group-status">{{50}} members</div>
+                    </div>
+                </div>
+                <!-- Additional buttons -->
+            </div>
+            <div class="messages-window">
+                @for (message of messages; track $index) {
+                    @if (message.UserID == userId) {
+                        <div class="username own-username">user</div>
+                        <div class="message own-message">{{message.text}}</div>
+                    }
+                    @else {
+                        <div class="username other-username">user</div>
+                        <div class="message other-message">{{message.text}}</div>
+                    }
+                }
+            </div>
+            <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+                <div class="message-bar">
+                    <input class="message-input" formControlName="input" type="text" placeholder="Type message...">
+                    <button type="submit" class="send-button">
+                        <img class="send-button-image" src="assets/images/telegram-icon-white.svg">
+                        <div class="send-button-text">Send</div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    }
+
+</div>
