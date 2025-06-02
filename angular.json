@@ -5,22 +5,22 @@
   "projects": {
     "skyway": {
       "i18n": {
-        "sourceLocale":"en-US",
+        "sourceLocale": "en-US",
         "locales": {
           "kz-KZ": {
-            "translation":"src/locale/messages.kz.xlf",
+            "translation": "src/locale/messages.kz.xlf",
             "baseHref": "kz-KZ/"
           },
           "ar-SA": {
-            "translation":"src/locale/messages.ar.xlf",
+            "translation": "src/locale/messages.ar.xlf",
             "baseHref": "ar-SA/"
           },
           "zh-CN": {
-            "translation":"src/locale/messages.zh.xlf",
+            "translation": "src/locale/messages.zh.xlf",
             "baseHref": "zh-CN/"
           },
           "hi-IN": {
-            "translation":"src/locale/messages.hi.xlf",
+            "translation": "src/locale/messages.hi.xlf",
             "baseHref": "hi-IN/"
           }
         }
@@ -34,8 +34,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "localize":
-            [
+            "localize": [
               "ar-SA",
               "zh-CN",
               "hi-IN",
@@ -58,7 +57,8 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
             "scripts": []
           },
@@ -118,7 +118,8 @@
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/@syncfusion/ej2-material-theme/styles/material.css"
             ],
             "scripts": []
           }

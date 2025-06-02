@@ -5,10 +5,11 @@ import { Category, Tour, TourEvent, TourSearchResults } from '../../models/inter
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { DatePickerModule } from '@syncfusion/ej2-angular-calendars';
 @Component({
   selector: 'app-all-tours',
   standalone: true,
-  imports: [CommonModule, TourCardComponent, FormsModule],
+  imports: [CommonModule, TourCardComponent, FormsModule, DatePickerModule],
   templateUrl: './all-tours.component.html',
   styleUrl: './all-tours.component.css'
 })
@@ -45,6 +46,13 @@ export class AllToursComponent implements OnInit {
     this.toursService.getCategories().subscribe((categories) => {
       this.categories = categories.Categories;
     });
+  }
+
+  startDate: string = '';
+  endDate: string = '';
+
+  onDateChange(): void {
+      this.showTours();
   }
 
  fetchSearchResults(query: string): void {
@@ -113,16 +121,19 @@ export class AllToursComponent implements OnInit {
   }
 
   showTours(): void {
+    const startDate = this.startDate;
+    const endDate = this.endDate;
+
     if (this.selectedCategories.length === 0) {
-      this.toursService.getAllTourEvents().subscribe((tourEvents) => {
+      this.toursService.getAllTourEvents(this.formattedStartDate, this.formattedEndDate).subscribe((tourEvents) => {
         this.processTourEvents(tourEvents);
       });
     } else {
-      this.toursService.getTourEventsByCategories(this.selectedCategories).subscribe((tourEvents) => {
+      this.toursService.getTourEventsByCategories(this.selectedCategories, this.formattedStartDate, this.formattedEndDate).subscribe((tourEvents) => {
         this.processTourEvents(tourEvents);
       });
     }
-  }  
+  }
 
   private processTourEvents(tourEvents: TourEvent[]): void {
     this.tourEvents = tourEvents;
@@ -155,6 +166,29 @@ export class AllToursComponent implements OnInit {
     this.searchQuery = '';
     this.searchResults = [];
     this.showDropdown = false;
+  }
+
+  get formattedStartDate(): string {
+    return this.formatDateToYMD(this.startDate);
+  }
+
+  get formattedEndDate(): string {
+    return this.formatDateToYMD(this.endDate);
+  }
+
+  private formatDateToYMD(date: any): string {
+    if (!date) return '';
+    
+    // If date is already a Date object or valid date string
+    const jsDate = new Date(date);
+    
+    if (isNaN(jsDate.getTime())) return '';
+    
+    const year = jsDate.getFullYear();
+    const month = (jsDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = jsDate.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
   }
   
 
