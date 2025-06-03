@@ -9,27 +9,38 @@ import { TopDestinationsComponent } from "../../components/top-destinations/top-
 import { FooterComponent } from "../../components/footer/footer.component";
 import { AuthService } from '../../services/auth.service';
 import { ToursService } from '../../services/tours.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [AllToursComponent, TopOfPageComponent, HeaderComponent, ShortSearchComponent, TopDestinationsComponent, FooterComponent],
+  imports: [AllToursComponent, TopOfPageComponent, HeaderComponent, 
+             ShortSearchComponent, TopDestinationsComponent, FooterComponent, CommonModule],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
 export class MainPageComponent implements OnInit {
   imageNames = {
-    bookTourSteps: "assets/images/book-tour-steps.png",  // Image showing steps of how to book a tour
-    aboutUsImage1: "assets/images/Diamond.svg",  // Image of the diamond for the About us part
-    aboutUsImage2: "assets/images/Business Handshake.svg",  // Image of the handshake for the About us part
-    aboutUsImage3: "assets/images/Coin Share.svg",  // Image of the hand receiving a coin for the About us part
-    weAreInNumbers: "assets/images/numbers-background.png",  // Image of the We are in numbers part
-    instagramIcon: "assets/images/instagram-icon.svg",  // Instagram icon
-    reviews: "assets/images/reviews.svg",  // Image of reviews
+    instagramIcon: "assets/images/instagram-icon.svg",
+    reviews: "assets/images/reviews.svg",
   }
+  
+  galleryImages = [
+    "assets/images/gallery1.png",
+    "assets/images/gallery2.png",
+    "assets/images/gallery3.png",
+    "assets/images/gallery4.png",
+    "assets/images/gallery5.png",
+    "assets/images/gallery6.png",
+    "assets/images/gallery7.png",
+    "assets/images/gallery8.png"
+  ];
+  
   deviceInfo: DeviceInfo;
   userData: any;
   favTourIds: string[] = [];
+  showImageModal = false;
+  selectedImageIndex = 0;
 
   constructor(deviceService: DeviceService, private authService: AuthService, private toursService: ToursService) {
     this.deviceInfo = deviceService.getClientInfo();
@@ -45,17 +56,28 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  ngOnInit(): void {
-    // let topOfPage = document.getElementById("top-of-page");
-    // console.log(topOfPage);
-    // if (topOfPage != null) {
-    //   topOfPage.style.width = `${this.deviceInfo.viewScreen.width}px`;
-    //   // topOfPage.style.height = `${this.deviceInfo.viewScreen.height}px`;
-    //   console.log(`${topOfPage.style.width} ${topOfPage.style.height} something`);
-    // }
-  }
+  ngOnInit(): void {}
 
   getUserData(): void {
     this.userData = this.authService.getUserData();
+  }
+
+  openImageModal(index: number = 0): void {
+    this.selectedImageIndex = index;
+    this.showImageModal = true;
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+  }
+
+  closeImageModal(): void {
+    this.showImageModal = false;
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  }
+
+  navigateImage(direction: 'prev' | 'next'): void {
+    if (direction === 'prev') {
+      this.selectedImageIndex = (this.selectedImageIndex - 1 + this.galleryImages.length) % this.galleryImages.length;
+    } else {
+      this.selectedImageIndex = (this.selectedImageIndex + 1) % this.galleryImages.length;
+    }
   }
 }

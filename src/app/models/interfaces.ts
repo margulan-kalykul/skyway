@@ -163,6 +163,18 @@ export interface RegisterForm {
     password: string,
 }
 
+export interface Recommendation {
+  id: string;
+  name: string;
+  description: string;
+  category: string;
+}
+
+export interface RecommendationsResponse {
+  user_id: string;
+  recommendations: Recommendation[];
+}
+
 // TODO: implement all interfaces and use them instead
 // export class TourClass implements Tour {
 //     ID: string = '';

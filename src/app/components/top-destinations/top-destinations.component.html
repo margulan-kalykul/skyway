@@ -1,33 +1,51 @@
-<div class="header" i18n>Top destinations</div>
-<div class="sub-header" i18n>Recommended for you</div>
+<div class="recommendations-container">
+  <div class="recommendations-header">
+    <h2 class="title">Top destinations</h2>
+    <p class="subtitle">Recommended for you</p>
+  </div>
 
-<div class="top-destinations-scroll">
-    <div class="arrow-section">
-      @if (isLeftArrowShown) {
-        <div class="arrow" (click)="prevMultiTours()">&#10094;</div>
-      }
-    </div>
-  
-    <div class="list-cards" [style.transform]="'translateX(' + (-currentPart * 1185) + 'px)'">
-      @for (destination of destinations; track destination) {
-        <div class="half-card">
-            <img class="half-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
+  <div class="carousel-wrapper">
+    @if (isLeftArrowShown) {
+      <button class="nav-arrow prev" (click)="prevMultiTours()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    }
+
+<div class="carousel">
+  <div class="carousel-track" [style.transform]="'translateX(' + (-currentPart * 1185) + 'px)'">
+    @for (tour of recommendedTours; track tour.ID; let i = $index) {
+      <div class="card" 
+          [class.featured]="i % 3 === 1"
+          (click)="navigateToTour(tour.ID)">
+        <div class="card-image-container">
+          <img class="card-image" 
+              [src]="getImageUrl(tour.tour_images.length > 0 ? tour.tour_images[0].image_url : undefined)" 
+              [alt]="tour.name"
+              (error)="handleImageError($event)"
+              >
+          <div class="card-badge" *ngIf="i % 3 === 1">Popular</div>
         </div>
-        <div class="full-card">
-          <img class="full-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
-          <div class="full-card-title">{{ destination.route }}</div>
-          <div class="full-card-desc">4 days tour</div>
+        <div class="card-content">
+          <h3 class="card-title">{{ tour.route || tour.name }}</h3>
+          <p class="card-description">{{ tour.description || 'Amazing tour experience' }}</p>
+          <div class="card-meta">
+            <span class="duration">4 days</span>
+            <span class="price">From $99</span>
+          </div>
         </div>
-        <div class="half-card">
-            <img class="half-card-image" src="assets/images/simple-tour-card-example-1.png" alt="">
-        </div>
-      }
-    </div>
-  
-    <div class="arrow-section">
-      @if (isRightArrowShown) {
-        <div class="arrow" (click)="nextMultiTours()">&#10095;</div>
-      }
-    </div>
-    
+      </div>
+    }
+  </div>
+</div>
+
+    @if (isRightArrowShown) {
+      <button class="nav-arrow next" (click)="nextMultiTours()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    }
+  </div>
 </div>
