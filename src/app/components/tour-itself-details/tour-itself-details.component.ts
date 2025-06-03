@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { TourEvent, Tour } from '../../models/interfaces';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Viewer } from '@photo-sphere-viewer/core';
+import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';  // Add this import
+import { DomSanitizer } from '@angular/platform-browser'; // Add this import
 
 @Component({
   selector: 'app-tour-itself-details',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SafeUrlPipe],
   templateUrl: './tour-itself-details.component.html',
   styleUrl: './tour-itself-details.component.css'
 })
@@ -109,6 +111,10 @@ export class TourItselfDetailsComponent implements OnInit {
     this.toursService.getTourById(this.tourId).subscribe({
       next: (tour) => {
         this.tour = tour;
+
+        if (!this.tour?.airpano_link || this.tour?.airpano_link?.length === 0) {
+          this.tour.airpano_link = "https://www.airpano.com/embed.php?3D=kazakhstan-kaindy";
+        }
 
         this.updateTourImage();
 

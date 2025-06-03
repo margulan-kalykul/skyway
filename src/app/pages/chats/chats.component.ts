@@ -8,7 +8,7 @@ import {SocialService} from '../../services/social.service';
 import {ActivatedRoute} from '@angular/router';
 import {WebsocketMessage} from '../../models/classes';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import { AuthService } from '../../services/auth.service';
 @Component({
     selector: 'app-chats',
     standalone: true,
@@ -23,7 +23,9 @@ export class ChatsComponent implements OnInit, OnDestroy {
         allGroups: "assets/images/all-groups-icon.svg",
         groupImg: "assets/images/no-image-available.png",
     };
-    userId: string = '';
+    username: string | null = ''
+
+    userId: string | null = '';
     chat: Chat | null = null;
     userChats: Chat[] = [];
     allChats: Chat[] = [];
@@ -37,11 +39,13 @@ export class ChatsComponent implements OnInit, OnDestroy {
         private socialService: SocialService,
         private router: ActivatedRoute,
         private fb: FormBuilder,
+        private authService: AuthService
     ) {
-        this.userId = this.router.snapshot.paramMap.get('userId')!;
+        this.userId = this.authService.getUserData().userId;
         this.messageForm = this.fb.group({
             input: ['', ],
         });
+        this.username = this.authService.getUserData().username
     }
 
     ngOnInit() {
@@ -85,7 +89,10 @@ export class ChatsComponent implements OnInit, OnDestroy {
             UserID: this.userId,
             chat: undefined,
             text: message,
-            user: undefined
+            User: {
+                ID: this.userId,
+                Username: this.username 
+            }
         };
         this.messages.push(messageObject);
     }

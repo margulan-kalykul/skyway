@@ -30,7 +30,7 @@
         </div>
 
         <!-- Panoramas -->
-        <div class="simple-cards-scroll" style="margin-top: 40px;">
+        <!-- <div class="simple-cards-scroll" style="margin-top: 40px;">
             <div class="arrow-section">
                 @if (isLeftArrowShown) {
                     <div class="arrow" (click)="prevMultiTours()">&#10094;</div>
@@ -52,7 +52,22 @@
             </div>
 
         </div>
-        <div id="viewer" style="margin-top: 40px;" [ngStyle]="viewerStyles"></div>
+        <div id="viewer" style="margin-top: 40px;" [ngStyle]="viewerStyles"></div> -->
+
+
+        <iframe 
+            *ngIf="tour?.airpano_link"
+            width="700" 
+            height="450" 
+            [src]="tour!.airpano_link | safeUrl" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0" 
+            scrolling="no" 
+            framespacing="0" 
+            allowfullscreen>
+        </iframe>
+        <br>
 
 
         <div class="description">

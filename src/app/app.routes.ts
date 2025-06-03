@@ -22,6 +22,6 @@ export const routes: Routes = [
     { path: 'favorites/:userId', component: FavoritesComponent},
     { path: 'tours/:id/schedule', component: TourScheduleComponent },
 
-    { path: 'chats/:userId', component: ChatsComponent },
+    { path: 'chats', component: ChatsComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

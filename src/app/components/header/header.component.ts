@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
 
   goToChats(): void {
     if (this.authService.isLoggedIn()) {
-      this.router.navigate(['chats', this.userData.userId]);
+      this.router.navigate(['/chats']);
     }
   }
 

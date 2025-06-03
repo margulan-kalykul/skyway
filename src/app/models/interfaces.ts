@@ -20,6 +20,7 @@ export interface Tour {
     tour_panoramas: Panorama[] | null;
     tour_user_favorites: UserFavorites[] | null;
     tour_videos: Video[] | null;
+    airpano_link: string;
 }
 
 export interface TourEvent {
@@ -141,10 +142,13 @@ export interface IStripeSession {
 export interface Message {
     ChatID: string;
     ID: string;
-    UserID: string;
+    UserID: string | null;
     chat: any | null;
     text: string;
-    user: any | null;
+    User?: {  // Make this optional to match both cases
+        ID: string | null;
+        Username: string | null;
+    };
 }
 
 export interface Chat {
