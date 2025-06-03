@@ -39,41 +39,41 @@
         }
     </div>
 
-    @if (chat != null) {
-        <div class="chat-container">
-            <div class="top-bar">
-                <!-- Avatar, group name and number of people online -->
-                <div class="main-info">
-                    <div class="avatar"><img class="avatar-image" src="assets/images/avatar-test.jpeg" alt=""></div>
-                    <div class="main-text">
-                        <div class="group-name">{{chat.name}}</div>
-                        <div class="group-status">{{50}} members</div>
-                    </div>
+  @if (chat != null) {
+    <div class="chat-container">
+        <div class="top-bar">
+            <!-- Avatar, group name and number of people online -->
+            <div class="main-info">
+                <div class="avatar"><img class="avatar-image" src="assets/images/avatar-test.jpeg" alt=""></div>
+                <div class="main-text">
+                    <div class="group-name">{{chat.name}}</div>
+                    <div class="group-status">{{50}} members</div>
                 </div>
-                <!-- Additional buttons -->
             </div>
-            <div class="messages-window">
-                @for (message of messages; track $index) {
-                    @if (message.UserID == userId) {
-                        <div class="username own-username">user1</div>
-                        <div class="message own-message">{{message.text}}</div>
-                    }
-                    @else {
-                        <div class="username other-username">user2</div>
-                        <div class="message other-message">{{message.text}}</div>
-                    }
-                }
-            </div>
-            <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
-                <div class="message-bar">
-                    <input class="message-input" formControlName="input" type="text" placeholder="Type message...">
-                    <button type="submit" class="send-button">
-                        <img class="send-button-image" src="assets/images/telegram-icon-white.svg">
-                        <div class="send-button-text">Send</div>
-                    </button>
-                </div>
-            </form>
+            <!-- Additional buttons -->
         </div>
-    }
+        <div class="messages-window">
+            @for (message of messages; track $index) {
+                @if (message.UserID == userId) {
+                    <div class="username own-username">you</div>
+                    <div class="message own-message">{{message.text}}</div>
+                }
+                @else {
+                    <div class="username other-username">{{message.User?.Username || 'Unknown user'}}</div>
+                    <div class="message other-message">{{message.text}}</div>
+                }
+            }
+        </div>
+        <form [formGroup]="messageForm" (ngSubmit)="sendMessage()">
+            <div class="message-bar">
+                <input class="message-input" formControlName="input" type="text" placeholder="Type message...">
+                <button type="submit" class="send-button">
+                    <img class="send-button-image" src="assets/images/telegram-icon-white.svg">
+                    <div class="send-button-text">Send</div>
+                </button>
+            </div>
+        </form>
+    </div>
+}
 
 </div>
