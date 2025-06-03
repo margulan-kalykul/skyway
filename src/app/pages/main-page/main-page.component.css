@@ -13,3 +13,100 @@
     display: flex; 
     justify-content: space-around;
 }
+
+/* Image Modal Styles */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    position: relative;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.modal-image {
+    width: auto;
+    height: auto;
+    max-width: 90vw; /* Slightly smaller than viewport */
+    max-height: 90vh; /* Slightly smaller than viewport */
+    object-fit: contain;
+    transform: scale(1.2); /* Added zoom effect */
+    transition: transform 0.3s ease;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;  /* Changed from -35px to be inside the modal */
+    right: 10px;  /* Added right spacing */
+    background: rgba(0, 0, 0, 0.5);  /* Added background for better visibility */
+    border: none;
+    color: white;
+    font-size: 46px;
+    cursor: pointer;
+    width: 80px;  /* Slightly larger for better click target */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20%;  /* Circular button */
+    z-index: 1002;  /* Ensure it's above the image */
+    transition: background 0.2s ease;  /* Smooth hover effect */
+}
+
+.navigation-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.nav-button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 20px; /* Reduced from 30px */
+    padding: 8px 15px; /* Reduced padding */
+    cursor: pointer;
+    border-radius: 4px;
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-button {
+    margin-left: 10px; /* Reduced from 20px */
+}
+.next-button {
+    margin-right: 10px;
+}

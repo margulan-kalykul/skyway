@@ -1,82 +1,98 @@
 import { Component } from '@angular/core';
 import { ToursService } from '../../services/tours.service';
-import { Tour } from '../../models/interfaces';
-
+import { Tour, Image, RecommendationsResponse } from '../../models/interfaces';
+import { AuthService } from '../../services/auth.service';
+import { RecommendationsService } from '../../services/recommendation.service';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-top-destinations',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './top-destinations.component.html',
-  styleUrl: './top-destinations.component.css'
+  styleUrl: './top-destinations.component.css',
+  providers:[RecommendationsService]
 })
 export class TopDestinationsComponent {
-  destinations: Tour[];
-  headers_list: string[];
+  recommendedTours: Tour[] = [];
   currentPart = 0;
   isRightArrowShown = true;
   isLeftArrowShown = false;
 
-  constructor(private toursService: ToursService) {
-    this.destinations = [];
-    this.headers_list = [];
+  constructor(
+    private toursService: ToursService, 
+    private authService:AuthService, 
+    private recommendationsService: RecommendationsService,
+    private router: Router
+  ) {
   }
 
   ngOnInit(): void {
-    this.getTours();
-    // this.getHeaders();
+    this.getRecommendedTours();
+  }
+
+  getRecommendedTours(): void {
+    const userId = this.authService.getUserData().userId;
+    if (userId) {
+      this.recommendationsService.getRecommendations(userId).subscribe({
+        next: (response: RecommendationsResponse) => {
+          const recommendedTourIds = response.recommendations.map(t => t.id);
+          this.toursService.getAllTours().subscribe({
+            next: (allTours: Tour[]) => {
+              // Filter tours to only include recommended ones
+              this.recommendedTours = allTours.filter(tour => 
+                recommendedTourIds.includes(tour.ID)
+              );
+              // Update arrow visibility
+              this.updateArrowVisibility();
+            },
+            error: (err: Error) => console.error('Error fetching tours:', err)
+          });
+        },
+        error: (err: Error) => console.error('Error fetching recommendations:', err)
+      });
+    }
+  }
+
+// In your component class (top-destinations.component.ts)
+  getImageUrl(imageUrl: string | undefined): string {
+    if (imageUrl) {
+      // Check if the URL already has the base path
+      if (imageUrl.startsWith('http') || imageUrl.startsWith('/assets')) {
+        return imageUrl;
+      }
+      return `http://localhost:8000${imageUrl.replace('./','/')}`;
+    }
+    return 'assets/images/simple-tour-card-example-1.png'; // Default image path
+  }
+
+  handleImageError(event: Event): void {
+    const img = event.target as HTMLImageElement;
+    img.src = 'assets/images/simple-tour-card-example-1.png';
   }
 
   nextMultiTours(): void {
-    if (this.currentPart < this.destinations.length-4) {
+    if (this.currentPart < this.recommendedTours.length - 4) {
       this.currentPart++;
     }
-    if (this.currentPart === this.destinations.length-4) {
-      this.isRightArrowShown = false;
-    }
-    else {
-      this.isRightArrowShown = true;
-    }
-    if (this.currentPart === 0) {
-      this.isLeftArrowShown = false;
-    }
-    else { 
-      this.isLeftArrowShown = true;
-    }
+    this.updateArrowVisibility();
   }
 
   prevMultiTours(): void {
     if (this.currentPart > 0) {
       this.currentPart--;
     }
-    if (this.currentPart === 0) {
-      this.isLeftArrowShown = false;
-    }
-    else { 
-      this.isLeftArrowShown = true;
-    }
-    if (this.currentPart === this.destinations.length-4) {
-      this.isRightArrowShown = false;
-    }
-    else {
-      this.isRightArrowShown = true;
-    }
+    this.updateArrowVisibility();
   }
 
-  getTours(): void {
-    // this.toursService.getToursWithHeaders().subscribe((toursWithHeaders) => {
-    //   this.tours = toursWithHeaders;
-    // })
-    this.destinations = [
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-      {ID: '1', description: 'Desc1', name: 'name1', telegram_chat_url: '', tour_panoramas: null, tour_user_favorites: null, owner_id: '1', route: 'Route1', tour_categories: null, tour_events: null, tour_images: [], tour_location: null, tour_videos: null},
-    ];
+
+  private updateArrowVisibility(): void {
+    this.isLeftArrowShown = this.currentPart > 0;
+    this.isRightArrowShown = this.currentPart < this.recommendedTours.length - 4;
   }
+
+  navigateToTour(tourId: string): void {
+    this.router.navigate(['/tours', tourId, 'schedule']);
+  }
+
 }
