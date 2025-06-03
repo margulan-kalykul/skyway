@@ -3,9 +3,9 @@
 <div class="carousel">
 
     <div class="carousel-track-wrapper">
-        <div 
-            class="carousel-track" 
-            [style.transform]="'translateX(' + (-currentImage * 100) + '%)'" 
+        <div
+            class="carousel-track"
+            [style.transform]="'translateX(' + (-currentImage * 100) + '%)'"
             [style.transition]="isTransitionEnabled ? 'transform 0.5s ease-in-out' : 'none'"
         >
             <div class="carousel-slide" *ngFor="let slide of slides">
@@ -13,8 +13,8 @@
                 <div class="carousel-text" i18n>Tours & trips in almaty</div>
                 <!-- <div class="carousel-button">{{ slide.button }}</div> -->
             </div>
-        
+
         </div>
     </div>
 
-</div>  
+</div>

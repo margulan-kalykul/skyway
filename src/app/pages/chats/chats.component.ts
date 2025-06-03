@@ -26,7 +26,9 @@ export class ChatsComponent implements OnInit, OnDestroy {
     userId: string = '';
     chat: Chat | null = null;
     userChats: Chat[] = [];
+    allChats: Chat[] = [];
     messages: Message[] = [];
+    // users: Record<string, string> = {};
     private eventSubscription!: Subscription;
     messageForm: FormGroup;
 
@@ -43,9 +45,7 @@ export class ChatsComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        this.socialService.getUserChats().subscribe(response => {
-            this.userChats = response.chats;
-        });
+        this.getChats();
         if (this.chat != null) {
             this.loadMessages();
             console.log('Opened connection');
@@ -61,6 +61,21 @@ export class ChatsComponent implements OnInit, OnDestroy {
             this.eventSubscription.unsubscribe();
         }
         this.webSocketService.closeWebsocketConnection();
+    }
+
+    getChats() {
+        this.socialService.getUserChats().subscribe(response => {
+            this.userChats = response.chats;
+            let usersChats: string[] = this.userChats.map(chat => chat.ID);
+            this.socialService.getAllChats().subscribe(response => {
+                let globalChats = response.chats;
+                for (let globalChat of globalChats) {
+                    if (!usersChats.includes(globalChat.ID)) {
+                        this.allChats.push(globalChat);
+                    }
+                }
+            });
+        });
     }
 
     addMessage(message: string) {
@@ -84,6 +99,23 @@ export class ChatsComponent implements OnInit, OnDestroy {
         }
         this.loadMessages();
         this.webSocketService.openWebsocketConnection(this.chat!.ID);
+    }
+
+    joinChat(chatId: string) {
+        this.socialService.joinChat(chatId).subscribe(response => {
+            let newAllChats: Chat[] = [], enteredChat: Chat;
+            for (let i = 0; i < this.allChats.length; i++) {
+                if (this.allChats[i].ID != chatId) {
+                    newAllChats.push(this.allChats[i]);
+                }
+                else {
+                    enteredChat = this.allChats[i];
+                }
+            }
+            this.allChats = newAllChats;
+            // this.getChats();
+            this.userChats.push(enteredChat!);
+        });
     }
 
     sendMessage(): void {

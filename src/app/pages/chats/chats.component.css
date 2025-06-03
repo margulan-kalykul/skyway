@@ -68,11 +68,22 @@
 .group {
     display: flex;
     align-items: center;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.group-entry-margins {
     margin-left: 40px;
     margin-top: 25px;
 }
-.group:hover {
-    cursor: pointer;
+
+.all-groups {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 30px;
 }
 
 .group > img {
@@ -87,6 +98,19 @@
     font-family: Poppins;
     font-weight: 500;
     margin-left: 16px;
+}
+
+.join-button {
+    width: 28px;
+    height: 28px;
+    border-radius: 10px;
+    background-color: #00A3FF;
+    text-align: center;
+    align-content: center;
+}
+
+.join-button > span {
+    color: white;
 }
 
 .chat-container {
