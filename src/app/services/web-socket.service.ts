@@ -40,6 +40,6 @@ export class WebSocketService {
     }
 
     closeWebsocketConnection() {
-        this.websocket!.close();
+        this.websocket?.close();
     }
 }

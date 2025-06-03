@@ -34,8 +34,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  goToAboutUs(): void {
-    this.router.navigate(['/about-us']);
+  goToChats(): void {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['chats', this.userData.userId]);
+    }
   }
 
   goToSchedule(): void {

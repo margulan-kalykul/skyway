@@ -25,7 +25,14 @@ export class TourItselfDetailsComponent implements OnInit {
       tourImage: "assets/images/tour-example-1.png",  // Change
       calendarIcon: "assets/images/calendar.svg",
   };
-  panoramas: string[] = ['assets/images/panorama1.jpg', 'assets/images/panorama2.jpg', 'assets/images/panorama3.jpg', 'assets/images/panorama4.jpg', 'assets/images/panorama5.jpg', ];
+  panoramas: string[] = [
+    'assets/images/charyn360_1.jpg',
+    'assets/images/charyn360_2.jpg',
+    'assets/images/charyn360_3.jpg',
+    'assets/images/charyn360_4.jpg',
+    'assets/images/kolsai360_2.jpg',
+    'assets/images/kaindy360_1.jpg',
+  ];
   viewerStyles = {
     display: 'none'
   };
