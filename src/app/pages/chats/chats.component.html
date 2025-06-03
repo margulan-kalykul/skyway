@@ -18,10 +18,24 @@
             <div>Your groups</div>
         </div>
         @for (chat of userChats; track chat.ID) {
-            <div class="group" (click)="openChat(chat.ID)">
+            <div class="group group-entry-margins clickable" (click)="openChat(chat.ID)">
                 <img [src]="imageNames.groupImg">
                 <div>{{chat.name}}</div>
             </div>
+        }
+        <div class="groups-type">
+            <img [src]="imageNames.allGroups">
+            <div>All groups</div>
+        </div>
+        @for (chat of allChats; track chat.ID) {
+            <div class="all-groups group-entry-margins">
+                <div class="group">
+                    <img [src]="imageNames.groupImg">
+                    <div>{{chat.name}}</div>
+                </div>
+                <div class="join-button clickable" (click)="joinChat(chat.ID)"><span>+</span></div>
+            </div>
+            
         }
     </div>
 
@@ -41,11 +55,11 @@
             <div class="messages-window">
                 @for (message of messages; track $index) {
                     @if (message.UserID == userId) {
-                        <div class="username own-username">user</div>
+                        <div class="username own-username">user1</div>
                         <div class="message own-message">{{message.text}}</div>
                     }
                     @else {
-                        <div class="username other-username">user</div>
+                        <div class="username other-username">user2</div>
                         <div class="message other-message">{{message.text}}</div>
                     }
                 }
