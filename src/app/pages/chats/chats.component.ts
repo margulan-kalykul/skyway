@@ -82,16 +82,23 @@ export class ChatsComponent implements OnInit, OnDestroy {
         });
     }
 
-    addMessage(message: string) {
+    addMessage(message: any) {
+        // If message is already a proper Message object (from HTTP), use it directly
+        if (message.text && message.User) {
+            this.messages.push(message);
+            return;
+        }
+        
+        // If message is a raw WebSocket message, format it properly
         let messageObject: Message = {
             ChatID: this.chat?.ID ?? '',
             ID: '',
-            UserID: this.userId,
+            UserID: message.userId || this.userId,
             chat: undefined,
-            text: message,
+            text: message.text || message.message || message,
             User: {
-                ID: this.userId,
-                Username: this.username 
+                ID: message.userId || this.userId,
+                Username: message.username || this.username || 'Unknown user'
             }
         };
         this.messages.push(messageObject);

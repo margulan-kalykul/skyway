@@ -32,7 +32,8 @@ export class WebSocketService {
     }
 
     receiveMessage(message: any) {
-        this.newMessage.emit(message);
+        const messageObj = typeof message === 'string' ? JSON.parse(message) : message;
+        this.newMessage.emit(messageObj);
     }
 
     sendWebsocketMessage(message: WebsocketMessage) {
