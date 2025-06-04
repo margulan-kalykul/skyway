@@ -47,14 +47,14 @@
                 <div class="avatar"><img class="avatar-image" src="assets/images/avatar-test.jpeg" alt=""></div>
                 <div class="main-text">
                     <div class="group-name">{{chat.name}}</div>
-                    <div class="group-status">{{50}} members</div>
+                    <div class="group-status">{{15}} members</div>
                 </div>
             </div>
             <!-- Additional buttons -->
         </div>
         <div class="messages-window">
             @for (message of messages; track $index) {
-                @if (message.UserID == userId) {
+                @if (message.UserID == this.userId) {
                     <div class="username own-username">you</div>
                     <div class="message own-message">{{message.text}}</div>
                 }
