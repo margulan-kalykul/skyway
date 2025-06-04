@@ -32,8 +32,9 @@ export class UserToursComponent implements OnChanges {
     tourEvent: "tourEvent",
     tour: "tour",
   };
+  @Input() cardType: string = this.showTypes.tourEvent
+
   
-  cardType = this.showTypes.tourEvent;
   showQRModal = false;
   selectedTourEvent: Purchase | null = null;
   qrCodeImage: string | null = null;
@@ -56,7 +57,8 @@ export class UserToursComponent implements OnChanges {
   }
 
   getTourImage(tour: Tour): string {
-    return tour?.tour_images?.[0]?.image_url || this.defaultImages.cardImage;
+    return `http://localhost:8000${tour?.tour_images?.[0]?.image_url.replace('./','/') || this.defaultImages.cardImage.replace('./','/')}` || this.defaultImages.cardImage;
+
   }
 
   seeDetails(tourId: string): void {

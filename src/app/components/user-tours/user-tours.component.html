@@ -27,7 +27,15 @@
                     alt="Tour image">
 
                 <div class="main-part">
-                    <div class="title">{{ tour?.route || 'Unknown route' }}</div>
+                    <div class="title">{{ tour?.name || 'Unknown route' }}</div>
+                    <div class="description-container">
+                        <div class="description-text">
+                            {{ tour?.description || 'Unknown description' }}
+                        </div>            
+                        <div class="route-text">
+                            {{ tour?.route || 'Unknown route' }}
+                        </div>                    
+                    </div>
                 </div>
             </div>
         }

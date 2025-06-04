@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import {Tour, TourEvent, WeatherInfo} from '../../models/interfaces';
 import { ToursService } from '../../services/tours.service';
 import {NgIf} from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-main-details',
@@ -13,6 +14,7 @@ import {NgIf} from '@angular/common';
 export class MainDetailsComponent implements OnInit {
     imageNames = {
         favorite: "assets/images/heart-icon.svg",
+        heartFilled: "assets/images/heart-icon-filled.svg",
         share: "assets/images/share-icon.svg",
         star: "assets/images/rate-star.svg",
         tourImage: "assets/images/tour-example-1.png",  // Change
@@ -37,8 +39,9 @@ export class MainDetailsComponent implements OnInit {
     weatherDate: string | null = null;
     daysOfWeek: string[] = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     months: string[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    favButton = this.imageNames.favorite;
 
-    constructor(private toursService: ToursService) {  }
+    constructor(private toursService: ToursService, private router: Router) {  }
 
     ngOnInit(): void {
         this.toursService.getTourEventById(this.tourEventId).subscribe(tourEvent => {
@@ -54,6 +57,19 @@ export class MainDetailsComponent implements OnInit {
                 let full_path = "http://localhost:8000/v1/tours/" + relative_path;
                 this.tourEvent!.Tour.tour_images[0].image_url = full_path;
                 this.imageNames.tourImage = full_path;
+
+                if (localStorage.getItem("userId") != null) {
+                this.toursService.checkIfUserLikedTour(this.tourEvent!.tour_id).subscribe({
+                    next: (response) => {
+                        if (response.result) {
+                            this.favButton = this.imageNames.heartFilled;
+                        }
+                    },
+                    error: (err) => {
+                        console.error('Error checking if tour is liked:', err);
+                    }
+                });
+            }
             })
         })
         this.toursService.getWeather(this.tourEventId!).subscribe(weatherInfo => {
@@ -61,5 +77,21 @@ export class MainDetailsComponent implements OnInit {
                 this.weather = weatherInfo;
             }
         });
+    }
+
+    favoritesClicked(): void {
+        if (localStorage.getItem("userId") != null) {
+            // this.router.navigate(['/user', this.userId, 'favorites']);
+            this.toursService.likeTour(this.tourEvent!.tour_id);
+            if (this.favButton === "assets/images/heart-icon-filled.svg") {
+                this.favButton = "assets/images/heart-icon.svg"
+            }else{
+                this.favButton = this.imageNames.heartFilled;
+            }
+          
+        }
+        else {
+            this.router.navigate(['/sign-in']);
+        }
     }
 }

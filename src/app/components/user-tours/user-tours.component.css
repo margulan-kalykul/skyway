@@ -1,4 +1,3 @@
-/* Grid Cards Layout */
 .grid-cards {
     display: grid; 
     gap: 33px; 
@@ -9,7 +8,6 @@
     margin-top: 37px;
 }
 
-/* Card Container Styles */
 .card-container {
     position: relative;
     width: 350px;
@@ -26,7 +24,6 @@
     transform: translateY(-5px);
 }
 
-/* Card Content Styles */
 .tour-image {
     width: 95px;
     height: 95px;
@@ -87,7 +84,6 @@
     font-weight: 700;
 }
 
-/* QR Icon Styles */
 .qr-icon {
     position: absolute;
     bottom: 10px;
@@ -107,7 +103,6 @@
     background-color: #f0f0f0;
 }
 
-/* Payment Modal Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -268,7 +263,6 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -285,7 +279,6 @@
     }
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1200px) {
     .grid-cards {
         grid-template-columns: auto auto;
@@ -307,7 +300,39 @@
     }
 }
 
-/* Remove any conflicting styles */
 .card-modal-overlay, .card-qr-modal {
     display: none !important;
+}
+.description-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px 0;
+}
+.description-text {
+    color: white;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.route-text {
+    color: #626577;
+    font-size: 13px;
+    line-height: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
 }
