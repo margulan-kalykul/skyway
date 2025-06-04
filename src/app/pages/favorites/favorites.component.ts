@@ -29,7 +29,7 @@ export class FavoritesComponent implements OnInit {
     //     tour_id: ''
     // };
     favTours: Tour[] = [];
-
+    tour: string = "tour";
     constructor(private userService: UserService, private authService: AuthService, private toursService: ToursService) {
         let tokenString = this.authService.getToken();
         this.userService.getUserData(tokenString!).subscribe((userData) => {
