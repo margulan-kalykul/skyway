@@ -12,6 +12,7 @@ import { ChatsComponent } from './pages/chats/chats.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { RoleGuardService } from './guards/role-guard.service';
 import { AccessDeniedComponent } from './pages/access-denied/access-denied.component';
+import { CodeEnterPageComponent } from './pages/code-enter-page/code-enter-page.component';
 
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
@@ -27,5 +28,6 @@ export const routes: Routes = [
     { path: 'chats', component: ChatsComponent },
     { path: 'admin', component: AdminPageComponent, canActivate: [RoleGuardService,], data: { roles: ['admin', 'provider'] } },
     { path: 'access-denied',  component: AccessDeniedComponent },
+    { path: 'verify', component: CodeEnterPageComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

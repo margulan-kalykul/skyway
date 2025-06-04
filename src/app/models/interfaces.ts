@@ -162,7 +162,6 @@ export interface Chat {
 
 export interface RegisterForm {
     email: string,
-    role: string,
     username: string,
     password: string,
 }

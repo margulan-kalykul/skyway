@@ -91,4 +91,11 @@ export class AuthService {
         }
         return userRole == role;
     }
+
+    confirmCode(code: string): Observable<any> {
+        return this.http.post(`${this.BASE_URL}/verify/`, {
+            session_id: localStorage.getItem('session_id')!,
+            code: code,
+        }, this.httpOptions);
+    }
 }
