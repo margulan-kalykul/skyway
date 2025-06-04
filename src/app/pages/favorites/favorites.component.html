@@ -3,6 +3,6 @@
     <div class="welcome-text" i18n>Welcome, {{ username }}</div>
     <div class="main-box">
         <div class="header" i18n>Favorites</div>
-        <app-user-tours *ngIf="favTours.length > 0" [tours]="favTours"></app-user-tours>
+        <app-user-tours *ngIf="favTours.length > 0" [tours]="favTours" [cardType]="tour"></app-user-tours>
     </div>
 </div>

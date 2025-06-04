@@ -1,18 +1,23 @@
 <div class="not-box">
-    <div class="header-text">Notifications</div>
-    <img class="close-icon" [src]="imageNames.cross" alt="" (click)="closeNot()">
-    <div class="not-field" style="margin-top: 35px;">
-        <img class="field-icon" [src]="imageNames.chat" alt="">
-        <div class="text-field">
-            <div class="main-text">You got a new message</div>
-        </div>
-        <div class="circle"></div>
+    <div class="header-container">
+        <div class="header-text">Notifications</div>
+        <img class="close-icon" [src]="imageNames.cross" alt="Close" (click)="closeNot()">
     </div>
-    <div class="not-field">
-        <img class="field-icon" [src]="imageNames.alertIcon" alt="">
-        <div class="text-field">
-            <div class="main-text">New tour available!</div>
-            <div class="sub-text">Tap to see more</div>
+    
+    <div class="notifications-container">
+        <div *ngIf="isLoading" class="loading">Loading notifications...</div>
+        
+        <div *ngIf="!isLoading && notifications.length === 0" class="no-notifications">
+            No notifications available
+        </div>
+        
+        <div *ngFor="let notification of notifications" class="not-field">
+            <img class="field-icon" [src]="getNotificationIcon(notification.type)" alt="Notification icon">
+            <div class="text-field">
+                <div class="main-text">{{ getNotificationText(notification) }}</div>
+                <div *ngIf="getSubText(notification)" class="sub-text">{{ getSubText(notification) }}</div>
+            </div>
+            <div *ngIf="!notification.read" class="circle"></div>
         </div>
     </div>
 </div>
