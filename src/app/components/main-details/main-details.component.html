@@ -3,7 +3,7 @@
     <div class="tour-title">{{tourEvent?.place}}</div>
 
     <div class="icon" style="margin-left: 50px;">
-        <img class="icon-image" [src]="imageNames.favorite" alt="">
+        <img class="icon-image" [src]="favButton" alt="" (click)="favoritesClicked()">
     </div>
     <div class="icon" style="margin-left: 15px;">
         <img class="icon-image" [src]="imageNames.share" alt="">
