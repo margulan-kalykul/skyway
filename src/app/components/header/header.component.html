@@ -10,6 +10,7 @@
         <div class="link" (click)="goToTrips()" i18n>Trips</div>
         <div class="link" (click)="goToChats()" i18n>Chats</div>
         <div class="link" (click)="goToContacts()" i18n>Contacts</div>
+        <div *ngIf="canAccessAdminPage()" class="link" (click)="goToAdminPage()">Admin</div>
     </div>
     <!-- Icons -->
     <div class="icon-container">
