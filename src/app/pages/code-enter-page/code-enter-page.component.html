@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<div class="page-container">
+    <div class="form-container">
+        <h5 class="title">Enter a code from email</h5>
+        <form [formGroup]="codeForm" (ngSubmit)="onSubmit()">
+            <div class="form-field">
+                <label class="form-label" for="codeInput">4-digit code</label>
+                <input
+                    id="codeInput"
+                    formControlName="code"
+                    class="form-input"
+                    type="text"
+                >
+            </div>
+
+            
+
+            <button class="link-button" style="margin-top: 45px;" type="submit">
+                <div class="button-text">Verify</div>
+            </button>
+        </form>
+    </div>
+</div>

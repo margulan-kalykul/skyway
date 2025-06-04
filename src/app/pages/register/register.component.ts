@@ -38,21 +38,20 @@ export class RegisterComponent {
         let credentials: RegisterForm = {
             email: this.registerForm.value.email,
             password: this.registerForm.value.password,
-            role: "user",
             username: this.registerForm.value.login,
         }
         this.register(credentials);
     }
 
     register(credentials: RegisterForm): void {
-        // TODO: this wasn't tested
         this.loading = true;
         console.log(credentials);
         this.authService.register(credentials).subscribe({
             next: response => {
                 console.log(response);
+                localStorage.setItem('session_id', response.session_id);
                 setTimeout(() => {
-                    this.router.navigate(['sign-in', ]);
+                    this.router.navigate(['verify', ]);
                 }, 500);
             },
             error: (err) => {
