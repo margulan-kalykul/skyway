@@ -15,12 +15,12 @@ export class ToursService {
 
     constructor(private http: HttpClient, private authService: AuthService) {}
 
-    httpOptions(baseOptions: {} = {}): object {
+    httpOptions(baseOptions: {} = {}, contentType: string = 'application/json'): object {
         let options = baseOptions;
         if (this.authService.isLoggedIn()) {
             options = {
                 headers: new HttpHeaders({
-                    'Content-Type': 'application/json',
+                    'Content-Type': contentType,
                     'Authorization': `Bearer ${this.authService.getToken()!}`,
                 }),
                 withCredentials: true,
@@ -163,5 +163,7 @@ export class ToursService {
         this.httpOptions()
     );
 }
-
+    createTour(formData: FormData): Observable<any> {
+        return this.http.post(`${this.BASE_URL}/provider/`, formData, this.httpOptions({}, 'multipart/form-data'));
+    }
 }

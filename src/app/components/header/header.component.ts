@@ -4,11 +4,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthService } from '../../services/auth.service';
 import { NotificationsComponent } from "../notifications/notifications.component";
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatButtonModule, MatMenuModule, NotificationsComponent],
+  imports: [MatButtonModule, MatMenuModule, NotificationsComponent, NgIf],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -80,5 +81,13 @@ export class HeaderComponent implements OnInit {
 
   closeNotifications(): void {
     this.showNotifications = false;
+  }
+
+  canAccessAdminPage(): boolean {
+    return this.authService.hasRole('admin') || this.authService.hasRole('provider');
+  }
+
+  goToAdminPage() {
+    this.router.navigate(['/admin']);
   }
 }

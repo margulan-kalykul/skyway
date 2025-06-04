@@ -9,6 +9,9 @@ import { PurchaseComponent } from './pages/purchase/purchase.component';
 import { FavoritesComponent } from './pages/favorites/favorites.component';
 import { TourScheduleComponent } from './pages/tour-schedule/tour-schedule.component';
 import { ChatsComponent } from './pages/chats/chats.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { RoleGuardService } from './guards/role-guard.service';
+import { AccessDeniedComponent } from './pages/access-denied/access-denied.component';
 
 export const routes: Routes = [
     { path: 'home', component: MainPageComponent },
@@ -21,7 +24,8 @@ export const routes: Routes = [
     { path: 'purchase/:userId/:tourId', component: PurchaseComponent},
     { path: 'favorites/:userId', component: FavoritesComponent},
     { path: 'tours/:id/schedule', component: TourScheduleComponent },
-
     { path: 'chats', component: ChatsComponent },
+    { path: 'admin', component: AdminPageComponent, canActivate: [RoleGuardService,], data: { roles: ['admin', 'provider'] } },
+    { path: 'access-denied',  component: AccessDeniedComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

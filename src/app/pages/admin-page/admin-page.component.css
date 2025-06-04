@@ -1,0 +1,115 @@
+.page-container {
+    background-image: url("../../../assets/images/mountains-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.box {
+    position: relative;
+    background-color: #FEFEFE;
+    height: 100%;
+    top: 100px;
+    padding: 50px 100px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.action-button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #e0e0e0;
+}
+
+.action-button.active {
+    background-color: #1976d2;
+    color: white;
+}
+
+.profile-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-field {
+    margin-top: 25px;
+}
+
+.form-label {
+    display: block;
+    color: black;
+    font-size: 16px;
+    font-family: Oxygen Poppins serif;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+.field-input {
+    margin-top: 15px;
+    height: 43px;
+    width: 100%;
+    color: black;
+    line-height: 43px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px #DEDFE1 solid;
+    padding-left: 18px;
+}
+
+.images-select {
+    padding: 10px;
+    height: auto;
+}
+
+.submit-button {
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: Poppins;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.primary-state {
+    background-color: #1976d2;
+    color: white;
+}
+
+.success-state {
+    background-color: #4CAF50;
+    color: white;
+}
+
+select.field-input {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+select.field-input option {
+  padding: 0.5rem;
+}
