@@ -157,6 +157,12 @@ export class ToursService {
         return this.http.get(`${this.BASE_URL}/users/get-purchase-qr/${purchaseId}`, this.httpOptions());
     }
 
+    checkIfUserLikedTour(tourId: string): Observable<{result: boolean}> {
+    return this.http.get<{result: boolean}>(
+        `${this.BASE_URL}/users/like/${tourId}/check`,
+        this.httpOptions()
+    );
+}
     createTour(formData: FormData): Observable<any> {
         return this.http.post(`${this.BASE_URL}/provider/`, formData, this.httpOptions({}, 'multipart/form-data'));
     }
