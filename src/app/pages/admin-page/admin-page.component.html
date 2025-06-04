@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<form class="profile-form" [formGroup]="tourForm">
+    <div class="action-name">Create a new tour</div>
+    <div>
+        <div class="form-field">
+            <label class="form-label" for="route">Tour Route</label>
+            <input 
+                id="route"
+                formControlName="route"
+                class="field-input"
+                type="text"
+                placeholder="route"
+            >
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="desc">Tour Description</label>
+            <input 
+                id="desc"
+                formControlName="desc"
+                class="field-input"
+                type="text"
+                placeholder="Description"
+            >
+        </div>
+        <div class="form-field">
+            <label class="form-label" for="images">Images</label>
+            <div class="field-input images-select">
+                <input 
+                    id="images"
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    (change)="filesSelected($event)"
+                >
+            </div>
+        </div>
+        <button
+            mat-raised-button
+            [class.primary-state]="!tourCreateSuccess()"
+            [class.success-state]="tourCreateSuccess()"
+            type="submit"
+            class="form-field submit-button"
+            (click)="createTour()"
+        >
+            Create
+        </button>
+    </div>
+</form>
+

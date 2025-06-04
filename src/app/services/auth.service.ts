@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {RegisterForm, Token, UserCredentials, UserData} from '../models/interfaces';
+import {JwtPayload, RegisterForm, Token, UserCredentials, UserData} from '../models/interfaces';
 import { Observable } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 
@@ -73,5 +73,22 @@ export class AuthService {
         localStorage.removeItem('jwtToken');
         localStorage.removeItem('username');
         localStorage.removeItem('userId');
+    }
+
+    getRole(): string {
+        if (!this.isLoggedIn()) {
+            return '';
+        }
+        let token = this.getToken()!;
+        let decodedToken: JwtPayload = jwtDecode(token);
+        return decodedToken.role;
+    }
+
+    hasRole(role: string): boolean {
+        let userRole = this.getRole();
+        if (!userRole || userRole.length == 0) {
+            return false;
+        }
+        return userRole == role;
     }
 }

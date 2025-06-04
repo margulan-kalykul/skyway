@@ -179,6 +179,10 @@ export interface RecommendationsResponse {
   recommendations: Recommendation[];
 }
 
+export interface JwtPayload {
+    role: string;
+}
+
 // TODO: implement all interfaces and use them instead
 // export class TourClass implements Tour {
 //     ID: string = '';
