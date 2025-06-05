@@ -30,7 +30,7 @@ export class ChatsComponent implements OnInit, OnDestroy {
     userChats: Chat[] = [];
     allChats: Chat[] = [];
     messages: Message[] = [];
-    // users: Record<string, string> = {};
+     
     private eventSubscription!: Subscription;
     messageForm: FormGroup;
 
@@ -83,13 +83,13 @@ export class ChatsComponent implements OnInit, OnDestroy {
     }
 
     addMessage(message: any) {
-        // If message is already a proper Message object (from HTTP), use it directly
+         
         if (message.text && message.User) {
             this.messages.push(message);
             return;
         }
         
-        // If message is a raw WebSocket message, format it properly
+         
         let messageObject: Message = {
             ChatID: this.chat?.ID ?? '',
             ID: '',
@@ -127,7 +127,7 @@ export class ChatsComponent implements OnInit, OnDestroy {
                 }
             }
             this.allChats = newAllChats;
-            // this.getChats();
+             
             this.userChats.push(enteredChat!);
         });
     }

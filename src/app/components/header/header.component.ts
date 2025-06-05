@@ -16,18 +16,18 @@ import { NgIf } from '@angular/common';
 export class HeaderComponent implements OnInit {
   imageNames = {
     skyway: "assets/images/skyway-logo.png",
-    // notifications: "assets/images/bell-icon.svg",
-    // favorite: "assets/images/heart-icon.svg",
+     
+     
     userProfile: "assets/images/user-icon.svg",
   };
-  // isLoggedIn = false;
+   
   @Input() userData: any;
   showNotifications = false;
 
   constructor (private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
-    // this.isLoggedIn = this.authService.isLoggedIn();
+     
     this.userData = this.authService.getUserData();
   }
 

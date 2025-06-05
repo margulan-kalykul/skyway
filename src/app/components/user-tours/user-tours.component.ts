@@ -17,7 +17,7 @@ export class UserToursComponent implements OnChanges {
   tourEvents?: Purchase[];
   @Input() tours?: Tour[];
   defaultImages = {   
-    cardImage: "assets/images/tour-example-2.png",  // TODO: Download correct default image
+    cardImage: "assets/images/tour-example-2.png",   
   };
   imageNames = {
     favorite: "assets/images/heart-icon.svg",
@@ -83,7 +83,7 @@ export class UserToursComponent implements OnChanges {
     this.showQRModal = true;
     this.qrCodeImage = null;
     
-    // Fetch QR code from backend
+     
     this.toursService.getPurchaseQRCode(tourEvent.ID).subscribe({
       next: (response: any) => {
         this.qrCodeImage = response.qr_code;

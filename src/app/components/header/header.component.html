@@ -1,10 +1,10 @@
 <div class="header-container">
-    <!-- SkyWay Travel main page -->
+     
     <div class="logo" (click)="goToMain()">
         <img class="logo-image" [src]="imageNames.skyway" alt="SkyWay Travel logo">
         <span class="logo-text">SkyWay Travel</span>
     </div>
-    <!-- Pages -->
+     
     <div class="links-to-pages">
         <div class="link" (click)="goToSchedule()" i18n>Schedule</div>
         <div class="link" (click)="goToTrips()" i18n>Trips</div>
@@ -12,12 +12,12 @@
         <div class="link" (click)="goToContacts()" i18n>Contacts</div>
         <div *ngIf="canAccessAdminPage()" class="link" (click)="goToAdminPage()">Admin</div>
     </div>
-    <!-- Icons -->
+     
     <div class="icon-container">
-        <!-- <img class="icon" [src]="imageNames.notifications" alt="notifications"> -->
-        <!-- <img class="icon" [src]="imageNames.favorite" alt="favorites"> -->
+         
+         
         
-        <!-- <img [matMenuTriggerFor]="menu" class="icon" [src]="imageNames.userProfile" alt="user profile"> -->
+         
         @if (userData != null && userData != undefined && userData.userId != null && userData.userId != undefined) {
             <img [matMenuTriggerFor]="loggedMenu" class="icon" [src]="imageNames.userProfile" alt="user profile">
             <mat-menu #loggedMenu="matMenu">

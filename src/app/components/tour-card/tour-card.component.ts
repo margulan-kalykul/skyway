@@ -12,7 +12,7 @@ import { ToursService } from '../../services/tours.service';
 })
 export class TourCardComponent implements OnInit {
   defaultImages = {
-    cardImage: "assets/images/tour-example-1.png",  // TODO: Download correct default image
+    cardImage: "assets/images/tour-example-1.png",   
   };
   imageNames = {
     favorite: "assets/images/heart-icon.svg",
@@ -71,7 +71,7 @@ ngOnInit(): void {
 
   favoritesClicked(): void {
     if (this.userId != null) {
-      // this.router.navigate(['/user', this.userId, 'favorites']);
+       
       this.toursService.likeTour(this.tourEvent.tour_id);
       this.favButton = this.imageNames.heartFilled;
     }

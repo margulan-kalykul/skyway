@@ -10,7 +10,7 @@ import { HttpParams } from '@angular/common/http';
       providedIn: 'root'
 })
 export class ToursService {
-    // BASE_URL = 'https://690bdb6e-fe5f-4a85-a24b-6df9a324b136.mock.pstmn.io';
+     
     BASE_URL = 'http://localhost:8000/v1/tours';
 
     constructor(private http: HttpClient, private authService: AuthService) {}

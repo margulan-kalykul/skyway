@@ -14,7 +14,7 @@ export class NotificationsComponent implements OnInit {
         cross: "assets/images/x-circle.svg",
         chat: "assets/images/chat-bubble.svg",
         alertIcon: "assets/images/alert-circle.svg",
-        payment: "assets/images/price-icon.svg" // Add a payment icon
+        payment: "assets/images/price-icon.svg"  
     };
     
     @Output("childShow") showNotifications = new EventEmitter<boolean>();

@@ -56,7 +56,7 @@ export class ProfileComponent implements OnInit {
             this.username = userData.Username;
             this.email = userData.Email;
         });
-        // TODO: Optimize
+         
         this.toursService.getUserInfo().subscribe((userInfo) => {
             this.userInfo = userInfo;
             this.userTours = userInfo.PurchasedTourEvents || [];
@@ -69,7 +69,7 @@ export class ProfileComponent implements OnInit {
 
     saveChanges() {
         this.shownPage = this.pages.events;
-        // TODO: Send the update data
+         
         this.username = 'user1user';
         this.email = 'user1@example.com';
     }

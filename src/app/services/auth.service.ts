@@ -15,22 +15,22 @@ export class AuthService {
     httpOptions = {
         headers: new HttpHeaders({
             'Content-Type': 'application/json',
-            'accept': 'application/json',  // TODO: Not necessary
+            'accept': 'application/json',   
         }),
         withCredentials: true,
     };
 
     login(credentials: UserCredentials): Observable<Token> {
         return this.http.post<Token>(`${this.BASE_URL}/login/`, credentials, this.httpOptions);
-        // .subscribe((token) => {
-        //     try {
-        //         this.saveToken(token.token);
-        //         this.saveCredentials(token.token);
-        //     }
-        //     catch (error) {
-        //         throw error;  // TODO: handle errors
-        //     }
-        // })
+         
+         
+         
+         
+         
+         
+         
+         
+         
     }
 
     register(credentials: RegisterForm): Observable<any> {

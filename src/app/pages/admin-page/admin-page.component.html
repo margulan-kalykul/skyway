@@ -19,7 +19,7 @@
       </button>
     </div>
 
-    <!-- Tour Form -->
+     
     <form *ngIf="activeForm === 'tour'" class="profile-form" [formGroup]="tourForm">
       <div class="form-field">
         <label class="form-label" for="route">Tour Route</label>
@@ -65,7 +65,7 @@
       </button>
     </form>
 
-    <!-- Tour Event Form -->
+     
     <form *ngIf="activeForm === 'event'" class="profile-form" [formGroup]="eventForm">
     <div class="form-field">
         <label class="form-label" for="tourId">Tour</label>
@@ -80,7 +80,7 @@
         </option>
         </select>
     </div>
-    <!-- Rest of the form remains the same -->
+     
     <div class="form-field">
         <label class="form-label" for="date">Date and Time</label>
         <input 

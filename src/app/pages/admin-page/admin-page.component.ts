@@ -101,7 +101,7 @@ export class AdminPageComponent implements OnInit {
 
   async createEvent() {
     if (this.eventForm.valid) {
-      // Format the date to ISO string (UTC)
+       
       const dateValue = new Date(this.eventForm.value.date);
       const isoDateString = dateValue.toISOString();
 

@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'auth', component: AuthenticationComponent },
     { path: 'sign-in', component: SignInComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'forgot-password', redirectTo: 'home' }, // TODO: Reset password functionality
+    { path: 'forgot-password', redirectTo: 'home' },  
     { path: 'profile/:userId', component: ProfileComponent },
     { path: 'tours/:tourId', component: TourDetailsComponent },
     { path: 'purchase/:userId/:tourId', component: PurchaseComponent},

@@ -149,14 +149,14 @@ export class AllToursComponent implements OnInit {
     const index = this.selectedCategories.indexOf(categoryId);
     
     if (index === -1) {
-      // Add to selection if not already selected
+       
       this.selectedCategories.push(categoryId);
     } else {
-      // Remove from selection if already selected
+       
       this.selectedCategories.splice(index, 1);
     }
     
-    // Refresh tours with new filter
+     
     this.showTours();
   }
   isCategorySelected(categoryId: string): boolean {
@@ -179,7 +179,7 @@ export class AllToursComponent implements OnInit {
   private formatDateToYMD(date: any): string {
     if (!date) return '';
     
-    // If date is already a Date object or valid date string
+     
     const jsDate = new Date(date);
     
     if (isNaN(jsDate.getTime())) return '';

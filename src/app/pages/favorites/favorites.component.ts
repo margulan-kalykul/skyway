@@ -16,18 +16,18 @@ import { NgIf } from '@angular/common';
 })
 export class FavoritesComponent implements OnInit {
     username: string = '';
-    // defaultEvent: TourEvent = {
-    //     ID: '',
-    //     amount: 0,
-    //     data: '',
-    //     insta_post_url: '',
-    //     is_opened: false,
-    //     place: '',
-    //     price: 0,
-    //     purchases: [],
-    //     Tour: null,
-    //     tour_id: ''
-    // };
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
     favTours: Tour[] = [];
     tour: string = "tour";
     constructor(private userService: UserService, private authService: AuthService, private toursService: ToursService) {

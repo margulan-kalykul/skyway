@@ -2,7 +2,7 @@
     @if (cardType == showTypes.tourEvent) {
         @for (tourEvent of tourEvents; track $index) {
             <div class="card-container">
-                <!-- Card content remains the same -->
+                 
                 <img class="tour-image" [src]="getTourImageUrl(tourEvent)" width="95" height="95" alt="Tour image">
                 <div class="main-part">
                     <div class="title">{{ tourEvent.TourEvent.Tour?.name || 'Unknown tour' }}</div>
@@ -42,7 +42,7 @@
     }
 </div>
 
-<!-- Modal positioned relative to the card -->
+ 
 @if (showQRModal && selectedTourEvent) {
     <div class="modal-overlay" (click)="closeQRModal()">
         <div class="payment-modal" (click)="$event.stopPropagation()">

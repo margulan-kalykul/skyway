@@ -1,27 +1,27 @@
-<!-- Header -->
+ 
 <app-header [userData]="userData"></app-header>
 
-<!-- Top of the page -->
+ 
 <app-top-of-page></app-top-of-page>
 
-<!-- All Almaty tours list -->
+ 
 <div style="margin-bottom: 140px;">
     <app-all-tours [userId]="userData.userId" [favTourIds]="favTourIds"></app-all-tours>
 </div>
 
-<!-- Top destinations -->
+ 
 <div style="margin-bottom: 135px;">
     <app-top-destinations></app-top-destinations>
 </div>
 
 
-<!-- Short Search section -->
+ 
 <div style="margin-bottom: 90px;">
     <app-short-search></app-short-search>
 </div>
 
 
-<!-- Gallery Section -->
+ 
 <div style="margin-bottom: 90px; max-width: 1200px; margin-left: auto; margin-right: auto;">
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding: 0 20px;">
         <div>
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<!-- Image Viewer Modal -->
+ 
 <div *ngIf="showImageModal" class="image-modal">
     <div class="modal-overlay" (click)="closeImageModal()"></div>
     <div class="modal-content">
@@ -58,9 +58,9 @@
     </div>
 </div>
 
-<!-- Reviews -->
+ 
 <div class="part-header" style="margin-bottom: 30px;">Reviews of our tourists</div>
 <img style="width: 100%; margin: auto;" [src]="imageNames.reviews" alt="">
 
-<!-- Footer -->
+ 
 <app-footer></app-footer>

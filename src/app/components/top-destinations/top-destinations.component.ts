@@ -39,11 +39,11 @@ export class TopDestinationsComponent {
           const recommendedTourIds = response.recommendations.map(t => t.id);
           this.toursService.getAllTours().subscribe({
             next: (allTours: Tour[]) => {
-              // Filter tours to only include recommended ones
+               
               this.recommendedTours = allTours.filter(tour => 
                 recommendedTourIds.includes(tour.ID)
               );
-              // Update arrow visibility
+               
               this.updateArrowVisibility();
             },
             error: (err: Error) => console.error('Error fetching tours:', err)
@@ -54,16 +54,16 @@ export class TopDestinationsComponent {
     }
   }
 
-// In your component class (top-destinations.component.ts)
+ 
   getImageUrl(imageUrl: string | undefined): string {
     if (imageUrl) {
-      // Check if the URL already has the base path
+       
       if (imageUrl.startsWith('http') || imageUrl.startsWith('/assets')) {
         return imageUrl;
       }
       return `http://localhost:8000${imageUrl.replace('./','/')}`;
     }
-    return 'assets/images/simple-tour-card-example-1.png'; // Default image path
+    return 'assets/images/simple-tour-card-example-1.png';  
   }
 
   handleImageError(event: Event): void {

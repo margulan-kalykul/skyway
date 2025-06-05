@@ -17,7 +17,7 @@ export class MainDetailsComponent implements OnInit {
         heartFilled: "assets/images/heart-icon-filled.svg",
         share: "assets/images/share-icon.svg",
         star: "assets/images/rate-star.svg",
-        tourImage: "assets/images/tour-example-1.png",  // Change
+        tourImage: "assets/images/tour-example-1.png",   
         calendarIcon: "assets/images/calendar.svg",
     };
     weather: WeatherInfo = {
@@ -81,7 +81,7 @@ export class MainDetailsComponent implements OnInit {
 
     favoritesClicked(): void {
         if (localStorage.getItem("userId") != null) {
-            // this.router.navigate(['/user', this.userId, 'favorites']);
+             
             this.toursService.likeTour(this.tourEvent!.tour_id);
             if (this.favButton === "assets/images/heart-icon-filled.svg") {
                 this.favButton = "assets/images/heart-icon.svg"

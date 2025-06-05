@@ -40,7 +40,7 @@ export class PurchaseComponent implements OnInit {
     tourEvent: TourEvent | null = null;
     tourDate: Date | null = null;
     requestStage = 0;
-    // Stripe variables
+     
     @ViewChild(StripeCardComponent) card!: StripeCardComponent;
     cardOptions: StripeCardElementOptions = {
         style: {
@@ -67,7 +67,7 @@ export class PurchaseComponent implements OnInit {
         },
     };
     paymentElementForm!: FormGroup;
-    // Stripe confirm payment variables
+     
     @ViewChild(StripePaymentElementComponent)
     paymentElement!: StripePaymentElementComponent;
     paymentElementOptions: StripePaymentElementOptions = {
@@ -104,20 +104,20 @@ export class PurchaseComponent implements OnInit {
         this.stripe = injectStripe(this.paymentService.STRIPE_PUBLIC_KEY);
         this.paymentElementForm = this.fb.group({
             name: ['Angular v10',
-                // [Validators.required]
+                 
             ],
             amount: [1000,
-                // [Validators.required, Validators.pattern(/d+/)]
+                 
             ],
         });
     }
 
-    // get amount() {
-    //     const amount = this.paymentElementForm.get('amount')?.value;
-    //     if (!amount || amount < 0)
-    //         return 0;
-    //     return amount;
-    // }
+     
+     
+     
+     
+     
+     
 
     ngOnInit(): void {
         this.toursService.getTourEventById(this.tourEventId)
@@ -133,83 +133,83 @@ export class PurchaseComponent implements OnInit {
             .subscribe(pi => {
                 this.elementsOptions.clientSecret = pi.clientSecret as string;
             })
-        // .pipe(
-        //     switchMap((pi) =>
-        //         this.stripeService.confirmCardPayment(pi.clientSecret, {
-        //             payment_method: {
-        //                 card: this.card.element,
-        //                 billing_details: {
-        //                     name: this.paymentElementForm.get('name')!.value,
-        //                 },
-        //             },
-        //         })
-        //     )
-        // )
-        // .subscribe((result) => {
-        //     if (result.error) {
-        //         // Show error to your customer (e.g., insufficient funds)
-        //         console.error(result.error);
-        //         console.log(result.error.message);
-        //     } else {
-        //         console.log(result.paymentIntent);
-        //         // The payment has been processed!
-        //         switch (result.paymentIntent.status) {
-        //             case 'succeeded':
-        //                 // Show a success message to your customer
-        //                 alert('Success! Payment received.');
-        //                 break;
-        //             case 'processing':
-        //                 alert('Processing...');
-        //                 break;
-        //             case 'requires_payment_method':
-        //                 alert('Payment failed. Please try another payment method.');
-        //                 // Redirect your user back to your payment page to attempt collecting
-        //                 // payment again
-        //                 break;
-        //             default:
-        //                 alert('Something went wrong.');
-        //                 break;
-        //         }
-        //     }
-        // });
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
     }
 
-    // clear() {
-    //     this.paymentElementForm.patchValue({
-    //         name: '',
-    //         amount: '',
-    //     });
-    // }
+     
+     
+     
+     
+     
+     
 
     pay() {
         if (this.paying() || this.paymentElementForm.invalid) return;
         this.paying.set(true);
 
-        // const { name, amount } = this.paymentElementForm.getRawValue();
+         
 
         this.stripe
             .confirmPayment({
                 elements: this.paymentElement.elements,
                 confirmParams: {
-                    // payment_method_data: {
-                    //     billing_details: {
-                    //         name: name as string,
-                    //         address: {
-                    //             line1: address as string,
-                    //             postal_code: zipcode as string,
-                    //             city: city as string
-                    //         }
-                    //     }
-                    // },
-                    return_url: 'http://localhost:4200/home',  // TODO: redirect to purchased tours
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                    return_url: 'http://localhost:4200/home',   
                 },
-                redirect: 'if_required'  // Makes it so no redirect happen (I think)
+                redirect: 'if_required'   
             })
             .subscribe(result => {
                 this.paying.set(false);
                 console.log('Result', result);
                 if (result.error) {
-                    // Show error to your customer (e.g., insufficient funds)
+                     
                     console.error(result.error);
                     alert({ success: false, error: result.error.message });
                 }else{

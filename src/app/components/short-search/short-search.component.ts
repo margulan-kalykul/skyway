@@ -22,6 +22,6 @@ export class ShortSearchComponent {
   goToSearch(): void {
     localStorage.setItem('place', this.place);
     localStorage.setItem('date', this.date);
-    this.router.navigate(['/tours']);  // TODO: make the page
+    this.router.navigate(['/tours']);   
   }
 }

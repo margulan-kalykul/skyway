@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TourEvent, Tour } from '../../models/interfaces';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Viewer } from '@photo-sphere-viewer/core';
-import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';  // Add this import
-import { DomSanitizer } from '@angular/platform-browser'; // Add this import
+import { SafeUrlPipe } from '../../../pipes/safe-url.pipe';   
+import { DomSanitizer } from '@angular/platform-browser';  
 
 @Component({
   selector: 'app-tour-itself-details',
@@ -24,7 +24,7 @@ export class TourItselfDetailsComponent implements OnInit {
       favorite: "assets/images/heart-icon.svg",
       share: "assets/images/share-icon.svg",
       star: "assets/images/rate-star.svg",
-      tourImage: "assets/images/tour-example-1.png",  // Change
+      tourImage: "assets/images/tour-example-1.png",   
       calendarIcon: "assets/images/calendar.svg",
   };
   panoramas: string[] = [
@@ -56,7 +56,7 @@ export class TourItselfDetailsComponent implements OnInit {
     this.viewer = new Viewer({
       container: 'viewer',
       panorama: this.panoramas[0],
-      // caption: 'Parc national du Mercantour <b>&copy; Damien Sorel</b>',
+       
     });
   }
 
@@ -107,7 +107,7 @@ export class TourItselfDetailsComponent implements OnInit {
     this.isLoading = true;
     this.error = null;
 
-    // Load tour details
+     
     this.toursService.getTourById(this.tourId).subscribe({
       next: (tour) => {
         this.tour = tour;
@@ -118,7 +118,7 @@ export class TourItselfDetailsComponent implements OnInit {
 
         this.updateTourImage();
 
-        // Then load tour events
+         
         this.loadTourEvents();
       },
       error: (err) => {

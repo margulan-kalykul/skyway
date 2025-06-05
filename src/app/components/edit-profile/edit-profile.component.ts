@@ -14,7 +14,7 @@ export class EditProfileComponent {
   @Input() email = '';
 
   constructor(private fb: FormBuilder) {
-    // TODO: Send the update data if implemented
+     
     this.profileForm = this.fb.group({
       fullName: [''],
       email: [''],

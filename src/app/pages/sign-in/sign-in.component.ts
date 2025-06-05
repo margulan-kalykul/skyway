@@ -24,10 +24,10 @@ export class SignInComponent {
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.loginForm = this.fb.group({
       login: ['', 
-        // [Validators.required, Validators.email]
+         
       ],
       password: ['', 
-        // [Validators.required, Validators.minLength(6)]
+         
       ]
     });
   }
@@ -38,13 +38,13 @@ export class SignInComponent {
       password: this.loginForm.value.password
     }
     this.login(credentials);
-    // if (this.loginForm.valid) {
-    //   console.log(this.loginForm.value);
-    // }
+     
+     
+     
   }
 
   login(credentials: UserCredentials): void {
-    // TODO: this wasn't tested
+     
     this.loading = true;
     this.authService.login(credentials).subscribe({
       next: (response) => {

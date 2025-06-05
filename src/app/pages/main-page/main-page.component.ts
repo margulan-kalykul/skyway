@@ -65,12 +65,12 @@ export class MainPageComponent implements OnInit {
   openImageModal(index: number = 0): void {
     this.selectedImageIndex = index;
     this.showImageModal = true;
-    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    document.body.style.overflow = 'hidden';  
   }
 
   closeImageModal(): void {
     this.showImageModal = false;
-    document.body.style.overflow = 'auto'; // Re-enable scrolling
+    document.body.style.overflow = 'auto';  
   }
 
   navigateImage(direction: 'prev' | 'next'): void {
